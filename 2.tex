@@ -1,0 +1,167 @@
+\section{Clase 2}\label{clase:2}
+\subsection{Entropía, ignorancia y teorema ergódico}
+\begin{tcolorbox}
+	\textbf{Principio de máxima entropía}: La configuración de un sistema desde el punto de vista macroscópico, es tal que maximiza la entropía, dada una serie de restricciones.
+\end{tcolorbox}
+
+Considere un número grande de sistemas idéntcos ($N_s\to \infty$), cada uno de los cuales puede estar en un estado específico.
+
+Sea $n_i$ el número de sistemas que están en el estado $i$. Definimos la ignorancia $I$ (o la degeneración $\Omega$) como el número de formas de arreglar el sistema conjunto dado $\{n_i\}$ (factor multinomial)
+\begin{equation}
+  \boxed{I=\frac{N_s!}{n_0!n_1!\cdots},\qquad \sum_i n_i=N_s}
+\end{equation}
+\begin{ej}
+	10 dados, cada uno puede estar en 6 estados. Luego, de tirarlos se obtiene que
+	\begin{align}
+  n_1&=4\\
+  n_2&=3\\
+  n_3&=0\\
+  n_4&=0\\
+  n_5&=0\\
+  n_6&=3
+\end{align}
+entonces la configuración del sistema dada esta ignorancia es
+\begin{equation}
+  I=\frac{10!}{4!3!3!}
+\end{equation}
+\end{ej}
+Esta ignorancia considera que sólo se conocen las poblaciones de los estados (cuantos sistemas hay en cada estado) y el número total de sistemas, pero que \textit{no es posible distinguir} entre sistemas que están en un mismo estado.
+
+Buscamos una configuración (conjunto de poblaciones de estados) que maximice la ignorancia, sujeto a la restricción
+\begin{equation}\label{2.1}
+  \sum _i n_i=N_s
+\end{equation}
+Definimos\footnote{Cantidad extensiva. Maximizar $I$ implica maximizar $S$ (ya que el $\ln$ es monótono.) $\ln I \uparrow=S\uparrow$}
+\begin{equation}
+  \boxed{S=k\ln I}
+\end{equation}
+Entonces \begin{equation}\label{2.S}
+  S=k\ln\left(\frac{N_s!}{n_0!n_i\cdots}\right)=k[\ln(Ns!)-\sum_i\ln(n_i!)]
+\end{equation}
+sujeto a \eqref{2.1}.
+
+\textbf{Aproximación de Stirling:}
+\begin{equation}
+  \boxed{\ln(n!)\approx n\ln(n)-n}
+\end{equation}
+
+En efecto,
+\begin{align}
+  \ln(n!)=\ln(1\cdot 2\cdots n)&=\sum_i^n\ln(i)\approx\int_1^n\ln(x)\dd x\\
+  &=\eval{x\ln x-x}_1^n\\
+  &=(n\ln n-n)-(\cancelto{0}{\ln(1)}-1)\\
+  &=n\ln n-n+1\\
+  &=n\ln n-(n-1)\\
+  &\approx n\ln n-n,\qquad \text{para $n\gg 1$}
+\end{align}
+Usando la aproximación de Sterling en \eqref{2.S}
+\begin{align}
+  S&\approx k\left[(N_s\ln(N_s)-\cancel{N_s})-\sum_i (n_i\ln(n_i)-\cancel{n_i})\right]\\
+  &=k\left[N_s\ln(N_s)-\sum_in_i\ln(n_i)\right]
+\end{align}
+donde usamos que $N_s=\sum_i n_i$.
+
+Dado $N_s$ fijo, buscamos $\{n_i\}$ que maximice $S$ sujeto a \eqref{2.1}. Como queremos maximizar utilizamos \textbf{multiplicadores de Lagrange}\footnote{Recordar que para una restricción holonómica $f(\{n_i\})=0$ se incluye $\lambda f$.}.
+\begin{equation}
+  S_{\{\sum_in_i=N\}}=k\left[N_s\ln(N_s)-\sum_in_i\ln(n_i)+\lambda \left(\sum_in_i-N_s\right)\right]
+\end{equation}
+Ahora
+\begin{equation}
+  L=\frac{S}{N_sk},\qquad \mu=\frac{\lambda}{k}
+\end{equation}
+Nos queda 
+\begin{equation}
+  L=\ln(N_s)-\sum_i\left(\frac{n_i}{N_s}\right)\ln(n_i)+\mu\left[\sum_i\left(\frac{n_i}{N_s}\right)-1\right]
+\end{equation}
+Definimos la probabilidad de que en la configuración total, un sistema cualquiera este en el estado $i$ como
+\begin{equation}\label{sum Pi1}
+  P_i=\frac{n_i}{N_s}
+\end{equation}
+Reescribimos
+\begin{equation}
+  \ln(n_i)=\ln\left(\frac{n_i}{N_s}N_s\right)=\ln(P_i)+\ln(N_s)
+\end{equation}
+Reemplazamos
+\begin{align}
+  L&=\ln(N_s)-\sum_i P_i\left(\ln(P_i)+\ln(N_s)\right)+\mu\left[\sum_i P_i-1\right]\\
+  &=\ln(N_s)-\sum_iP_i\ln(P_i)-\sum_i P_i\ln(N_s)+\mu\left[\sum_i P_i-1\right],\qquad \sum_iP_i=1\\
+  &=\cancel{\ln(N_s)}-\sum_iP_i\ln(P_i)-\cancel{\ln(N_s)}+\mu\left[\sum_iP_i-1\right]
+\end{align}
+Nos queda
+\begin{equation}\label{2.2}
+  L=-\sum_iP_i\ln(P_i)+\mu\left[\sum_i P_i-1\right]
+\end{equation}
+Las variables dinámicas son $\{P_i,\lambda\}$. Maximizando $L$
+\begin{align}
+  \pdv{L}{P_i}&=0\\
+  \pdv{L}{\mu}&=0
+\end{align}
+Ahora, de \eqref{2.2},
+\begin{align}
+  \pdv{L}{P_i}&=-(\ln P_i+1)+\mu =0\label{2.3} \\
+  \pdv{L}{\mu}&=\sum_i P_i=1
+\end{align}
+donde $\mu$ es constante. De \eqref{2.3},
+\begin{equation}
+  P_i=e^{\mu-1}=P,\qquad \sum_i P =1
+\end{equation}
+es decir, \corr{en la configuración que maximiza la entropía, cada estado es igualmente probable} (la probabilidad es igual a una constante que no depende de $i$).
+
+Hay $s$ estados posibles, luego
+\begin{equation}
+  sP=1\quad \Rightarrow \qquad P=\frac{1}{s}
+\end{equation}
+
+Esto implica que la probabilidad de cada estado en la configuración de máxima entropía es
+\begin{equation}
+  \frac{1}{\# \text{ estados posibles}}
+\end{equation}
+luego,
+\begin{equation}
+  \boxed{n_i=N_sP=\frac{N_s}{s}},\qquad \Rightarrow \qquad \sum_{i=1}^sn_i=N_s
+\end{equation}
+La ocupación de cada estado, en la configuración que maximiza la entropía (y que maximiza la ignorancia o degeneración) es igual al número de sistemas presentes dividido en el número de estados posibles. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

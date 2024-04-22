@@ -1,0 +1,272 @@
+\section{Clase 3}\label{clase:3}
+\subsection{Principio fundamental de la termodinámica}
+\begin{tcolorbox}
+La configuración total \textbf{maximiza la entropía}, sujeta a restricciones macroscópicas que dependen de las cantidades fluctuantes conservadas.
+\end{tcolorbox}
+
+En la Clase \ref{clase:2} vimos que si suponemos una configuración $N_s$ sistemas los que pueden existir en $m$ estados diferentes, siendo sus ocupaciones el conjunto:
+\begin{equation}
+  \{n_i\}_{i=1}^m
+\end{equation}
+la ignorancia $I$, o degenerancia $\Omega$ esta dada por
+\begin{equation}
+  \boxed{I=\frac{N_s!}{\Pi_{i=1}^mn_i}}
+\end{equation}
+Se define la entropía $S$ como
+\begin{equation}
+  \boxed{S=\kappa \ln I}
+\end{equation}
+Usando Stearling, se tiene
+\begin{align}
+  \frac{S}{\kappa}=N_s\ln (Ns)-Ns-\left[\sum_{i=1}^m\left(n_i\ln (n_i)-n_i\right)\right]
+\end{align}
+Usando que $\sum_{i=1}^m=N_s$,
+\begin{align}
+  \frac{S}{\kappa}&=N_s\ln (Ns)-\summ n_i\ln(n_i)\quad /\frac{1}{N_s}\\
+  \frac{S}{\kappa N_s}&=\ln(N_s)-\summ\left(\frac{n_i}{N_s}\right)\ln (n_i)\label{3.1si}
+\end{align}
+Usando que
+\begin{equation}
+  \ln(n_i)=\ln\left(\frac{n_i}{N_s}N_s\right)=\ln\left(\frac{n_i}{N_s}\right)+\ln(N_s)
+\end{equation}
+reemplazando en \eqref{3.1si},
+\begin{align}
+  \frac{S}{\kappa N_s}&=\ln (N_s)-\summ\left(\frac{n_i}{N_s}\right)\left[\ln(\frac{n_i}{N_s})+\ln (N_s)\right]\\
+  &=\ln(N_s)-\summ \left(\frac{n_i}{N_s}\right)\ln(\frac{n_i}{N_s})-\summ \left(\frac{n_i}{N_s}\right)\ln(N_s)
+\end{align}
+pero usando \eqref{sum Pi1}
+\begin{equation}
+  \summ \left(\frac{n_i}{N_s}\right)=\summ P_i=1
+\end{equation}
+así,
+\begin{align}
+  \frac{S}{\kappa N_s}&=\ln(N_s)-\summ \left(\frac{n_i}{N_s}\right)\ln(\frac{n_i}{N_s})-\ln(N_s)\\
+  &=-\summ\left(\frac{n_i}{N_s}\right)\ln(\frac{n_i}{N_s})
+\end{align}
+\begin{equation}
+  \Rightarrow \boxed{\frac{S}{\kappa N_s}=-\summ\left(\frac{n_i}{N_s}\right)\ln(\frac{n_i}{N_s})}
+\end{equation}
+Definimos la probabilidad de que un sistema esté en el estado $i$ como \eqref{sum Pi1}
+\begin{equation}
+\boxed{P_i=\frac{n_i}{N_s}}
+\end{equation}
+y la entropia de Shannon como
+\begin{equation}
+  \boxed{\frac{S}{\kappa N_s}=-\summ P_i\ln (P_i)}
+\end{equation}
+Por el principio fundamental del termodinámica, sin imponer conservación de las cantidades conservadas. Pero considerando
+\begin{equation}
+  \summ P_i=1
+\end{equation}
+maximizamos la entropía
+\begin{align}
+  L&=-\summ P_i\ln(P_i)+\lambda\left(\summ P_i-1\right)
+\end{align}
+donde $\lambda$ son los multiplicadores de Lagrange y $\summ P_i-1$ es una restricción holonómica.
+\begin{align}
+  \left(\pdv{L}{P_i}\right)_{P_i,\lambda}&=0,\qquad \forall i\neq j\label{3.1}\\
+  \left(\pdv{L}{\lambda}\right)_{P_i}&=0\label{3.2}
+\end{align}
+De \eqref{3.1}
+\begin{align}
+  -\ln(P_i)-P_i\frac{1}{P_i}+\lambda&=0\\
+  \Rightarrow \ln(P_i)&=\lambda-1
+\end{align}
+obtenemos
+\begin{equation}
+  P_i=e^{\lambda-1}
+\end{equation}
+notemos que esta expresión es independiente de $i$.
+De \eqref{3.2},
+\begin{align}
+  \summ P_i-1&=0\\
+ \Rightarrow \summ P_i&=1\\
+ \Rightarrow \summ P_i&=mP=me^{\lambda-1}=1
+\end{align}
+luego
+\begin{equation}
+  P_i=\frac{1}{m}\quad \Rightarrow\quad n_i=\frac{N_s}{m}\quad\Rightarrow\quad \lambda=-\ln(n)+1
+\end{equation}
+\corr{Sin imponer restricciones de conservación, excepto que la suma de las probabilidades de los estados es igual a $1$, obtenemos que la configuración que maximiza la entropía es la distribución uniforme de estados equiprobables}. La ocupación de cada uno de los $m$ estados es:
+\begin{equation}
+  \boxed{n_i=\frac{N_s}{m}}
+\end{equation}
+
+\bako{Si imponemos conservación de la energía},
+\begin{itemize}
+	\item Cada estado $i$ tiene energía $E_i$
+	\item Si las ocupaciones de dichos estados son $n_i$, la energía total de la configuración es
+	\begin{equation}
+  E=\summ E_in_i
+\end{equation}
+\item Agregamos la conservación de $E$ como una restricción al funcional de entropía.
+\end{itemize}
+
+Sea $S_E$ la restricción
+\begin{equation}
+  S_E=\b \k \left(E-\summ E_in_i\right)
+\end{equation}
+con $\b$ un multiplicador de Lagrange. Consideremos
+\begin{equation}
+  L_E=\frac{S_E}{\k N_s}=\b \left(\bar{E}-\summ E_iP_i\right)
+\end{equation}
+donde 
+\begin{equation}
+  \bar{E}=\frac{E}{N_s}
+\end{equation}
+es la energía promedio del sistema.
+
+Luego, nuestro Lagrangeano queda
+\begin{equation}
+  L=-\summ P_i\ln(P_i)-\lambda \left(\summ P_i-1\right)-\b \left(\summ E_iP_i-\bar{E}\right)
+\end{equation}
+Ahora,
+\begin{align}
+  \left(\pdv{L}{P_i}\right)_{P_i,\lambda}&=\ln(P_i)-1-\lambda-\b E_i\\
+  \left(\pdv{L}{\b}\right)_{P_i,\lambda}&=\summ E_iP_i=\bar{E}\\
+  \left(\pdv{L}{\lambda}\right)_{P_i,\b}&=\summ P_i=1
+\end{align}
+\begin{equation}
+  \ln(P_i)=-\lambda-\b E_i-1
+\end{equation}
+entonces
+\begin{equation}
+\boxed{  P_i=e^{-\lambda-\b E_i-1}}
+\end{equation}
+\begin{align}
+  P_i&=e^{-\lambda-1}e^{\b E_i}\\
+  \summ P_i&=1\Rightarrow \summ e^{-\lambda-1}e^{-\b E_i}=1\\
+  \Rightarrow (e^{-\lambda-1})\summ e^{\b E_i}=1\\
+  \Rightarrow e^{-\lambda-1}&=\frac{1}{\summ e^{-\b E_i}}
+\end{align}
+tenemos
+\begin{equation}
+  \boxed{P_i=\frac{e^{-\b E_i}}{\summ e^{-\b E_i}}}\quad \Rightarrow\quad \boxed{z=\summ e^{-\b E_i}}\quad \Rightarrow\quad \boxed{P_i=\frac{e^{-\b E_i}}{z}}
+\end{equation}
+En el caso de imponer conservación de la energía, la configuración solo puede explorar conjuntos de ocupaciones $\{n_i\}_{i=1}^n$ que tengan la misma energía total.
+
+En general, la configuración equiporbable no es alcanzable necesariamente, ya que tiene una energá total particular, que puede ser diferente a la energía inicial dada.
+
+En particular, la energía de la configuración equiprobable es
+\begin{align}
+  E_{\rm equi}&=\summ E_in_i\\
+  &=\summ E_i\frac{N_s}{n}
+\end{align}
+esto implica
+\begin{equation}
+  \boxed{E_{\rm equi}=\frac{N_s}{n}\summ E_i}
+\end{equation}
+Si $E\neq E_{\rm equi}$, la configuración equiprobable es inalcanzable. Para $E$ consevado, la probabilidad de que un sistema esté en el estado $i$ es
+\begin{equation}
+ \boxed{P_i=\frac{e^{-\b E_i}}{z}}
+\end{equation}
+donde
+\begin{equation}
+\boxed{  z=\summ e^{-\b E_i}}
+\end{equation}
+se conoce como la \textbf{función de partición} y $e^{-\b E_i}$ se llama \textbf{factor de Boltzmann} y tiene la interpretación de un peso estadistico.
+\begin{itemize}
+	\item $z$ es la suma de todos los pesos
+	\item La ocupación del estado $i$ es
+	\begin{equation}
+\boxed{  n_i=N_sP_i=N_s\frac{e^{-\b E_i}}{z}}
+\end{equation}
+\end{itemize}
+
+\subsection{Conservación de energía y carga $Q$}
+$Q$ puede ser número de partículas, carga eléctrica, momento angular, magnetización, etc...
+
+$Q$ es una cantidad macroscópica, extensiva, diferente de $(E,V,S)$ que caracteriza la configuración macroscópica y que se conserva entre las distintas configuraciones.
+
+El Lagrangeano se verá
+\begin{equation}
+  L=-\summ P_i\ln(P_i)-\underbrace{\lambda \left(\summ P_i-1\right)}_{\summ P_i=1}-\underbrace{\b\left(\summ E_iP_i-\bar{E}\right)}_{\text{Conservación de la energía}}-\underbrace{\b \m\left(\summ Q_iP_i-\bar{Q}\right)}_{\text{Conservación de la carga}}
+\end{equation}
+con $\bar{Q}$ la carga promedio del sistema.
+
+Ahora
+\begin{align}
+  -\ln(P_i)-1-\lambda-\b E_i-\b\m Q_i&=0\\
+  P_i=e^{\lambda-1-\b E_i-\b\m Q_i}&=0\\
+  P_i&=e^{-\lambda-1}e^{-\b(E_i+\m Q_i)}
+\end{align}
+usando $\summ P_i=1$,
+\begin{align}
+  \summ e^{-\b (E_i+\m Q_i)}=\frac{1}{e^{-\lambda-1}}
+\end{align}
+Definimos
+\begin{equation}
+\boxed{  Z_{\rm GC}=\summ e^{-\b (E_i+\m Q_i)}}
+\end{equation}
+entonces
+\begin{equation}
+ \boxed{ P_i=\frac{e^{-\b (E_i+\m Q_i)}}{Z_{\rm GC}}}
+\end{equation}
+donde $Z_{\rm GC}$ es la \textbf{función partición Gran Canónica} y corresponde a la suma de los pesos estadisticos $e^{-\b (E_i+\m Q_i)}$. $n_i=N_sP_i$ es la ocupación de los estados.
+
+\subsection{Ensambles, funciones de partición y potenciales termodinámicos}
+\begin{itemize}
+	\item Maximizando la entropía, sujeto a diferentes restricciones, hemos encontrado la probabilidad de ocupación de los estados posibles de los sistemas.
+	\item Dichas probabilidades pueden interprearse como pesos estadisticos para cada estado, normalizados por una función partición.
+	\item Dependiendo de las cantidades conservadas las funciones partición son ditintas.
+	\item El conjunto de configuraciones posibles dadas las restricciones, definen la noción de ensamble.
+	\item A cada tipo de ensamble, especificado por ciertas cantidades conservadas, le corresponde una función partición.
+\end{itemize}
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+  Ensamble & Can. fluctuantes conservadas & Can. fijas & Función partición & Pot. termodinámico  \\
+  \hline\hline
+  Microcanónico & ----- & $E,V,Q$& $I$& $S$ \\\hline
+  Canónico&$E$ &$T,V,Q$&$z=\summ e^{-\b E_i}$&$F$\\\hline
+  Gran Canónico&$E,Q$&$T,V,\m$&$z=\summ e^{-\b(E_i+\m Q_i)}$&$\Omega_{\rm GC}$\\\hline
+  Isobárico&$E,V$&$T,P,Q$&&\\\hline
+\end{tabular}
+\end{center}
+donde
+\begin{equation}
+  \b=\frac{1}{T}
+\end{equation}
+
+Notas que $\b,\m$ y $P$ son intensivas.
+
+$T=\frac{1}{\b}$ viene dado por el multiplicador de Lagrange asociado a la conservación de energía.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

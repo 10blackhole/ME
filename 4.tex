@@ -1,0 +1,156 @@
+\section{Clase 4}
+\subsection{Ensamble micro-canónico}
+De la Clase \ref{clase:3} vimos que en el ensamble micro-canónico
+\begin{equation}
+  P_i=\frac{n}{N_s}
+\end{equation}
+cada estado equiprobable. $(E,V,Q)$ están fijos.
+
+\subsection{Ensamble canónico}
+%En el \textbf{ensamble canónico},
+\begin{align}
+  P_i&=\frac{1}{z_{\rm C}}e^{-\b E_i}\\ z_{\rm C}&=\summ e^{-\b E_i}\\ \bar{E}&=\summ P_iE_i \quad \text{(restricción)}\\
+  \b&=\frac{1}{T}
+\end{align}
+$(T,V,Q)$ están fijos. $\bar{E}$ es fluctuante.
+
+\subsection{Ensamble Gran Canónico}
+%En el \textbf{ensamble Gran Canónico},
+\begin{align}
+  P_i&=\frac{1}{z_{\rm GC}}e^{-\b E_I-\a Q_i}\\
+  z_{\rm GC}&=\summ e^{-\b E_i-\a Q_i}\\
+  \bar{E}&=\summ P_iE_i\label{4.1}\\
+  \bar{Q}&=\summ P_iQ_i\label{4.2}\\
+  \b&=\frac{1}{\k T}\\
+  \a&=-\frac{\m}{\k T}
+\end{align}
+Aquí \eqref{4.1} y \eqref{4.2} son restricciones. $(T,V,\m)$ están fijos. $\bar{E}$ y $\bar{Q}$ son fluctuantes.
+
+La configuración de cada ensamble \textbf{maximiza la entropía} sujeta a las restricciones correspondientes, implementadas mediante multiplicadores de Lagrange.
+
+\begin{tcolorbox}
+	A partir de ahora introduciremos la siguiente \textbf{notación}, 
+	\begin{itemize}
+		\item $T$: temperatura
+		\item $\m$: potencial químico
+		\item $z$: función partición
+		\item $\k$: Constante de Boltzmann
+	\end{itemize}	
+\end{tcolorbox}
+
+Partiendo de la función partición (considerando el ensamble Gran Canónico por generalidad), se tiene
+\begin{align}
+  \bar{E}&=\summ P_iE_i=\frac{\summ E_ie^{-\b E_i-\a Q_i}}{z}\\
+  &=-\left(\pdv{\b}\ln(z)\right)_\a
+\end{align}
+\begin{equation}
+\boxed{  \bar{E}=\k T^2\left(\pdv{T}\ln(z)\right)_{\m/T}}
+\end{equation}
+con \begin{equation}
+  \b =\frac{1}{\k T}\quad \Rightarrow\quad \pdv{\b }=-T^2\kappa\pdv{T}
+\end{equation}
+también tenemos
+\begin{align}
+  \bar{Q}&=\frac{\summ Q_ie^{-\b E_i-\a Q_i}}{z}\\
+  &=-\left(\pdv{\a }\ln(z)\right)_\b 
+\end{align}
+\begin{equation}
+  \bar{Q}=\k T\left(\pdv{\m }\ln(z)\right)_T
+\end{equation}
+con
+\begin{equation}
+  \a =\frac{\m }{\k T}\quad \Rightarrow\quad \pdv{\a }=\k T\pdv{\m }
+\end{equation}
+También es posible relacionar la función con la entroía
+\begin{align}
+  S&=-\k \summ P_i\ln(P_i)\\
+  &=\k\summ P_i(\ln(z)+\b E_i+\a Q_i)\\
+  &=\k \ln(z)+\b \bar{E}+\a \hat{Q}
+\end{align}
+luego
+\begin{equation}
+\boxed{  S=\k \ln(z)+\frac{\bar{E}}{T}-\frac{\m \bar{Q}}{T}}\quad \Rightarrow\quad \boxed{-\k T\ln(z)=\bar{E}-TS-\m Q}
+\end{equation}
+
+Para los diferentes ensambles, existen potenciales termodinámicos definidos en términos de $\ln(z)$.
+
+\textbf{Potencial Gran Canónico}
+\begin{equation}
+  \Omega_{\rm GC}=-\k T\ln(z_{\rm GC})=\bar{E}-TS-\m\bar{Q}
+\end{equation}
+
+\textbf{Energía libre de Hemholtz}
+\begin{equation}
+  F=-\k T\ln(z_{\rm C})=\bar{E}-TS\quad (Q_i=0)
+\end{equation}
+
+Existen relaciones entre los potenciales termodinámicos de los diferentes ensambles. Por ejemplo, definiendo la \textbf{densidad de estados}
+\begin{equation}
+  \r(Q,E)=\frac{e^{S(Q,E)/\kappa}}{\delta E}	
+\end{equation}
+$\r(Q,E)$ cuenta el número de estados con carga $Q$ y energía entre $E$ y $E+\delta E$. De aquí podemos obtener la energía libre de Hemholtz como
+\begin{equation}
+  F(Q,T)=-\k T\ln(z_{\rm C})=-\k T\ln\int\dd E\r(Q,E)e^{-E/\k T}
+\end{equation}
+Finalmente el potencial Gran Canónico, puede calcularse como
+\begin{equation}
+  \Omega_{\rm GC}(\m,T)=\k T\ln(\zgc)=-T\ln\left(\sum_Qe^{-F(Q,T)/\k T}e^{\m Q/\k T}\right)
+\end{equation}
+
+\subsection{Ensamble isobárico-isotérmico}
+En el ensamble isobárico-isotérmico $(T,P,Q)$ son constantes y $(\bar{E},\bar{V})$ son fluctuantes.
+
+Notemos que $V$ es una cantidad extensiva (proporcional al número total de sistemas $N_s$). Si no hay restricciones entre sistemas, el potencial Gran Canónico por unidad de volumen es independiente del volumen (cada región es igual a cualquier otra).
+
+Por último, la presión se define como menos la derivada del potencial termodinámico (Gran Canónico) con respecto al volumen. Luego,
+\begin{equation}
+  \Omega_{\rm GC}=\o_{\rm GC}V
+\end{equation}
+donde $\o_{\rm GC}$ es el potencial Gran Canónico por unidad de volumen. Se sigue que
+\begin{equation}
+  \pdv{\ogc}{V}=0
+\end{equation}
+así,
+\begin{equation}
+  P=\pdv{V}\Ogc=-\ogc=-\frac{\Ogc}{V}
+\end{equation}
+Entonces
+\begin{equation}
+\boxed{  \Ogc=-PV=-\k T\ln(\zgc)=E-TS-\m Q}
+\end{equation}
+\begin{equation}\label{4.3}
+\boxed{  PV=TS-E+\m Q}
+\end{equation}
+Se define $G$, la \textbf{enegía libre de Gibbs}, como\footnote{se deriva de \eqref{4.3}}
+\begin{equation}
+\boxed{  G=\m Q=E-TS+PV}
+\end{equation}
+
+$G$ es el potencial termodinámico del ensamble isobárico-isotérmico.
+
+Además, podemos obtener la siguiente relación
+\begin{equation}
+\boxed{  E=TS-PV+\m Q}
+\end{equation}
+conocida como la \textbf{relación de Euler}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
