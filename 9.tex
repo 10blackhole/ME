@@ -1,0 +1,30 @@
+\section{Clase 9}
+\subsection{Teoremas de virial y equipartición}
+Para el ensamble canónico tenemos $\zc=\ebep$, con $(T,V,Q)$ fijos. Supongamos que la energía es función del momentum y de la posición (canónicos conjugados) $\ep=\ep(\vec{p},\vec{q})$ en particular para una partícula relativista de spin $0$.
+\begin{equation}
+  \ep(\vec{p},\vec{q})=\frac{\vec{p}^2}{2m}+V(q)
+\end{equation}
+Ahora considerando que el número de estados con momentum entre $p$ y $p+\dd p$ y posición $q$ y $q+\dd q$ esta dados por
+\begin{equation}
+  \dd N=\frac{\dd^3\vec{p}\dd^3\vec{q}}{(2\p\hbar)^3}=\frac{(\dd p_x\dd p_y\dd p_z)(\dd q_x\dd q_y\dd q_z)}{(2\p\hbar)^3}
+\end{equation}
+tenemos
+\begin{equation}
+  \zc=\int_{\mathbb{R}^6}\frac{\dd^3\vec{p}\dd^3\vec{q}}{(2\p\hbar)^3}e^{-\b\epsilon(\vec{p},\vec{q})}
+\end{equation}
+Recordar que para $V(|\vec{q}|)=0$, la integral en $\dd x\dd y\dd z$ puede factorizarse y se obtiene $V$ (lo que teníamos antes)
+\begin{equation}
+  \dd N=\frac{V\dd^3\vec{p}}{(2\p\hbar)^3}
+\end{equation}
+
+Teniendo la función partición, es posible calcular los valores promedio de observables tales como las energías (cinética, potencial, etc.) del sistema.
+
+Notar que $(2\p\hbar)^3$ es el elemento de volúmen del espacio de face y representa una discretización del sistema. En particular, $(\dd^3\vec{p}\dd^3\vec{q})/(2\p\hbar)^3$ es el número de estados que \textit{caben} en el prisma del espacio de fase con lados $\dd x,\dd y,\dd z$. Esto puede entenderse a partir del principio de incertidumbre ya que $\Delta x\Delta p_x\sim h$.
+
+Calculemos la energía cinética promedio en el eje $x$,
+\begin{equation}
+  \ev{\frac{p_x^2}{2m}}=\frac{\intpq\left(\frac{p_x^2}{2m}\right)e^{-\b\left(\frac{p_x^2+p_y^2+p_z^2}{2m}+V(q)\right)}}{\intpq e^{-\b\left(\frac{p_x^2+p_y^2+p_z^2}{2m}+V(q)\right)}}
+\end{equation}
+Podemos notar que la exponencial puede ser separada en el producto de exponenciales, y como cada exponencial depende de una variable distinta $(x,y,z)$ en la integral podemos escribir el producto de las integrales ya qye serán de variables independientes cada una. Por lo tanto, podemos cancelar todo lo que no depende de $x$ entre en numerador y el denominador de forma que nos queda
+
+

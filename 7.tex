@@ -9,7 +9,7 @@ De la clase anterior se tiene
 
 La función partición también puede relacionarse con la fluctuación de la carga y con la covarianza entre la carga y la energía según
 \begin{equation}\label{7.varq}
-  \boxed{\var(Q)=\ev{(Q-\ev{Q})^2}=\pdv[2]{\a }\ln\zgc}
+  \boxed{\var(Q)=\ev{(Q-\ev{Q})^2}=-\pdv{\a }\ln\zgc}
 \end{equation}
 \begin{equation}\label{7.coveq}
   \boxed{\text{Cov}(E,Q)=\ev{(E-\ev{E})(Q-\ev{Q})}=\pdv{\a }\pdv{\b }\ln\zgc}
@@ -50,7 +50,7 @@ Generalmente cuando uno piensa en gases, uno piensa en la ley de los gases ideal
 
 Consideremos un grupo de partículas no interactuantes en una caja. Supongamos que la caja tiene dimensiones $L_x,L_y,L_z$ tales que $x\in [0,L_x]$,$y\in [0,L_y]$, $z\in [0,L_z]$. Recordemos que los autoestados son:
 \begin{equation}
-  \psi_{n_x,n_y,n_z}\propto \sin\left(\frac{p_xx}{L_x}\right)\sin\left(\frac{p_yy}{L_y}\right)\sin\left(\frac{p_zz}{L_z}\right)
+  \psi_{n_x,n_y,n_z}\sim \sin\left(\frac{p_xx}{L_x}\right)\sin\left(\frac{p_yy}{L_y}\right)\sin\left(\frac{p_zz}{L_z}\right)
 \end{equation}
 con
 \begin{equation}
@@ -66,20 +66,20 @@ Luego, el número de estados contenidos entre un armónico $n+\dd n$ se puede ap
 \end{equation}
 Finalmente, considerando que
 \begin{equation}
-  n_x=\frac{L_x}{\p\hbar}P_x,\qquad n_y=\frac{L_y}{\p\hbar}P_y,\qquad n_z=\frac{L_z}{\p\hbar}P_z
+  n_x=\frac{L_x}{\p\hbar}p_x,\qquad n_y=\frac{L_y}{\p\hbar}p_y,\qquad n_z=\frac{L_z}{\p\hbar}p_z
 \end{equation}
 y que
 \begin{equation}
-  \dd^3n=\dd n_x\dd n_y\dd n_z=\frac{L_zL_yL_z}{(\p\hbar)^3}\dd^3P=\frac{V}{(\p\hbar)^3}\dd^3P
+  \dd^3n=\dd n_x\dd n_y\dd n_z=\frac{L_zL_yL_z}{(\p\hbar)^3}\dd^3p=\frac{V}{(\p\hbar)^3}\dd^3p
 \end{equation}
 Se tiene que el número de estados con momentum entre $P$ y $P+\dd P$ está dado por
 \begin{equation}
-\boxed{  \dd N=\frac{V}{(2\p\hbar)^3}\dd^3P}
+\boxed{  \dd N=\frac{V}{(2\p\hbar)^3}\dd^3p}
 \end{equation}
 
 Finalmente, si la partícula tiene spin $s$, existe una degenerancia interna dada por $(2s+1)$, correspondiente a los posibles estados de spin para el mismo $(n_x,n_y,n_z)$. Entonces
 \begin{equation}
-\boxed{  \dd N=(2s+1)\frac{V}{(2\p\hbar)^3}\dd^3P}
+\boxed{  \dd N=(2s+1)\frac{V}{(2\p\hbar)^3}\dd^3p}
 \end{equation}
 
 \underline{\textbf{Nota:}} Es importante notar que $\dd N$ se refiere al número de modos, o estados de una sola partícula, no al número de partículas ni al número de estados del sistema.

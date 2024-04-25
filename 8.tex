@@ -1,0 +1,167 @@
+\section{Clase 8}
+De la clase pasada tenemos
+\begin{itemize}
+	\item Bosón: no hay límite para la ocupación de un estado.
+	\item Fermión: ocupación máxima es $1$ (máximo una partícula por estado)
+\end{itemize}
+Este comportamiento se deduce directamente de la paridad de la función de onda, la cual es simétrica bajo el intercambio de pares de partículas para los bosones  antisimétrica para los fermiones. 
+
+Por otro lado, el número de estados disponibles para una partícula libre no interactuante en una caja de volúmen $V$ con momentum en el elemento diferencial $\dd^D p$ es \footnote{Notar que para $D=3$, $\dd^3p=4p p^2\dd p$, y en general para $\dd^Dp=\Omega p^{D-1}\dd p$. Para $D=2$ por ejemplo, $\dd^2 p=2\p p\dd p$.}
+\begin{equation}
+	\dd N=(2s+1)\frac{V}{(2\p\hbar)^3}\dd^3p
+\end{equation}
+
+Derivemos la función partición en el ensamble gran canónico (el ensamble más general a volumen constante). Tenemos que
+\begin{equation}
+  \zgc=\sumi \eba=\sumi e^{-\b(E_i-\m Q_i)}
+\end{equation}
+Recordemos que $i$ son las configuraciones posibles del sistema total, $E_i$ es la energía total de la configuración $i$, y $Q_i$ es la carga (o número de partículas) total.
+
+Para un conjunto de sistemas no interactuantes (por ejemplo, partículas en diferentes estados de momentum $p$) la función de partición del sistema total es igual al producto de las funciones de partición de cada subsistema.
+
+Consideremos como caso de interés, un gas de partículas no interactuantes con momentum $p$ y carga $q$ las cuales son consideradas independientes una de otra. Cada estado de momentum $p$ tiene una ocupación $n_p$. Luego, la función partición parcial para el estado de momentum $p$ está dada por
+\begin{equation}
+  \zp=\sum_{n_p}e^{-n_p\b (\ep	_p-\m q)}
+\end{equation}
+Acá 
+\begin{equation}
+  \epsilon(p)=\frac{p^2}{2m},\qquad \epsilon(p)=\sqrt{p^2c^2+m^2c^2}
+\end{equation}
+para cases no-relativistas y relativistas respectivamente.
+
+La energía total de la configuración de momentum $p$ es
+\begin{equation}
+  E=n_p \epsilon(p)
+\end{equation}
+y la carga total
+\begin{equation}
+  Q=n_pq
+\end{equation}
+El sistema total admite configuraciones $\{n_{p_1},n_{p_2},...\}$ que corresponden a $n_{p_1}$ partículas con momentum $p_1$, $n_{p_2}$ con momentum $p_2$, etc. Luego, la función partición total es
+\begin{equation}
+  \zgc =\sum_{\{n_{p_1},n_{p_2},...\}}e^{-\b (n_{p_1}\epsilon(p_1)+n_{p_2}\epsilon(p_2)+\cdots)}e^{\b\m q(n_{p_1}+n_{p_2}+\cdots)}
+\end{equation}
+Suponiendo cada suma de $e$ como la multiplicidad de las exponenciales, queda
+\begin{equation}\label{8.prodzp}
+  \boxed{\zgc =\prod_p \zp}
+\end{equation}
+
+Podemos evaluar $\zp$ dependiendo de si las partículas son bosones o fermiones.
+
+Para los fermiones:
+\begin{equation}
+  n_p\in \{0,1\}
+\end{equation}
+\begin{equation}
+  \zp=\sum_{n_p=0}^1e^{-n_p\b (\epsilon(p)-\m q)}
+\end{equation}
+\begin{equation}
+ \boxed{ \zp=1+e^{-\b (\epsilon(p)-\m q)}}
+\end{equation}
+
+Para los bosones:
+\begin{equation}
+   n_p\in \{0,1,2,3,...\}
+\end{equation}
+\begin{equation}
+  \zp=\sum_{n_p=0}^\infty e^{-n_p\b (\epsilon(p)-\m q)}
+\end{equation}
+Podemos escribir
+\begin{equation}
+  \zp =\sum_{n_p=0}^\infty \underbrace{\left(e^{\b (\epsilon(p)-\m q)}\right)^{n_p}}_{R^{n_p}}
+\end{equation}
+usando que
+\begin{equation}
+  1+R+R^2+\cdots =\frac{1}{1-R}
+\end{equation}
+se tiene
+\begin{equation}
+  \boxed{\zp=\frac{1}{1-e^{\b (\epsilon(p)-\m q)}}}
+\end{equation}
+Además, de \eqref{8.prodzp}, 
+\begin{equation}
+  \ln(\zgc)=\sum_p\ln(\zp)
+\end{equation}
+Así,
+\begin{equation}
+  \boxed{\ln(\zp)=\mp \left(1\mp e^{\b (\epsilon(p)-\m q)}\right)}
+\end{equation}
+donde $-$ para los bosones y $+$ para los fermiones.
+
+Por último, considerando que para el estado de momentum entre $p$ y $p+\dd p$ hay una vacancia (\# de estados posibles) donde por $\dd N$ se tiene: \footnote{Recordemos que para índice de suma continua, la sumatoria se convierte en una integral.}
+\begin{equation}
+ \boxed{ \ln(\zgc)=(2s+1)\int_{\mathbb{R}^D}\frac{V\dd^Dp}{(2\p\hbar)^D}(\mp)\ln(1\mp e^{-\b (\epsilon(p)-\m q)})}
+\end{equation}
+Dada la función partición, podemos calcular $\ev{Q}$ y $\ev{E}$ para el sistema (correspondiente a un gas de partículas coon $(T,V,\m )$ constantes).
+
+En particular, calculemos,
+\begin{equation}
+  \ev{Q}=-\pdv{\a }\ln\zgc=\pdv{(\b\m )}\ln\zgc,\qquad \ev{E}=-\pdv{\b}\ln\zgc
+\end{equation}
+\begin{equation}
+  \ev{Q}=(2s+1)\int_{\mathbb{R}^D}\frac{V\dd^Dp}{(2\p\hbar)^D}\cdot \frac{qe^{-\b (\epsilon(p)-\m q)}}{1\mp e^{\b (\epsilon(p)-\m q)}}
+\end{equation}
+dividiendo por el volúmen, tenemos que la densidad de carga, donde $q$ es la carga de una partícula es
+\begin{equation}
+ \boxed{ \frac{\ev{Q}}{V}=(2s+1)\int_{\mathbb{R}^D}\frac{\dd^Dp}{(2\p\hbar)^D}f(\epsilon(p))q}
+\end{equation}
+donde
+\begin{equation}
+  f(\epsilon(p))=\frac{e^{-\b (\epsilon(p)-\m q)}}{1\mp e^{\b (\epsilon(p)-\m q)}}
+\end{equation}
+la cual es la \textbf{función de ocupación (o probabilidad de oupación) para la energía $\epsilon$}. $f(\epsilon)$ representa la probabilidad relativa (no normalizada) de que una partícula tenga energía $\epsilon$.
+
+Para el caso particular de que se escoja $q=1$, se tiene que $Q=N$ con $N$ el número total de partículas y $N/V$ la densidad numérica.
+
+Si se escoge $q=m$ (con $m$ masa de una partícula), se tiene $Q=M$ con $M$ la masa total t $M/V$ la densidad de masa.
+
+Ahora calculemos $\ev{E}$,
+\begin{align}
+  \ev{E}&=-\pdv{\b}\ln\zgc\\
+  &=(2s+1)\int_{\mathbb{R}^D}\frac{V\dd^Dp}{(2\p\hbar)^D}\cdot \frac{\epsilon(p)e^{-\b (\epsilon(p)-\m q)}}{1\mp e^{\b (\epsilon(p)-\m q)}}
+\end{align}
+luego, la densidad de energía expresada en términos de la función de ocupación es
+\begin{equation}
+  \boxed{\frac{\ev{E}}{V}=(2s+1)\int_{\mathbb{R}^D}\frac{\dd^Dp}{(2\p\hbar)^D}f(\epsilon(p))\epsilon(p)}
+\end{equation}
+
+En general, sea $j(p)$ una cantidad correspondiente a una propiedad de una partícula que depende del momentum $p$, la densidad total de dicha propiedad, $J/V$ está dada por
+\begin{equation}
+  \boxed{\frac{J}{V}=(2s+1)\int_{\mathbb{R}^D}\frac{\dd^Dp}{(2\p\hbar)^D}f(\epsilon(p))j(p)}
+\end{equation}
+Si $j(p)$ es constante (independiente de $p$) se recupera el caso de $q$.
+
+Explícitamente, las funciones de ocupación pueden clasificarse como:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+  $f(\epsilon)$ &Distribución \\\hline\hline
+  $\frac{e^{-\b(\epsilon-\m )}}{1+e^{-\b(\epsilon-\m )}}$ & Fermi-Dirac \\\hline 
+    $\frac{e^{-\b(\epsilon-\m )}}{1-e^{-\b(\epsilon-\m )}}$ & Bose-Einstein \\\hline 
+      $e^{-\b(\epsilon-\m )}$ & Boltzmann \\\hline 
+\end{tabular}
+\end{center}
+
+Notar que si se considera $q=1$ para que $f(\epsilon)$ permita calcular la densidad de número $N/V$.
+
+Notar que para $e^{-\b(\epsilon-\m )}\ll 1$, (Fermi-Dirac) $\sim$ (Bose-Einstein) $\sim$ (Boltzmann). A esto se le llama \textbf{límite clásico}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
