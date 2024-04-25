@@ -1,0 +1,143 @@
+\section{Clase 7}
+De la clase anterior se tiene
+\begin{equation}
+\ev{E}=-\pdv{\b}\ln (\zc)
+\end{equation}
+\begin{equation}
+\text{Var}(E)=\pdv[2]{\b}\ln(\zc)=\ev{(E-\ev{E})^2}=\ev{E^2}-\ev{E}^2
+\end{equation}
+
+La función partición también puede relacionarse con la fluctuación de la carga y con la covarianza entre la carga y la energía según
+\begin{equation}\label{7.varq}
+  \boxed{\var(Q)=\ev{(Q-\ev{Q})^2}=\pdv[2]{\a }\ln\zgc}
+\end{equation}
+\begin{equation}\label{7.coveq}
+  \boxed{\text{Cov}(E,Q)=\ev{(E-\ev{E})(Q-\ev{Q})}=\pdv{\a }\pdv{\b }\ln\zgc}
+\end{equation}
+
+En efecto, para \eqref{7.varq} la demostración es análoga al procedimiento que se usó para mostrar \eqref{6.d2blnz} pero ahora considerando $\zgc$.
+
+Para mostrar \eqref{7.coveq}, calculemos la doble derivada de $\ln\zgc$ con respecto a $\a$ y $\b$,
+\begin{align*}
+ 	\partial_\b\partial_\a \ln\zgc&=\partial_\b \left(\frac{1}{\zgc}\partial_\a \left(\sumi \eba\right)\right)\\
+ 	&=\partial_\b\left(-\frac{1}{\zgc}Q_i\sumi \eba\right)\\
+ 	&=\left(\frac{1}{\zgc^2}Q_i\partial_\b \zgc\right)\left(\sumi \eba\right)+\frac{1}{\zgc}Q_iE_i\sumi \eba\\
+ 	&=-\frac{1}{\zgc^2}\left(\sumj E_j\ebaj\right)\left(\sumi Q_i\eba\right)+\frac{1}{\zgc}Q_iE_i\sumi \eba\\
+ 	&=\ev{EQ}-\ev{E}\ev{Q}
+\end{align*}
+es decir,
+\begin{equation}
+  \text{Cov}(E,Q)=\partial_\b\partial_\a \ln\zgc
+\end{equation}
+
+Los calores específicos están asociados a las fluctuaciones. Por ejemplo
+\begin{equation}
+  \boxed{\left(\pdv{E}{T}\right)_{V,\a }=\frac{1}{\k T^2}\ev{(E-\ev{E})^2}}
+\end{equation}
+En efecto, usando que
+\begin{equation}
+  \ev{E}=-\partial_\b \ln\zgc,\qquad \partial_T=-\frac{1}{\k T^2}\partial_\b 
+\end{equation}
+se tiene
+\begin{align}
+  \left(\pdv{E}{T}\right)_{V,\a }&=-\frac{1}{\k T^2}\pdv{\b}\left(-\pdv{\b}\ln\zgc\right)\\
+  &=\frac{1}{\k T^2}\pdv[2]{\b}\ln\zgc\\
+  &=\var (E)
+\end{align}
+
+\subsection{Mecánica estadística de partículas no-interactuantes}
+Generalmente cuando uno piensa en gases, uno piensa en la ley de los gases ideales, ley que es válida para gases que están suficientemente diluidos tal que las interacciones entre sus partículas puede ser despreciada y la estadística de partículas idénticas puede ser ignorada. Ahora consideraremos igualmente que las interacciones entre partículas pueden ser despreciadas, pero consideraremos en detalle los efectos de la estadística cuántica, la cual juega un rol importante en situaciones en todos los campos de la física. Por ejemplo, el concepto de gas de Fermi juega es fundamental para entender la estructura nuclear, estelar y propiedades de metales y superconductores. Para sistemas de Bose, la degeneración cuántica puede manejar la creación de super-fluídos, tales como Helio líquido. A pesar de la presencia de interacciones fuertes entre los constituyentes, el rol de la degeneración cuántica puede jugar un rol dominante al determinar las propiedades y comportamiento de numerosos sistemas. Comenzaremos el estudio, considerando gases no-interactuantes, el cual consiste en un conjunto de modos de momentum independientes.
+
+Consideremos un grupo de partículas no interactuantes en una caja. Supongamos que la caja tiene dimensiones $L_x,L_y,L_z$ tales que $x\in [0,L_x]$,$y\in [0,L_y]$, $z\in [0,L_z]$. Recordemos que los autoestados son:
+\begin{equation}
+  \psi_{n_x,n_y,n_z}\propto \sin\left(\frac{p_xx}{L_x}\right)\sin\left(\frac{p_yy}{L_y}\right)\sin\left(\frac{p_zz}{L_z}\right)
+\end{equation}
+con
+\begin{equation}
+  p_x=\frac{\hbar \pi n_x}{L_x},\qquad p_y=\frac{\hbar \pi n_y}{L_y},\qquad p_z=\frac{\hbar \pi n_z}{L_z},\qquad \{n_x,n_y,n_z\}\in \mathbb{N}
+\end{equation}
+Aquí, los $n_i$ corresponden a los armónicos de la función de onda para una partícula en un pozo de potencial rectangular con paredes de potencial infinito. Esto implica que la función de onda se anula en las paredes de la caja. Notar que el \textit{número de estados disponible} hasta $n=\sqrt{n_x^2+n_y^2+n_z^2}$ puede aproximarse como un octavo por el volúmen de la esfera de radio $n$
+\begin{equation}
+  \frac{1}{8}\frac{4}{3}\pi n^3=N
+\end{equation}
+Luego, el número de estados contenidos entre un armónico $n+\dd n$ se puede aproximar como
+\begin{equation}
+  \dd N=\frac{4\p n^2\dd n}{8}=\frac{\dd^3n}{8}
+\end{equation}
+Finalmente, considerando que
+\begin{equation}
+  n_x=\frac{L_x}{\p\hbar}P_x,\qquad n_y=\frac{L_y}{\p\hbar}P_y,\qquad n_z=\frac{L_z}{\p\hbar}P_z
+\end{equation}
+y que
+\begin{equation}
+  \dd^3n=\dd n_x\dd n_y\dd n_z=\frac{L_zL_yL_z}{(\p\hbar)^3}\dd^3P=\frac{V}{(\p\hbar)^3}\dd^3P
+\end{equation}
+Se tiene que el número de estados con momentum entre $P$ y $P+\dd P$ está dado por
+\begin{equation}
+\boxed{  \dd N=\frac{V}{(2\p\hbar)^3}\dd^3P}
+\end{equation}
+
+Finalmente, si la partícula tiene spin $s$, existe una degenerancia interna dada por $(2s+1)$, correspondiente a los posibles estados de spin para el mismo $(n_x,n_y,n_z)$. Entonces
+\begin{equation}
+\boxed{  \dd N=(2s+1)\frac{V}{(2\p\hbar)^3}\dd^3P}
+\end{equation}
+
+\underline{\textbf{Nota:}} Es importante notar que $\dd N$ se refiere al número de modos, o estados de una sola partícula, no al número de partículas ni al número de estados del sistema.
+
+Encontremos ahora la función partición $\zgc$, la cual depende de si la partícula es un \textit{bosón} o un \textit{fermión}. Para fermiones puede existir máximo una partícula en cada estado, mientras que para bosones no hay restriciones del número de partículas en cada estado. Veamos esto a partir de las propiedades de simetría de las funciones de onda.
+
+Para ver esto, consideremos un sistema de $2$ partículas $1$ y $2$ no interactuantes. La función de nda total del sistema será
+\begin{equation}
+  \psi_{\rm total}(\vb*{x}_1,\vb*{x}_2)\sim \psi_1(\vb*{x}_1)\psi_2(\vb*{x}_2)
+\end{equation}
+
+\begin{itemize}
+	\item 
+Para los \textbf{bosones} la función de onda es simétrica bajo intercambio de a pares de partículas,
+\begin{equation}
+  \psi_{\rm total}^{\text{bosón}}(\vb*{x}_1,\vb*{x}_2)=\frac{1}{\sqrt{2}}\psi_1(\vb*{x}_1)\psi_2(\vb*{x}_2)+\frac{1}{\sqrt{2}}\psi_2(\vb*{x}_1)\psi_1(\vb*{x}_2)=\psi_{\rm total}^{\text{bosón}}(\vb*{x}_2,\vb*{x}_1)
+\end{equation}
+Esto se cumple aunque $\psi_1$ y $\psi_2$ sean diferentes.
+
+\item 
+Para los \textbf{fermiones} la función de onda es antisimétrica bajo intercambio de a pares de partículas,
+\begin{equation}
+  \psi_{\rm total}^{\text{fermión}}(\vb*{x}_1,\vb*{x}_2)=\frac{1}{\sqrt{2}}\psi_1(\vb*{x}_1)\psi_2(\vb*{x}_2)-\frac{1}{\sqrt{2}}\psi_2(\vb*{x}_1)\psi_1(\vb*{x}_2)=-\psi_{\rm total}^{\text{bosón}}(\vb*{x}_2,\vb*{x}_1)
+\end{equation}
+luego, la función de onda total es antisimétrica.
+\end{itemize}
+
+Supongamos ahora que ambas partículas estan en el mismo estado, es decir
+\begin{equation}
+  \psi_1(\vb*{x})=\psi_2(\vec{x})
+\end{equation}
+¿Cuánto vale $\psi_{\rm total}^{\text{fermión}}(\vec{x},\vec{x})$?
+
+ En este caso $\psi_{\rm total}^{\text{fermión}}=0$. Luego, no puede haber $2$ fermiones en un mismo estado.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

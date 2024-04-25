@@ -1,0 +1,336 @@
+\section{Clase 5}
+\subsection{Relaciones termodinámicas}
+Hasta el momento hemos obtenido las siguientes relaciones termodinámicas
+\begin{tcolorbox}
+\begin{itemize}
+	\item Relación de Euler
+	\begin{equation}
+  E=TS-PV+\m Q
+\end{equation}
+\item Energía libre de Hemholtz \begin{equation}
+  F=-\k T\ln(\zc)=E-TS
+\end{equation}
+\item Potencial gran canónico
+\begin{equation}\label{5.star}
+  \Ogc=-PV=-\k T\ln (\zgc)=E-TS-\m Q
+\end{equation}
+\item Energía libre de Gibbs
+\begin{equation}
+  G=\m Q=E-TS+PV
+\end{equation}
+\end{itemize}
+\end{tcolorbox}
+
+Por otro lado, las funciones de partición de cada ensamble y la relación de $E$ y $Q$ con ellas vienen dadas por\footnote{Notar que no escribimos la barra de promedio en $\bar{E}$ y $\bar{Q}$ ya que se sobreentiende donde corresponde.}
+\begin{tcolorbox}
+\begin{equation}
+  \zc =\summ e^{-\b E_i},\qquad \b =\frac{1}{T}
+\end{equation}
+\begin{equation}
+  \zgc=\summ e^{-\b E_i-\a Q_i},\qquad \a=-\frac{\m }{T}
+\end{equation}
+
+\begin{equation}\label{5.box1}
+  \bar{E}=\k T^2\left(\pdv{T}\ln(Z)\right)_{\m/T}
+\end{equation}
+
+\begin{equation}\label{5.box2}
+ \bar{Q}=\k T\left(\pdv{\m }\ln(\zgc)\right)_T
+\end{equation}
+\end{tcolorbox}
+
+\subsection{Derivación de las leyes de la termodinámica}
+De \eqref{5.star}
+\begin{equation}
+  \Ogc=-PV=-\k T\ln (\zgc)=E-TS-\m Q
+\end{equation}
+despejando para $S$
+\begin{equation}
+  S=\k \ln(\zgc(\m /T,T,V))+\frac{E}{T}-\left(\frac{\m }{T}\right)Q
+\end{equation}
+luego,
+\begin{align}\label{5.ds}
+  \dd S&=\left(\k\pdv{\ln \zgc}{T}-\frac{E}{T^2}\right)\dd T+\left(\k\pdv{\ln\zgc}{(\m/T)}-Q\right)\dd Q+\k\pdv{\ln\zgc}{V}\dd V+\frac{\dd E}{T}-\frac{\m\dd Q}{T}
+\end{align}
+pero 
+\begin{equation}
+  PV= T\ln\zgc \qquad \implies\qquad \ln\zgc=\frac{P}{T}V
+\end{equation}
+tomando la derivada parcial con respecto a $V$
+\begin{equation}
+  \pdv{\ln\zgc}{V}=\frac{P}{T}
+\end{equation}
+reemplazando en \eqref{5.ds},
+\begin{align}
+  \dd S=\left(\k\pdv{\ln \zgc}{T}-\frac{E}{T^2}\right)\dd T+\left(\k\pdv{\ln\zgc}{(\m/T)}-Q\right)\dd Q+\frac{P}{T}\dd V+\frac{\dd E}{T}-\frac{\m\dd Q}{T}
+\end{align}
+usando \eqref{5.box1} y \eqref{5.box2} se cancelan los primeros dos términos, obteniendo
+\begin{equation}
+  \dd S=\frac{P}{T}\dd V+\frac{\dd E}{T}-\frac{\m\dd Q}{T}
+\end{equation}
+\begin{equation}
+ \boxed{ T\dd S=P\dd V+\dd E-\m\dd Q}
+\end{equation}
+conocida como la \textbf{segunda ley de la termodinámica}.
+
+\subsection{Relaciones de equilibrio termodinámico}
+Consideremos dos sistemas $C_1$ y $C_2$, los cuales pueden intercambiar energía y carga, y ademas pueden modificar su volumen. De las leyes de conservación se tiene
+\begin{equation}
+  \boxed{\dd E_1=-\dd E_2,\qquad \dd Q_1=-\dd Q_2,\qquad \dd V_1=-\dd V_2}
+\end{equation}
+también se tiene
+\begin{equation}
+ \boxed{ \dd S_{\rm total}=\dd S_1+\dd S_2}
+\end{equation}
+Es decir, el cambio en la entropía es la suma de los cambios de la entropía de cada sistema.
+
+Ahora
+\begin{equation}
+  \boxed{\dd S_i=\frac{P_i}{T_i}\dd V_i+\frac{1}{T_i}\dd E_i-\frac{\m_i}{T_i}\dd Q_i}
+\end{equation}
+Esto es el cambio de la entropía en cada sistema dado por la segunda ley de la termodinámica. Por lo tanto
+\begin{equation}
+  \boxed{\dd S_{\rm total}=\dd S_1+\dd S_2=\left(\frac{P_1}{T_1}-\frac{P_2}{T_2}\right)\dd V_1+\left(\frac{1}{T_1}-\frac{1}{T_2}\right)\dd E_1+\left(\frac{\m_1}{T_1}-\frac{\m_2}{T_2}\right)\dd Q_1}
+\end{equation}
+Pero del principio de la máxima entropía, la configuración maximiza la entropía (sujeto a las restricciones de conservación). Luego, en todo proceso termodinámico, $\dd S_{\rm total}\geq 0$.
+
+La condición de equilibrio termodinámico requiere $\dst=0$. Por lo tanto la condición de equilibrio establece:
+\begin{equation}
+  \frac{P_1}{T_1}=\frac{P_2}{T_2},\qquad \frac{1}{T_1}=\frac{1}{T_2},\qquad \frac{\m_1}{T_1}=\frac{\m_2}{T_2}
+\end{equation}
+entonces
+\begin{align}
+  P_1&=P_2\\
+   T_1&=T_2\\
+    \m_1&=\m_2
+\end{align}
+esto implica también que le intercambio de energía interna o calor ($E$) se produce desde el sistema de mayor temperatura hacia el de menor temperatura, el intercambio de cargas ($Q$) ocurre desde el sistema de mayor potencial químico hacia el de menor potencial químico y el cambio de volumen ($V$)  ocurre de modo que el sistema con mayor presión se expande y de menor presión se contrae.
+
+\subsection{Otras relaciones termodinámicas}
+Por un lado
+\begin{equation}
+  E=TS-PV+\m Q
+\end{equation}
+si derivamos
+\begin{equation}
+  \dd E=\dd TS+T\dd S-\dd PV-P\dd V+\dd\m Q+\m \dd Q
+\end{equation}
+además de la segunda ley,
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m \dd Q
+\end{equation}
+reemplazamos $\dd E$ en lo anterior y obtenemos
+\begin{equation}
+  \boxed{S\dd T-V\dd P+Q\dd\m =0}
+\end{equation}
+
+\subsubsection{Acerca de los potenciales termodinámicos}
+El potencial gran canónico viene dado por
+\begin{equation}
+  \Omega=E-\m Q-TS
+\end{equation}
+derivamos
+\begin{equation}
+  \dd\Omega=\dd E-\dd\m Q-\m \dd Q-\dd TS-T\dd S
+\end{equation}
+usando de nuevo la segunda ley
+\begin{equation}
+  T\dd S=P\dd V+\dd E-\m\dd Q
+\end{equation}
+y obtenemos
+\begin{equation}
+ \boxed{ \dd \Omega=-S\dd T-P\dd V-Q\dd\m}
+\end{equation}
+Notar que el ensamble gran canónico tiene $(T,V,\m )$ dijos y $(E,Q)$ fluctuantes. Luego,
+\begin{equation}
+  \Omega=\Omega(T,V,\m )
+\end{equation}
+y
+\begin{equation}
+  \dd\Omega=\left(\pdv{\Omega}{T}\right)_{V,\m }\dd T+\left(\pdv{\Omega}{V}\right)_{T,\m }\dd V+\left(\pdv{\Omega}{\m }\right)_{T,V }\dd \m 
+\end{equation}
+Por lo tanto,
+\begin{align}
+  \left(\pdv{\Omega}{T}\right)_{V,\m }&=-S\\
+  \left(\pdv{\Omega}{V}\right)_{T,\m }&=-P\\
+  \left(\pdv{\Omega}{\m }\right)_{T,V }&=-Q
+\end{align}
+
+Para la energía libre de Hemholtz en su versión integrada viene dada por
+\begin{equation}
+  F=E-TS
+\end{equation}
+\begin{equation}
+  \dd F=\dd E-\dd TS-T\dd S
+\end{equation}
+Usando nuevamente la segunda ley, obtenemos
+\begin{equation}
+  \boxed{\dd F=-P\dd V+\m \dd Q-S\dd T}
+\end{equation}
+En la definición del ensamble canónico, $(T,V,Q)$ estan fijos, y $E$ fluctua. Luego, $F=F(T,V,Q)$, por lo tanto
+\begin{equation}
+  \dd F=\left(\pdv{F}{T}\right)_{V,Q}\dd T+\left(\pdv{F}{V}\right)_{T,Q}\dd V+\left(\pdv{F}{Q}\right)_{T,V}\dd Q
+\end{equation}
+luego,
+\begin{align}
+  \left(\pdv{F}{T}\right)_{V,Q}&=-S\\
+  \left(\pdv{F}{V}\right)_{T,Q}&=\m \\
+  \left(\pdv{F}{Q}\right)_{T,V}&=-P
+\end{align}
+
+Para la energia libre de Gibbs,
+\begin{equation}
+  G=E+PV-TS
+\end{equation}
+\begin{equation}
+  \dd G=\dd E+\dd PV+P\dd V-\dd T S-T\dd S
+\end{equation}
+Haciendo un procedimiento similar al de los casos anteriores, se tiene
+\begin{equation}
+  \boxed{\dd G=-S\dd T+V\dd P+\m \dd Q}
+\end{equation}
+
+en el ensamble isobárico-isotérmico, $(T,P,Q)$ están fijas y $(E,V)$ fluctúa. Luego, $G=G(T,P,Q)$, y por tanto
+\begin{equation}
+  \dd G=\left(\pdv{G}{T}\right)_{P,Q}\dd T+\left(\pdv{G}{P}\right)_{T,Q}\dd P+\left(\pdv{G}{Q}\right)_{P,T}\dd Q
+\end{equation}
+por tanto
+\begin{align}
+  \left(\pdv{G}{T}\right)_{P,Q}&=-S\\
+  \left(\pdv{G}{P}\right)_{T,Q}&=V\\
+  \left(\pdv{G}{Q}\right)_{P,T}&=\m 
+\end{align}
+
+La \textbf{entalpía} se define como
+\begin{equation}
+  H=E+PV
+\end{equation}
+entonces 
+\begin{equation}
+  \dd H=\dd E+\dd PV+P\dd V
+\end{equation}
+reemplazando $\dd E$ de la segunda ley,
+\begin{equation}
+  \boxed{\dd H=T\dd S+V\dd P+\m \dd Q}
+\end{equation}
+Por tanto en el \textbf{ensamble de Joule-Thompson}, del cual la es su potencial termodinámico, tiene $(S,P,Q$ fijos y $V$ fluctuante, es decir, $H=H(S,P,Q)$. Luego,
+\begin{equation}
+  \dd H=\left(\pdv{H}{S}\right)_{P,Q}\dd S+\left(\pdv{H}{P}\right)_{S,Q}\dd P +\left(\pdv{H}{Q}\right)_{P,S}\dd Q
+\end{equation}
+Luego, nos queda
+\begin{align}
+  \left(\pdv{H}{S}\right)_{P,Q}&=T\\
+  \left(\pdv{H}{P}\right)_{S,Q}&=V\\
+  \left(\pdv{H}{Q}\right)_{P,S}&=\m 
+\end{align}
+
+Finalmente, para el ensamble microcanónico, las cantidades fijas son $(E,V,Q)$ y de la segunda ley se tiene
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m \dd Q
+\end{equation}
+Luego, se puede despejar
+\begin{equation}
+  \dd S=\left(\frac{1}{T}\right)\dd E+\left(\frac{P}{T}\right)\dd V-\left(\frac{\m }{T}\right)\dd Q
+\end{equation}
+y considerando que a $(E,V,Q)$ fijos, se tiene que $S=S(E,V,Q)$ y 
+\begin{equation}
+  \dd S=\left(\pdv{S}{E}\right)_{V,Q}\dd E+\left(\pdv{S}{V}\right)_{E,Q}\dd V+\left(\pdv{S}{Q}\right)_{V,E}\dd Q
+\end{equation}
+se tiene que
+\begin{align}
+  \left(\pdv{S}{E}\right)_{V,Q}&=\frac{1}{T}\\
+  \left(\pdv{S}{V}\right)_{E,Q}&=\frac{P}{T}\\
+  \left(\pdv{S}{Q}\right)_{V,E}&=-\frac{\m }{T}
+\end{align} 
+
+\subsection{Resumen: ensambles y potenciales termodinámicos}
+Como resumen, tenemos la siguiente tabla que relaciona los distintos ensambles con sus potenciales termodinámicos y variables fijas:
+
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+  Ensamble & Potencial termodinámico & Variabes fijas  \\
+  \hline
+  Microcanónico &Entropía $(S)$& $(E,V,Q)$ \\\hline
+  Canónico&Energía libre de Hemholtz $(F)$ &$(T,V,Q)$\\\hline
+  Gran Canónico&Potencial gran canónico $(\Ogc)$&$(T,V,\m )$\\\hline
+  Isobárico-Isotérmico&Energía libre de Gibbs $(G)$&$(T,P,Q)$\\\hline
+  Joule-Thompson&Entalpía $(H)$&$(S,P,Q)$\\\hline
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -134,23 +134,23 @@ entonces
 \boxed{  P_i=e^{-\lambda-\b E_i-1}}
 \end{equation}
 \begin{align}
-  P_i&=e^{-\lambda-1}e^{\b E_i}\\
+  P_i&=e^{-\lambda-1}e^{-\b E_i}\\
   \summ P_i&=1\Rightarrow \summ e^{-\lambda-1}e^{-\b E_i}=1\\
-  \Rightarrow (e^{-\lambda-1})\summ e^{\b E_i}=1\\
+  \Rightarrow (e^{-\lambda-1})\summ e^{-\b E_i}=1\\
   \Rightarrow e^{-\lambda-1}&=\frac{1}{\summ e^{-\b E_i}}
 \end{align}
 tenemos
 \begin{equation}
-  \boxed{P_i=\frac{e^{-\b E_i}}{\summ e^{-\b E_i}}}\quad \Rightarrow\quad \boxed{z=\summ e^{-\b E_i}}\quad \Rightarrow\quad \boxed{P_i=\frac{e^{-\b E_i}}{z}}
+  \boxed{P_i=\frac{e^{-\b E_i}}{\summ e^{-\b E_i}}}\quad \Rightarrow\quad \boxed{Z=\summ e^{-\b E_i}}\quad \Rightarrow\quad \boxed{P_i=\frac{e^{-\b E_i}}{Z}}
 \end{equation}
 En el caso de imponer conservación de la energía, la configuración solo puede explorar conjuntos de ocupaciones $\{n_i\}_{i=1}^n$ que tengan la misma energía total.
 
-En general, la configuración equiporbable no es alcanzable necesariamente, ya que tiene una energá total particular, que puede ser diferente a la energía inicial dada.
+En general, la configuración equiprobable no es alcanzable necesariamente, ya que tiene una energía total particular, que puede ser diferente a la energía inicial dada.
 
 En particular, la energía de la configuración equiprobable es
 \begin{align}
   E_{\rm equi}&=\summ E_in_i\\
-  &=\summ E_i\frac{N_s}{n}
+  &=\summ E_i\frac{N_s}{m}
 \end{align}
 esto implica
 \begin{equation}
@@ -158,18 +158,18 @@ esto implica
 \end{equation}
 Si $E\neq E_{\rm equi}$, la configuración equiprobable es inalcanzable. Para $E$ consevado, la probabilidad de que un sistema esté en el estado $i$ es
 \begin{equation}
- \boxed{P_i=\frac{e^{-\b E_i}}{z}}
+ \boxed{P_i=\frac{e^{-\b E_i}}{Z}}
 \end{equation}
 donde
 \begin{equation}
-\boxed{  z=\summ e^{-\b E_i}}
+\boxed{ Z=\summ e^{-\b E_i}}
 \end{equation}
 se conoce como la \textbf{función de partición} y $e^{-\b E_i}$ se llama \textbf{factor de Boltzmann} y tiene la interpretación de un peso estadistico.
 \begin{itemize}
-	\item $z$ es la suma de todos los pesos
+	\item $Z$ es la suma de todos los pesos
 	\item La ocupación del estado $i$ es
 	\begin{equation}
-\boxed{  n_i=N_sP_i=N_s\frac{e^{-\b E_i}}{z}}
+\boxed{  n_i=N_sP_i=N_s\frac{e^{-\b E_i}}{Z}}
 \end{equation}
 \end{itemize}
 
@@ -208,7 +208,7 @@ donde $Z_{\rm GC}$ es la \textbf{función partición Gran Canónica} y correspon
 \begin{itemize}
 	\item Maximizando la entropía, sujeto a diferentes restricciones, hemos encontrado la probabilidad de ocupación de los estados posibles de los sistemas.
 	\item Dichas probabilidades pueden interprearse como pesos estadisticos para cada estado, normalizados por una función partición.
-	\item Dependiendo de las cantidades conservadas las funciones partición son ditintas.
+	\item Dependiendo de las cantidades conservadas las funciones partición son distintas.
 	\item El conjunto de configuraciones posibles dadas las restricciones, definen la noción de ensamble.
 	\item A cada tipo de ensamble, especificado por ciertas cantidades conservadas, le corresponde una función partición.
 \end{itemize}
@@ -233,6 +233,21 @@ donde
 Notas que $\b,\m$ y $P$ son intensivas.
 
 $T=\frac{1}{\b}$ viene dado por el multiplicador de Lagrange asociado a la conservación de energía.
+
+\subsection{Ensamble termodinámico*}
+En mecánica estadística primero uno debe considerar que cantidades desea mantener fijas, y que cantidades desea permitir que varíen (pero con el constraint de que su promedio sea algún valor). Esta elección define el \textbf{ensamble}. Los ensambles difieren en las cantidades que varían. Si un cantidad es permitida que varíe, entonces un multiplicador de Lagrange determina la cantidad promedio para cada ensamble.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+  Ensamble & Energía & Cargas  \\
+  \hline
+  Microcanónico &Fija& Fija \\\hline
+  Canónico&Varía &Fija\\\hline
+  Gran Canónico&Varía&Varía\\\hline
+\end{tabular}
+\end{center}
+
 
 
 

@@ -9,7 +9,7 @@ cada estado equiprobable. $(E,V,Q)$ están fijos.
 \subsection{Ensamble canónico}
 %En el \textbf{ensamble canónico},
 \begin{align}
-  P_i&=\frac{1}{z_{\rm C}}e^{-\b E_i}\\ z_{\rm C}&=\summ e^{-\b E_i}\\ \bar{E}&=\summ P_iE_i \quad \text{(restricción)}\\
+  P_i&=\frac{1}{Z_{\rm C}}e^{-\b E_i}\\ Z_{\rm C}&=\summ e^{-\b E_i}\\ \bar{E}&=\summ P_iE_i \quad \text{(restricción)}\\
   \b&=\frac{1}{T}
 \end{align}
 $(T,V,Q)$ están fijos. $\bar{E}$ es fluctuante.
@@ -17,8 +17,8 @@ $(T,V,Q)$ están fijos. $\bar{E}$ es fluctuante.
 \subsection{Ensamble Gran Canónico}
 %En el \textbf{ensamble Gran Canónico},
 \begin{align}
-  P_i&=\frac{1}{z_{\rm GC}}e^{-\b E_I-\a Q_i}\\
-  z_{\rm GC}&=\summ e^{-\b E_i-\a Q_i}\\
+  P_i&=\frac{1}{Z_{\rm GC}}e^{-\b E_i-\a Q_i}\\
+  Z_{\rm GC}&=\summ e^{-\b E_i-\a Q_i}\\
   \bar{E}&=\summ P_iE_i\label{4.1}\\
   \bar{Q}&=\summ P_iQ_i\label{4.2}\\
   \b&=\frac{1}{\k T}\\
@@ -40,48 +40,48 @@ La configuración de cada ensamble \textbf{maximiza la entropía} sujeta a las r
 
 Partiendo de la función partición (considerando el ensamble Gran Canónico por generalidad), se tiene
 \begin{align}
-  \bar{E}&=\summ P_iE_i=\frac{\summ E_ie^{-\b E_i-\a Q_i}}{z}\\
-  &=-\left(\pdv{\b}\ln(z)\right)_\a
+  \bar{E}&=\summ P_iE_i=\frac{\summ E_ie^{-\b E_i-\a Q_i}}{Z}\\
+  &=-\left(\pdv{\b}\ln(Z)\right)_\a\label{E=partial-beta}
 \end{align}
 \begin{equation}
-\boxed{  \bar{E}=\k T^2\left(\pdv{T}\ln(z)\right)_{\m/T}}
+\boxed{  \bar{E}=\k T^2\left(\pdv{T}\ln(Z)\right)_{\m/T}}
 \end{equation}
 con \begin{equation}
   \b =\frac{1}{\k T}\quad \Rightarrow\quad \pdv{\b }=-T^2\kappa\pdv{T}
 \end{equation}
 también tenemos
 \begin{align}
-  \bar{Q}&=\frac{\summ Q_ie^{-\b E_i-\a Q_i}}{z}\\
-  &=-\left(\pdv{\a }\ln(z)\right)_\b 
+  \bar{Q}&=\frac{\summ Q_ie^{-\b E_i-\a Q_i}}{Z}\\
+  &=-\left(\pdv{\a }\ln(Z)\right)_\b 
 \end{align}
 \begin{equation}
-  \bar{Q}=\k T\left(\pdv{\m }\ln(z)\right)_T
+ \boxed{ \bar{Q}=\k T\left(\pdv{\m }\ln(Z)\right)_T}
 \end{equation}
 con
 \begin{equation}
   \a =\frac{\m }{\k T}\quad \Rightarrow\quad \pdv{\a }=\k T\pdv{\m }
 \end{equation}
-También es posible relacionar la función con la entroía
+También es posible relacionar la función partición con la entropía
 \begin{align}
   S&=-\k \summ P_i\ln(P_i)\\
-  &=\k\summ P_i(\ln(z)+\b E_i+\a Q_i)\\
-  &=\k \ln(z)+\b \bar{E}+\a \hat{Q}
+  &=\k\summ P_i(\ln(Z)+\b E_i+\a Q_i)\\
+  &=\k \left(\ln(Z)+\b \bar{E}+\a \bar{Q}\right)
 \end{align}
 luego
 \begin{equation}
 \boxed{  S=\k \ln(z)+\frac{\bar{E}}{T}-\frac{\m \bar{Q}}{T}}\quad \Rightarrow\quad \boxed{-\k T\ln(z)=\bar{E}-TS-\m Q}
 \end{equation}
 
-Para los diferentes ensambles, existen potenciales termodinámicos definidos en términos de $\ln(z)$.
+Para los diferentes ensambles, existen potenciales termodinámicos definidos en términos de $\ln(Z)$. \footnote{Los signos y los factores delante son por razones históricas, desafortunadamente. :(}
 
 \textbf{Potencial Gran Canónico}
 \begin{equation}
-  \Omega_{\rm GC}=-\k T\ln(z_{\rm GC})=\bar{E}-TS-\m\bar{Q}
+  \Omega_{\rm GC}=-\k T\ln(Z_{\rm GC})=\bar{E}-TS-\m\bar{Q}
 \end{equation}
 
 \textbf{Energía libre de Hemholtz}
 \begin{equation}
-  F=-\k T\ln(z_{\rm C})=\bar{E}-TS\quad (Q_i=0)
+  F=-\k T\ln(Z_{\rm C})=\bar{E}-TS\quad (Q_i=0)
 \end{equation}
 
 Existen relaciones entre los potenciales termodinámicos de los diferentes ensambles. Por ejemplo, definiendo la \textbf{densidad de estados}
@@ -90,7 +90,7 @@ Existen relaciones entre los potenciales termodinámicos de los diferentes ensam
 \end{equation}
 $\r(Q,E)$ cuenta el número de estados con carga $Q$ y energía entre $E$ y $E+\delta E$. De aquí podemos obtener la energía libre de Hemholtz como
 \begin{equation}
-  F(Q,T)=-\k T\ln(z_{\rm C})=-\k T\ln\int\dd E\r(Q,E)e^{-E/\k T}
+  F(Q,T)=-\k T\ln(Z_{\rm C})=-\k T\ln\int\dd E\r(Q,E)e^{-E/\k T}
 \end{equation}
 Finalmente el potencial Gran Canónico, puede calcularse como
 \begin{equation}

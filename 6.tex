@@ -1,0 +1,294 @@
+\section{Clase 6}
+%De la clase anterior, tenemos la siguiente tabla resúmen
+%
+%\begin{center}
+%\begin{tabular}{|c|c|c|c|}
+%\hline
+%  Ensamble & Potencial & Definición &Variación del potencial \\
+%  \hline
+%  Microcanónico &Entropía $S(E,V,Q)$& $S$ & $\dd S=\frac{1}{T}\dd E+\frac{P}{T}\dd V-\frac{\m }{T}\dd Q$ \\\hline
+%  Canónico&Energía libre de Hemholtz $F(T,V,Q)$ &$F=E-TS=\m Q-PV$\\\hline
+%  Gran Canónico&Potencial gran canónico $(\Ogc)$&$(T,V,\m )$\\\hline
+%  Isobárico-Isotérmico&Energía libre de Gibbs $(G)$&$(T,P,Q)$\\\hline
+%  Joule-Thompson&Entalpía $(H)$&$(S,P,Q)$\\\hline
+%\end{tabular}
+%\end{center}
+
+\subsection{Fuerzas a temperatura finita}
+El trabajo por hecho por una fuerza al recorrer una distancia $\dd\vec{x}$, está dado por
+\begin{equation}
+  W=-\int_{\vec{x}_1}^{\vec{x}_2}\vec{f}\cdot\dd\vec{x}
+\end{equation}
+Esto es una contribución a la energía del sistema.
+
+Supongamos un movimiento en $\vec{x}$. Luego incluyendo la contribución de $W$ a la energía del sistema, la cual funcionalmente es análoga al termino $-P\dd V$, tenemos
+\begin{equation}\label{6.star}
+  \dd E=T\dd S-P\dd V+\m\dd Q-f\dd x
+\end{equation}
+donde $f=|\vec{f}_x|$ es la magnitud de la fuerza.
+
+Ahora, suponamos que el sistema está a $T$ constante. Consideremos $F(T,V,Q)$ y la relacionamos con $f$:
+\begin{equation}
+  F=E-TS
+\end{equation}
+\begin{equation}
+  \dd F=\dd E-S\dd T-T\dd S
+\end{equation}
+Considerando \eqref{6.star} se tiene
+\begin{equation}
+  \dd F=-S\dd T-P\dd V+\m \dd Q-f\dd x
+\end{equation}
+\begin{equation}
+  \implies f\dd x=-\dd F-S\dd t-P\dd V+\m\dd Q
+\end{equation}
+si consideramos $(T,V,Q)$ fijos, se tiene
+\begin{equation}
+  f\dd x=-\dd F
+\end{equation}
+luego,
+\begin{equation}
+ \boxed{ f=-\eval{\left(\pdv{F}{x}\right)}_{T,V,Q}}
+\end{equation}
+es decir, la energía libre de Hemholtz $F=E-TS$ juega el rol de potencial.
+
+Notemos que $F$ puede obtenerse directamente de la función partición canónica,
+\begin{equation}
+  \boxed{F=-\k T\ln (\zc)}
+\end{equation}
+
+\begin{ej}
+	Un ejemplo estándar consiste en derivar la ley de Hooke para una cadena de $N$ eslabones a temperatura $T$.
+\end{ej}
+
+\subsection{Relaciones de Maxwell}
+Las relaciones de Maxwell consisten en un conjunto de equivalencias entre derivadas de variables termodinámicas.
+
+Todas las relaciones de Maxwell pueden ser derivadas desde la relación fundamental de la termodinámica,
+\begin{equation}
+  \dd S=\b\dd E+(\b P)\dd V-(\b\m )\dd Q
+\end{equation}
+de donde podemos identificar directamente,
+\begin{align}
+  \b=\eval{\pdv{S}{E}}_{V,Q}\\
+  \b P=\eval{\pdv{S}{V}}_{E,Q}\\
+  \b\m=-\eval{\pdv{S}{Q}}_{V,E}
+\end{align}
+
+\begin{ej}
+	Considere
+	\begin{equation}
+  \dd S=\frac{1}{T}\dd E+\frac{P}{T}\dd V-\frac{\m }{T}\dd Q
+\end{equation}
+Notamos que para $F(x,y)$ continua y $2$ veces diferenciable, se tiene
+\begin{equation}
+  \pdv{F}{x}{y}=\pdv{F}{y}{x}
+\end{equation}
+es decir, sus derivadas conmutan. Luego, por ejemplo
+\begin{equation}
+  \pdv{S}{E}{V}=\pdv{S}{V}{E}
+\end{equation}
+\begin{equation}
+	\left(\pdv{E}\left(\pdv{S}{V}\right)_{E,Q}\right)_{V,Q}=\left(\pdv{V}\left(\pdv{S}{E}\right)_{V,Q}\right)_{E,Q}
+\end{equation}
+\begin{equation}
+  \implies \boxed{\pdv{E}\left(\frac{P}{T}\right)_{V,Q}=\pdv{V}\left(\frac{1}{T}\right)_{E,Q}}
+\end{equation}
+\end{ej}
+Notar que cada potencial termodinámico depende de tres variables y por lo tanto se pueden escoger tres diferentes relaciones entre dobles derivadas. Luego como son $5$ potenciales termodinámicos diferentes (para cada uno de los $5$ ensambles), tenemos $15$ relaciones diferentes entre sus dobles derivadas. \textbf{Estas son $15$ relaciones de Maxwell.}
+
+\begin{ej}
+	Consideremos $G=G(T,P,Q)$, así
+	\begin{equation}
+  \dd G=-S\dd T+V\dd P+\m \dd Q
+\end{equation}
+Ahora
+\begin{equation}
+  \pdv{G}{T}{P}=\pdv{G}{P}{T}
+\end{equation}
+\begin{equation}
+  \left(\pdv{T}\left(\pdv{G}{P}\right)_{T,Q}\right)_{P,Q}=\left(\pdv{P}\left(\pdv{G}{T}\right)_{P,Q}\right)_{T,Q}
+\end{equation}
+\begin{equation}
+  \implies \boxed{\eval{\pdv{T}{V}}_{P,Q}=-\eval{\pdv{S}{P}}_{T,Q}}
+\end{equation}
+\end{ej}
+
+Consideremos otro ejemplo.
+\begin{ej}
+	Muestre que 
+	\begin{equation}
+  \left(\pdv{E}{Q}\right)_{S,P}=\m -P\left(\pdv{\m}{P}\right)_{S,Q}
+\end{equation}
+Vemos que $V$ no aparece. Luego, despejamos la relación de $V$ de la segunda ley
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m\dd Q
+\end{equation}
+\begin{equation}\label{6.2star}
+  \implies \dd V=\frac{T}{P}\dd S+\frac{\m }{P}\dd Q-\frac{1}{P}\dd E
+\end{equation}
+De aquí podemos considerar, sumando $E/P$ para eliminar la dependencia de $\dd E$,
+\begin{equation}\label{6.mio}
+  \dd\left(V+\frac{E}{P}\right)=\dd V+\frac{\dd E}{\dd P}+E\dd\left(\frac{1}{P}\right)
+\end{equation}
+Pasando el último término de \eqref{6.2star} hacia el lado derecho y reemplazando \eqref{6.mio},
+\begin{equation}
+  \dd\left(V+\frac{E}{P}\right)=\frac{T}{P}\dd S+\frac{\m }{P}\dd Q-E\dd\left(\frac{1}{P}\right)
+\end{equation}
+Entonces 
+\begin{equation}
+  \pdv{(V+E/P)}{(1/P)}{Q}=\pdv{(V+E/P)}{Q}{(1/P)}
+\end{equation}
+Notemos que si y sólo si $(1/P)$ es constante,
+\begin{equation}
+  \left(\pdv{(1/P)}\left(\pdv{\m }{P}\right)\right)_{S,Q}=\left(\pdv{Q}E\right)_{S,P}
+\end{equation}
+Usando que
+\begin{equation}
+  \pdv{(1/P)}=-P^2\pdv{P}
+\end{equation}
+tenemos
+\begin{equation}
+  \left(\pdv{E}{Q}\right)_{S,P}=-P^2\left(\pdv{P}\left(\pdv{\m }{P}\right)\right)_{S,Q}
+\end{equation}
+\begin{equation}
+   \left(\pdv{E}{Q}\right)_{S,P}=-P^2\left(-\frac{1}{P^2}\m +\frac{1}{P}\left(\frac{\m }{P}\right)_{S,Q}\right)
+\end{equation}
+\begin{equation}
+  \boxed{ \left(\pdv{E}{Q}\right)_{S,P}=\m -P\left(\pdv{\m }{P}\right)_{S,Q}}
+\end{equation}
+\end{ej}
+
+\subsection{Fluctuaciones}
+De la función de partición es posible obtener momentos de orden superior para las variables termodinámicas \footnote{Los momentos de orden superior se pueden entender como derivadas de orden superior de la función partición con respecto a los multiplicadores de Lagrange.} . Por ejemplo, tenemos
+\begin{equation}
+  \zc=\sumi e^{-\b E_i}
+\end{equation}
+y por definición la energía promedio viene dada por
+\begin{equation}
+  \ev{E}=\sumi E_iP_i
+\end{equation}
+y
+\begin{equation}
+  P_i=\frac{e^{-\b E_i}}{\zc}
+\end{equation}
+por lo tanto, de \eqref{E=partial-beta},
+\begin{equation}
+  \ev{E}=\frac{\sumi E_i e^{-\b E_i}}{\zc}=-\frac{1}{\zc}\pdv{\zc}{(1/\k T)}
+\end{equation}
+Entonces
+\begin{equation}
+  \boxed{\ev{E}=-\pdv{(1/\k T)}\ln (\zc)=\k T^2\pdv{T}\ln (\zc)}
+\end{equation}
+Además,
+\begin{equation}
+  \ev{E^2}=\sumi E_i^2 P_i=\frac{\sumi E_i^2 e^{-Ei/\k T}}{\zc}
+\end{equation}
+%Vemos que
+%\begin{equation}
+%  \boxed{\pdv[2]{\b }\ln (\zc)=(E-\ev{E})^2}
+%\end{equation}
+%notar que $(E-\bar{E})^2$ es la varianza de $E$. 
+Notar que dado que
+\begin{equation}
+  \beta=\frac{1}{\k T}
+\end{equation}
+en términos de $\b$ tenemos
+\begin{equation}
+  \zc=\sumi e^{-\b E_i}
+\end{equation}
+luego
+\begin{align}
+  \pdv{\b}\ln (\zc)&=-\frac{1}{\zc}\sumi E_i\eb\\
+  &=-\ev{E}
+\end{align}
+es decir,
+\begin{equation}
+  \boxed{\pdv{\b}\ln (\zc)=-\ev{E}}
+\end{equation}
+
+Calculemos ahora la segunda derivada con respecto a $\b$,
+\begin{align}
+  \pdv[2]{\b}\ln(\zc)&=\pdv{\b}\left(-\frac{1}{\zc}\sumi E_i\eb\right)\\
+  &=\left(\frac{1}{\zc^2}\pdv{\b}\sumi E_i\eb\right)+\frac{1}{\zc}\sumi E_i^2\eb\\
+  &=\left(-\frac{1}{\zc^2}E_j\sum_j e^{-\b E_j}\right)\left(\sumi E_i\eb\right)+\frac{1}{\zc}\sumi E_i^2\eb\\
+  &=\left(-\frac{1}{\zc}E_j\sum_j e^{-\b E_j}\right)\left(\frac{1}{\zc}\sumi E_i\eb\right)+\frac{1}{\zc}\sumi E_i^2\eb\\
+  &=-\ev{E}^2+\ev{E^2}
+\end{align}
+así,
+\begin{equation}\label{6.d2blnz}
+ \boxed{ \pdv[2]{\b}\ln(\zc)=\ev{E^2}-\ev{E}^2}
+\end{equation}
+
+\begin{prop}
+Sea $\ev{E}$ el valor promedio de una cantidad, entonces la varianza de $E$ se puede escribir de dos maneras equivalentes
+	\begin{equation}
+  \text{Var}({E})=\ev{(E-\ev{E})^2}=\ev{E^2}-\ev{E}^2
+\end{equation}
+\end{prop}
+En efecto,
+\begin{align}
+  \ev{(E-\ev{E})^2}&=\sumi P_i\left(E_i-\sumj P_j E_j\right)^2\\
+  &=\sumi P_i\left(E_i^2-2E_i\sumj P_jE_j+\left(\sumj P_jE_j\right)^2\right)\\
+  &=\sumi P_iE_i^2-2\left(\sumi P_iE_i\right)\left(\sumj P_jE_j\right)+\underbrace{\sumi P_i}_{1}\left(\sumj P_jE_j\right)^2\\
+  &=\ev{E^2}-2\ev{E}^2+\ev{E}^2\\
+  &=\ev{E^2}-\ev{E}^2
+\end{align}
+Luego, \eqref{6.d2blnz} se puede escribir como
+\begin{equation}
+  \boxed{\pdv[2]{\b}\ln(\zc)=\ev{(E-\ev{E})^2}\equiv \text{Var}(E)}
+\end{equation}
+
+Además, podemos reescribir esto en términos de derivadas de $T$, usando
+\begin{equation}
+  \b=\frac{1}{\k T}\quad \implies \qquad \pdv{\b}=-\k T^2\pdv{T}
+\end{equation}
+luego,
+\begin{align}
+  \pdv{\b}\left(\pdv{\b}\ln\zc\right)&=\pdv{\b}\left(-\k T^2\pdv{T}\ln\zc\right)\\
+  &=\k^2 T^2\pdv{T}\left(T^2\pdv{T}\ln\zc\right)\\
+  &=\k^2T^2\left(2T\pdv{T}\ln\zc+T^2\pdv[2]{T}\ln\zc\right)
+\end{align}
+finalmente, se tiene
+\begin{equation}
+  \boxed{\text{Var}(E)=2\k^2T^3\pdv{T}\ln\zc+\k^2T^4\pdv[2]{T}\ln\zc}
+\end{equation}
+
+
+
+
+
+
+
+
+%\begin{align}
+%  \pdv[2]{\b}\ln(\zc)&=-\pdv{\b}\left(\frac{1}{\zc}\sumi E_i\eb \right)\\
+%  &=\left(\frac{1}{\zc^2}\sumi E_i\eb\right)\left(\sumi E_i\eb\right)+\frac{1}{\zc}\sumi E_i^2\eb\\
+%  &=-\ev{E}^2-\ev{E^2}\\
+%  &=\ev{E^2}-\ev{E}^2
+%\end{align}
+%es decir,
+%\begin{equation}
+%   \pdv[2]{\b}\ln(\zc)=\ev{E^2}-\ev{E}^2
+%\end{equation}
+%Luego,
+%%TODO checkear
+%
+%\begin{equation}
+%  \ev{(E-\ev{E})^2}=\sumi P_i (E_i-\ev{E})^2=
+%\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
