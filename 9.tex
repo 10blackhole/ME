@@ -1,10 +1,10 @@
 \section{Clase 9}
-\subsection{Teoremas de virial y equipartición}
+\subsection{Función partición de un gas ideal monoatómico}
 Para el ensamble canónico tenemos $\zc=\ebep$, con $(T,V,Q)$ fijos. Supongamos que la energía es función del momentum y de la posición (canónicos conjugados) $\ep=\ep(\vec{p},\vec{q})$ en particular para una partícula relativista de spin $0$.
 \begin{equation}
-  \ep(\vec{p},\vec{q})=\frac{\vec{p}^2}{2m}+V(q)
+  E(\vec{p},\vec{q})=\frac{\vec{p}^2}{2m}+V(q)
 \end{equation}
-Ahora considerando que el número de estados con momentum entre $p$ y $p+\dd p$ y posición $q$ y $q+\dd q$ esta dados por
+Para el gas ideal monoatómico consideramos despreciable las interacciones entre sus partículas y que $V=0$. Ahora considerando que el número de estados con momentum entre $p$ y $p+\dd p$ y posición $q$ y $q+\dd q$ esta dados por
 \begin{equation}
   \dd N=\frac{\dd^3\vec{p}\dd^3\vec{q}}{(2\p\hbar)^3}=\frac{(\dd p_x\dd p_y\dd p_z)(\dd q_x\dd q_y\dd q_z)}{(2\p\hbar)^3}
 \end{equation}
@@ -25,6 +25,162 @@ Calculemos la energía cinética promedio en el eje $x$,
 \begin{equation}
   \ev{\frac{p_x^2}{2m}}=\frac{\intpq\left(\frac{p_x^2}{2m}\right)e^{-\b\left(\frac{p_x^2+p_y^2+p_z^2}{2m}+V(q)\right)}}{\intpq e^{-\b\left(\frac{p_x^2+p_y^2+p_z^2}{2m}+V(q)\right)}}
 \end{equation}
-Podemos notar que la exponencial puede ser separada en el producto de exponenciales, y como cada exponencial depende de una variable distinta $(x,y,z)$ en la integral podemos escribir el producto de las integrales ya qye serán de variables independientes cada una. Por lo tanto, podemos cancelar todo lo que no depende de $x$ entre en numerador y el denominador de forma que nos queda
+Podemos notar que la exponencial puede ser separada en el producto de exponenciales, y como cada exponencial depende de una variable distinta $(x,y,z)$ en la integral podemos escribir el producto de las integrales ya que serán de variables independientes cada una. Por lo tanto, podemos cancelar todo lo que no depende de $x$ entre en numerador y el denominador de forma que nos queda
+\begin{align}
+   \ev{\frac{p_x^2}{2m}}&=\frac{2\int_0^\infty \dd p_x\left(\frac{p_x^2}{2m}\right)e^{-\frac{\b p_x^2}{2m}}}{2\int_0^\infty \dd p_xe^{-\frac{\b p_x^2}{2m}}}
+\end{align}
+debido a que el argumento de las integrales es par.
+Haciendo
+\begin{equation}
+  u=\frac{p_x^2}{2m}\implies \dd p_x=\sqrt{\frac{m}{2u}}\dd u
+\end{equation}
+tenemos,
+\begin{align}
+  \ev{\frac{p_x^2}{2m}}&=\frac{\int_0^\infty \sqrt{\frac{m}{2u}} u e^{-\b u}\dd u}{\int_0^\infty \sqrt{\frac{m}{2u}}e^{-\b u}\dd u}\\
+  &=\frac{\int_0^\infty \sqrt{u} e^{-\b u}\dd u}{\int_0^\infty\frac{1}{\sqrt{u}} e^{-\b u}\dd u}\\
+  &=\frac{1}{2\b }
+\end{align}
+%\bako{El ultimo paso no lo entendí}.
+
+Por lo tanto,
+\begin{equation}
+\boxed{  \ev{\frac{p_x^2}{2m}}_T=\frac{1}{2}\k T}
+\end{equation}
+Notar que
+\begin{equation}
+\boxed{  \ev{\frac{p_x^2}{2m}}_T=\ev{\frac{p_y^2}{2m}}_T=\ev{\frac{p_z^2}{2m}}_T=\frac{1}{2}\k T}
+\end{equation}
+y por lo tanto, el valor promedio de la energía cinética de una partícula no relativista es
+\begin{equation}
+ \boxed{ \ev{E_c}_T=\frac{3}{2}\k T,\qquad \text{con}\quad  E_c=\frac{p_x^2+p_y^2+p_z^2}{2m}}
+\end{equation}
+
+\subsection{Ejemplos varios}
+\begin{ej}
+	Considere 
+	\begin{equation}
+  V(\vec{q})=\frac{1}{2}m\omega^2V(|\vec{q}-\vec{q}_0 |),\qquad \text{con}\quad \vec{q}_0=(x_0,y_0,z_0)
+\end{equation}
+y encuentre $\ev{V}_T$.
+\end{ej}
+\begin{sol}
+	El potencial es
+	\begin{equation}
+  V(x,y,z)=\frac{1}{2}m\omega^2\left[(x-x_0)^2+(y-y_0)^2+(z-z_0)^2\right]
+\end{equation}
+y la energía
+\begin{equation}
+  E=\frac{p_x^2}{2m}+\frac{p_y^2}{2m}+\frac{p_z^2}{2m}+V(x,y,z)
+\end{equation}
+Para calcular $\ev{V}_T$ usamos lo anterior
+\begin{align}\label{9.integral}
+  \ev{V}_T&=\frac{\int\frac{\dd^3p\dd^3q}{(2\p\hbar)^3}V(x,y,z)e^{-\b E}}{\int\frac{\dd^3p\dd^3q}{(2\p \hbar)^3}e^{-\b E}}
+\end{align}
+pero 
+\begin{equation}
+  E=\frac{p_x^2}{2m}+\frac{p_y^2}{2m}+\frac{p_z^2}{2m}+V(x,y,z)
+\end{equation}
+luego, hay varios términos que se cancelan entre sí en \eqref{9.integral}, resultando
+\begin{align}
+   \ev{V}_T&=\frac{\int\dd^3x e^{-\b V(x,y,z)}V(x,y,z)}{\int e^{-\b V(x,y,z)}}
+\end{align}
+Haciendo el siguiente cambio de variable,
+\begin{align}
+  u_x=x-x_0,\qquad u_y=y-y_0,\qquad u_z=z-z_0
+\end{align}
+se tiene que $u^2=u_x^2+u_y^2+u_z^2$. Entonces
+\begin{equation}
+  \ev{V}_T=\frac{\int\dd^3x e^{-\b \left(\frac{1}{2}m\omega^2u^2\right)}\left(\frac{1}{2}m\omega^2u^2\right)}{\int e^{-\b \left(\frac{1}{2}m\omega^2u^2\right)}}
+\end{equation}
+Haciendo 
+\begin{equation}
+  v=\frac{1}{2}m\omega^2 u^2\implies u=\sqrt{\frac{2v}{m\omega^2}}
+\end{equation}
+\begin{equation}
+  \implies \dd v=m\omega^2u\dd u\implies \dd u=\frac{\dd v}{\sqrt{2 vm\omega^2}}
+\end{equation}
+Luego, como las $3$ integrales en $x,y,z$ son iguales, hacemos la del eje $x$ y multiplicamos por $3$. Esto es,
+\begin{align}
+  \ev{V}_T&=3\frac{\int e^{-\b v}\frac{\dd v}{\sqrt{2vm\omega^2}}v}{\int e^{-\b v}\frac{\dd v}{\sqrt{2mv\omega^2}}}\\
+  &=3\frac{\int e^{-\b v}\sqrt{v}\dd v}{\int e^{-\b v}\frac{1}{\sqrt{v}}\dd v}\\
+  &=\frac{3}{2}\k T
+\end{align}
+donde el dominio de integración es de $0$ a $\infty$. Luego,
+\begin{equation}
+  \boxed{\ev{V}_T=\frac{3}{2}\k T}
+\end{equation}
+
+
+
+
+
+
+
+
+\end{sol}
+
+
+\begin{ej}
+	Considere una molécua diatómica formada por $2$ átomos de masas $m_1$ y $m_2$. Considere que el potencial entre ambos átomos, dado por $V(|q_1-q_2|)$ puede aproximarse como
+	\begin{equation}
+  V(u)\approx V(u_0)+V'(u_0)(u-u_0)+\frac{1}{2}V''(u_0)(u-u_0)^2
+\end{equation}
+donde $u_0$ es la distancia de equilibrio de potencial y $u=q_1-q_2$.
+\begin{enumerate}
+	\item Escribe el Hamiltoniano del sistema.
+	\item Encuentre la función partición canónica.
+	\item Encuentre $\sqrt{\ev{(u-u_0)^2}}=\sqrt{\frac{3\k T}{V''(u_0)}}$.
+\end{enumerate}
+\end{ej}
+
+\begin{sol}
+\begin{enumerate}
+	
+\item 	Como es una molécula diatómica
+	\begin{align}
+  H&=\frac{\vec{p}_1^2}{2m}+\frac{\vec{p}_2^2}{2m}+V(|q_1-q_2|)\\
+  &=\frac{\vec{p}_1^2}{2m}+\frac{\vec{p}_2^2}{2m}+V(u_0)+\underbrace{\cancelto{0}{V'(u_0)(u-u_0)}}_{\substack{\text{derivada en la posición}\\ \text{de equilibrio}}}+\underbrace{\frac{1}{2}V''(u_0)}_{C}(u-u_0)^2
+\end{align}
+
+\item La función partición canónica viene dada por
+\begin{equation}
+  \zc=\int_{\mathbb{R}^6}\frac{\dd^3\vec{q_1}\dd^3\vec{q_2}\dd^3\vec{p_1}\dd^3\vec{p_2}}{(2\p \hbar)^6}e^{-\b \left(\frac{\vec{p}_1^2}{2m}+\frac{\vec{p}_2^2}{2m}+V(u_0)+\frac{1}{2}V''(u_0)(u-u_0)^2\right)}
+\end{equation}
+
+\item 
+\begin{equation}
+  \ev{(|\vec{q}_1-\vec{q}_2|-u_0)^2}=\frac{\frac{1}{2}\int\dd^3\vec{q}_1\dd^3\vec{q}_2e^{-\b C(\frac{1}{2}(u-u_0)^2)}C(u-u_0)^2}{\int\dd^3\vec{q}_1\dd^3\vec{q}_2e^{-\b \frac{1}{2}(u-u_0)^2}}
+\end{equation}
+Donde se calculan las integrales que dependen de $\vec{p}_1$ y $\vec{p}_2$ y la constante $V(u_0)$.
+\end{enumerate}
+\end{sol}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

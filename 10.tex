@@ -1,0 +1,223 @@
+\section{Clase 10}
+Usaremos coordenadas del centro de masa para simplificar el cálculo. Para ello definimos
+\begin{equation}
+  \m =\frac{m_1m_2}{m_1+m_2},\quad M=m_1+m_2
+\end{equation}
+Esto implica que
+\begin{align}
+  \vec{p}_1=m_1\dot{\vec{q}}_1,&\qquad \vec{p}_2=m_2\dot{\vec{q}}_2\\
+  q_{\rm cm}=\frac{m_1\vec{q}_1+m_2\vec{q}_2}{m_1+m_2},&\qquad \vec{q}_{\rm rel}=\vec{q}_2-\vec{q}_1\\
+   \dot{q}_{\rm cm}=\frac{m_1\dot{\vec{q}}_1+m_2\dot{\vec{q}}_2}{m_1+m_2},&\qquad \dot{\vec{q}}_{\rm rel}=\dot{\vec{q}}_2-\dot{\vec{q}}_1\
+\end{align}
+y
+\begin{align}
+  \vec{p}_{\rm cm}&=M\dot{\vec{q}}_{\rm cm},\qquad \dot{\vec{q}}_{\rm rel}=\dot{\vec{q}}_2-\dot{\vec{q}}_1\\
+  \vec{p}_{\rm rel}&=\m \dot{\vec{q}}_{\rm rel}=\frac{m_1\vec{p}_2-m_2\vec{p}_1}{m_1+m_2}
+\end{align}
+Entonces el Hamiltoniano quedará (en coordenadas del centro de masa)
+\begin{equation}
+  H=\frac{\vec{p}_{\rm cm}^2}{2M}+\frac{\vec{p}_{\rm rel}^2}{2\m }+V(u_0)+\frac{1}{2}C(|\vec	{q}_{\rm rel}-u_0|)^2
+\end{equation}
+Ahora, el principio de incertidumbre (consideremos el $\rm cm$ como una partícula libre en el espacio de fase). Debemos encontrar el volumen en el espacio de fase:
+\begin{align}
+  \Delta q_{i,1}\Delta p_{i,1}\sim h \Leftrightarrow\frac{\dd p_{i,1}\dd p_{i,1}}{(2\p \hbar)}\Leftrightarrow [q_{i,1},p_{j,1}]=i\hbar\delta_{ij}\\
+  \Delta q_{i,2}\Delta p_{i,2}\sim h \Leftrightarrow\frac{\dd p_{i,2}\dd p_{i,2}}{(2\p \hbar)}\Leftrightarrow [q_{i,2},p_{j,2}]=i\hbar\delta_{ij}
+\end{align}
+y las coordenadas del centro de masa
+\begin{align}
+  [\hat{q}_i^{\rm cm},\hat{p}_j^{\rm cm}]=i\hbar\delta_{ij},\qquad [\hat{q}_i^{\rm rel},\hat{p}_j^{\rm rel}]=i\hbar\delta_{ij},\qquad [\hat{q}_i^{\rm rel},\hat{p}_j^{\rm cm}]=0
+\end{align}
+queda
+\begin{align}
+  \frac{\dd q_i^{\rm cm}\dd p_i^{\rm cm}}{(2\p \hbar)},\qquad \frac{\dd q_i^{\rm rel}\dd p_i^{\rm rel}}{(2\p \hbar)}
+\end{align}
+Finalmente la función partición queda
+\begin{align}
+  \zc =\int_{\mathbb{R}^{12}}\frac{\dd\vec{p}_{\rm cm}\dd\vec{q}_{\rm cm}\dd\vec{p}_{\rm rel}\dd\vec{q}_{\rm rel}}{(2\p \hbar)^6}e^{-\b H(\vec{q}_{\rm rel},\vec{p}_{\rm rel},\vec{p}_{\rm cm},\vec{q}_{\rm cm})}
+\end{align}
+
+Notar que tenemos 6 grados de libertad: $3$ traslacionales cm, $2$ rotacionales rel (molécula diatómica) y $1$ elongación entre la partículas.
+
+Primero encontramos $\ev{V(q_{\rm rel}-V(u_0))}_+$,
+\begin{align}
+  \ev{V(q_{\rm rel}-V(u_0))}_+=\frac{\int_{\mathbb{R}^{12}}\frac{\dd\vec{p}_{\rm cm}\dd\vec{q}_{\rm cm}\dd\vec{p}_{\rm rel}\dd\vec{q}_{\rm rel}}{(2\p \hbar)^6}\left(\frac{1}{2}C(|q_{\rm rel}|-u_0)^2\right)e^{-\b H}}{\int_{\mathbb{R}^{12}}\frac{\dd\vec{p}_{\rm cm}\dd\vec{q}_{\rm cm}\dd\vec{p}_{\rm rel}\dd\vec{q}_{\rm rel}}{(2\p \hbar)^6}e^{-\b H}}
+\end{align}
+Recordar que
+\begin{align}
+  V(\text{rel})&\approx V(u_0)+\frac{1}{2}V''(u_0)(u-u_0)^2\\
+  |q_{\rm rel}-u_0|&\ll u_0\\
+  q_{\rm rel}&\approx u_0
+\end{align}
+Nos ayuda
+\begin{align}
+  \ev{V(q_{\rm rel})-V(u_0)}_+=\frac{\int\dd^3\vec{q}_{\rm rel}\left(\frac{1}{2}C(|q_{\rm rel}|-u_0)^2\right)e^{-\b \left(\frac{1}{2}C(q_{\rm rel}-u_0)^2)\right)}}{\int\dd^3\vec{q}_{\rm rel}e^{-\b \left(\frac{1}{2}C(q_{\rm rel}-u_0)^2\right)}}
+\end{align}
+En coordenadas esféricas
+\begin{align}
+  \ev{V(q_{\rm rel})-V(u_0)}_+=\frac{\int\dd^3\vec{q}_{\rm rel}q_{\rm rel}^2\left(\frac{1}{2}C(|q_{\rm rel}|-u_0)^2\right)e^{-\b \left(\frac{1}{2}C(q_{\rm rel}-u_0)^2)\right)}}{\int\dd^3\vec{q}_{\rm rel}q_{\rm rel}^2e^{-\b \left(\frac{1}{2}C(q_{\rm rel}-u_0)^2\right)}}
+\end{align}
+donde se usó que $q_{\rm rel}^2$ es el Jacobiano en coordenadas esféricas y que las integrales del ángulo sólido se cancelan entre ellas.
+
+Usando aproximación de \textit{pequeñas oscilaciones}, podemos hacer la siguiente aproximación
+\begin{align}
+  \ev{V(q_{\rm rel}-V(u_0))}_T\approx\frac{\int_{-\infty}^\infty \dd q_{\rm rel}u_0^2\left(\frac{1}{2}C(q_{\rm rel}-u_0)\right)e^{-\b \left(\frac{1}{2}C(q_{\rm rel}-u_0)^2\right)}}{\int_{-\infty}^\infty \dd q_{\rm rel}u_0^2e^{-\b\left(\frac{1}{2}C(q_{\rm rel}-u_0)^2\right)}}
+\end{align}
+Donde usamos que la región para $q_{\rm rel}<0$ debe está fuertemente reprimida por la exponencial, para justificar los límite de integración. Así, podemos resolver la integral de manera analítica y asumiendo estas suposiciones no hay error en extender los límites de integración.
+
+Para pequeñas oscilaciones en torno a mínimo se debe imponer una restricción en la temperatura
+\begin{equation}
+  \k T\ll \frac{1}{2}Cu_0
+\end{equation}
+
+Para resolver hacemos los siguientes cambios de variable
+\begin{align}
+  \omega_1&= q_{\rm rel}-u_0\implies -\infty<\omega_1<\infty\\
+  \omega_2&=\frac{1}{2}C\omega_1^2\implies \dd\omega_2=C\omega_1\dd\omega_1
+\end{align}
+así
+\begin{equation}
+  \frac{\dd \omega_2}{C\omega_1}=\dd \omega_1\implies \frac{\dd\omega_2}{\sqrt{2C\omega_2}}=\dd\omega_1
+\end{equation}
+Notemos que después de hacer el cambio de variable, el integrando es par, por lo que podemos hacer dos veces la integral de $0$ a $\infty$,
+\begin{align}
+  \ev{V(|q_{\rm rel}|-V(u_0))}&=\frac{2\int_0^\infty \frac{\dd\omega_2}{\sqrt{2C\omega_2}}\omega_2e^{-\b \omega_2}}{2\int_0^\infty \frac{\dd \omega_2}{\sqrt{2C\omega_2}}e^{-\b\omega_2}}\\
+  &=\frac{1}{2\b }=\frac{1}{2}\k T
+\end{align}
+Luego el RMS (root mean square), queda
+\begin{align}
+  \sqrt{\ev{(q_{\rm rel}-u_0)^2}_T}=\sqrt{\frac{\frac{1}{2}\k T}{\frac{1}{2}C}}=\sqrt{\frac{\k T}{C}}
+\end{align}
+\begin{equation}
+ \boxed{ \sqrt{\ev{(q_{\rm rel}-u_0)^2}_T}=\sqrt{\frac{\k T}{C}}}
+\end{equation}
+
+\begin{ej}
+	Considere una cadena, formada por ENE eslabones de largo $l$ cada uno. Suponga un espacio uni-dimensional, de forma que cada eslabón puede orientarse hacia la derecha o hacia la izquierda. Suponga que no ha gasto o ganancia energética en cambiar la orientación de un eslabón.
+	\begin{enumerate}
+		\item Derive la fuerza de tensión de la cadena en función de su longitud $L$, a temperatura $T$, considerando $L\ll Nl$.
+		\item Verifique que se cumple la ley de Hooke y encuentre la dependencia de la constante elástica con la temperatura.
+	\end{enumerate}
+\end{ej}
+
+\begin{sol}
+	Sea $N_r$ el número de eslabones orientados hacia la derecha y $N_l$ el número de eslabones orientados hacia la izquerda. El número de configuraciones posibles es
+	\begin{equation}
+  \Omega=\frac{N!}{N_r!N_l!}
+\end{equation}
+de aquí se tiene que $\Omega$ es máximo cuando $N_r=N_l=\frac{N}{2}$. La configuración equiprobable maximiza la entropía irrestricta (salvo $N_r+N_l=N$).
+\end{sol}
+
+Cuando la \textit{enrgía de la configuración no depende de la misma}, $E$ es no fluctuante (fijo). Lueg, el sistema está descrito por un ensamble microcanónico ($\Omega=\Omega(E,V,Q)$ o $S=S(E,V,Q)=\k \ln\Omega$).
+
+Ahora, usnado la aproximación de Stearling \eqref{Stearling}, se tiene
+\begin{align}
+  S&=\k (\ln(N!)-\ln(N_r!)-\ln(N_l!))\\
+  &\approx \k (N\ln(N)-N-N_r\ln(N_r)+N_r-N_l\ln(N_l)+N_l),\qquad N=N_r+N_l\\
+  &=\k (N\ln(N)-N_r\ln(N_r)-N_l\ln(N_l))\\
+  &=-\k N\left[\left(\frac{N_r}{N}\right)\ln(N_r)+\left(\frac{N_l}{N}\right)\ln(N_l)-\left(\frac{N_l+N_r}{N}\right)\ln(N_l+N_r)\right]\\
+  &=-\k N\left[\left(\frac{N_r}{N}\right)\ln\left(\frac{N_r}{N}\right)+\left(\frac{N_l}{N}\right)\ln\left(\frac{N_l}{N}\right)\right]
+\end{align}
+Usando la fórmula de entropía de Shannon
+\begin{equation}
+  \frac{S}{\k N}=-\sumi P_i\ln(P_i),\qquad P_r=\frac{N_r}{N},\qquad P_l=\frac{N_l}{N}
+\end{equation}
+Definimos 
+\begin{equation}
+  L=l(N_r-N_l)
+\end{equation}
+\begin{equation}
+  N_r=N_l=\frac{N}{2}(1\pm \epsilon),\qquad \epsilon=\frac{L}{Nl}\ll 1
+\end{equation}
+Luego reemplazamos en $S$,
+\begin{align}
+  S=\k N\left[\ln(2)-\left(\frac{1}{2}(1+\epsilon)\ln(1+\epsilon)+\frac{1}{2}(1-\epsilon)\ln(1-\epsilon)\right)\right]
+\end{align}
+Así, tenemos que si la tensión de la tensión de la cuerda es $F$, para extender la cuerda en $\dd L$ se necesita un trabajo $\dd\omega=F\dd L$. Luego, la energía interna del sistema satisface
+\begin{align}
+  \dd E&=T\dd S+F\dd L\\
+  \dd S&=\frac{1}{T}\dd E-\frac{F}{T}\dd L
+\end{align}
+Por tanto, \begin{equation}
+  F=-T\left(\pdv{S}{L}\right)_E
+\end{equation}
+como es la derivada de $S$ a $E$ constante, se puede usar la expresión anterior del ensamble microcanónico. Además
+\begin{align}
+  L&=Nl\epsilon\\
+  \pdv{L}&=\frac{1}{Nl}\pdv{E}
+\end{align}
+Entonces se tiene
+\begin{equation}
+  \left(\pdv{S}{L}\right)_E=\frac{1}{Nl}\left(\pdv{S}{E}\right)=-\frac{\k }{2l}\ln\left(\frac{1+\epsilon}{1-\epsilon}\right)
+\end{equation}
+Luego,
+\begin{equation}
+  F=-T\left(\pdv{S}{L}\right)_E=\frac{\k }{2l}\ln\left(\frac{1+\epsilon}{1-\epsilon}\right),\qquad \epsilon\ll q,\quad \ln(q\pm \epsilon)\sim \pm \epsilon
+\end{equation}
+Entonces
+\begin{equation}
+  F\approx \frac{\k T}{l}\epsilon
+\end{equation}
+reemplazamos el valor de $F$,
+\begin{equation}
+  F=\frac{\k T}{N l^2}L
+\end{equation}
+Finalmente
+\begin{equation}
+\boxed{  F_{\rm Hooke}=-F=-\frac{\k T}{Nl^2}L}
+\end{equation}
+con
+\begin{equation}
+\boxed{  \k_{\rm Hooke}(T)=\frac{\k T}{Nl^2}}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

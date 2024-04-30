@@ -8,7 +8,7 @@ Este comportamiento se deduce directamente de la paridad de la función de onda,
 
 Por otro lado, el número de estados disponibles para una partícula libre no interactuante en una caja de volúmen $V$ con momentum en el elemento diferencial $\dd^D p$ es \footnote{Notar que para $D=3$, $\dd^3p=4p p^2\dd p$, y en general para $\dd^Dp=\Omega p^{D-1}\dd p$. Para $D=2$ por ejemplo, $\dd^2 p=2\p p\dd p$.}
 \begin{equation}
-	\dd N=(2s+1)\frac{V}{(2\p\hbar)^3}\dd^3p
+	\dd N=(2s+1)\frac{V}{(2\p\hbar)^D}\dd^Dp
 \end{equation}
 
 Derivemos la función partición en el ensamble gran canónico (el ensamble más general a volumen constante). Tenemos que
@@ -43,7 +43,7 @@ El sistema total admite configuraciones $\{n_{p_1},n_{p_2},...\}$ que correspond
 \end{equation}
 Suponiendo cada suma de $e$ como la multiplicidad de las exponenciales, queda
 \begin{equation}\label{8.prodzp}
-  \boxed{\zgc =\prod_p \zp}
+  \boxed{\zgc =\prod_{n_p} \zp}
 \end{equation}
 
 Podemos evaluar $\zp$ dependiendo de si las partículas son bosones o fermiones.
@@ -109,7 +109,7 @@ donde
 \begin{equation}
   f(\epsilon(p))=\frac{e^{-\b (\epsilon(p)-\m q)}}{1\mp e^{\b (\epsilon(p)-\m q)}}
 \end{equation}
-la cual es la \textbf{función de ocupación (o probabilidad de oupación) para la energía $\epsilon$}. $f(\epsilon)$ representa la probabilidad relativa (no normalizada) de que una partícula tenga energía $\epsilon$.
+la cual es la \textbf{función de ocupación (o probabilidad de ocupación) para la energía $\epsilon$}. $f(\epsilon)$ representa la probabilidad relativa (no normalizada) de que una partícula tenga energía $\epsilon$.
 
 Para el caso particular de que se escoja $q=1$, se tiene que $Q=N$ con $N$ el número total de partículas y $N/V$ la densidad numérica.
 
