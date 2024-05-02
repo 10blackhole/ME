@@ -1,0 +1,124 @@
+\section{Clase 11}
+\subsection{Teorema de equiparación generalizado}
+\begin{teor}
+Dado un Hamiltoniano $H=H(\t )$ cualquiera:
+\begin{equation}
+  \ev{\t \pdv{H}{\t }}_T=\k T
+\end{equation}
+donde $\t $ es alguna variable del espacio de fase $p$ o $q$ \footnote{Podemos pensar $\vec{\t }=(\vec{p},\vec{q})$.}.
+	
+\end{teor}
+
+Hacemos las siguientes suposiciones
+\begin{equation}
+  H(\t \to \infty)\to \infty
+\end{equation}
+ó
+\begin{equation}
+  \t\in D,\quad |D|<\infty
+\end{equation}
+
+\begin{dem}
+	\begin{equation}
+  \ev{\t \pdv{H}{\t }}=\frac{\int\dd\t \t \pdv{H}{\t }e^{-\b H(\t )}}{\int\dd\t  e^{-\b H(\t )}}
+\end{equation}
+(Cancelando todas las variables del espacio de fase que no entran en el promedio). Notemos que
+\begin{equation}
+  \pdv{\t}(e^{-\b H(\t )})=-\b e^{-\b H(\t )}\pdv{H}{\t }=-\frac{1}{\k T}e^{-\b H(\t )}\pdv{H}{\t }
+\end{equation}
+Luego,
+\begin{equation}
+   \ev{\t \pdv{H}{\t }}=\frac{-\k T\int\dd\t \t\pdv{\t}\left( e^{-\b H(\t )}\right)}{\int\dd \t e^{-\b H(\t )}}
+\end{equation}
+Integrando por partes
+\begin{equation}
+  \ev{\t \pdv{H}{\t }}=\frac{\k T\left(\t \eval{e^{-\b H}}_{-\infty}^\infty +\int\dd \t e^{-\b H}\right)}{\int\dd\t e^{-\b H}}
+\end{equation}
+Si
+\begin{equation}
+\eval{  \t e^{-\b H}}_{-\infty}^\infty=0
+\end{equation}
+entonces
+\begin{equation}
+  \boxed{\ev{\t \pdv{H}{\t }}=\k T}\qquad \qed
+\end{equation}
+\end{dem}
+
+Notar que para 
+\begin{equation}
+  H(\t\to\pm\infty)\to \infty
+\end{equation}
+se cumple que
+\begin{equation}
+  \t e^{-\b H}\to 0
+\end{equation}
+con la condición $\t\to\pm\infty$.
+
+Ahora, cuando $\t\in D$ siendo $D$ un dominio acotado, no ocurre que $\t\to\pm\infty$. La manera de modelar esta situación es considerar que hay \textit{una barrera de potencial en los bordes del dominio D.}. Luego, en este caso $H(\t )\to \infty$ con $\t\in D$.
+
+en este caso la integral en $\t $ tiene como límites el borde del dominio. Entonces, el término de borde es
+\begin{equation}
+\eval{\t e^{-\b H(\t )}}_{\partial D}=0
+\end{equation}
+
+\subsection{Teorema del Virial}
+
+En mecánica clásica, existe un teorema análogo al teorema de equipartición llamado teorema del Virial:
+\begin{teor}
+\begin{equation}
+  \ev{p_i\pdv{H}{p_i}}=\ev{q_i\pdv{H}{q_i}}
+\end{equation}
+\end{teor}
+Notar que el promedio $\ev{}$ no necesariamente es un promedio térmico. Es térmico para sistemas en equilibrio térmico que se les puede asociar una temperatura. En general, $\ev{}$ se llama \textit{promedio del ensamble}.
+
+\begin{dem}
+	Consideremos
+	\begin{equation}
+  \ev{\dv{t}(q_ip_i)}=\ev{p_i\dot{q}_i}+\ev{q_i\dot{p}_i}
+\end{equation}
+y usando las ecuaciones de Hamilton
+\begin{equation}
+  \dot{q}_i=\pdv{H}{p_i},\qquad \dot{p}_i=-\pdv{H}{q_i}
+\end{equation}
+obtenemos
+\begin{equation}
+  \ev{p_i\pdv{H}{p_i}}-\ev{q_i\pdv{H}{q_i}}=\ev{\dv{t}(q_ip_i)}
+\end{equation}
+Asumimos \textit{ergodicidad}. Luego
+\begin{align}
+  \ev{\dv{t}(q_ip_i)}&=\lim_{\t\to\infty}\frac{1}{\t }\int_0^\t \left(\dv{t}(p_iq_i)\right)\dd t\label{11.ergo}\\
+  &=\lim_{\t\to\infty}\frac{1}{\t }\left(p_i(\t)q_i(\t)-p_i(0)q_i(0)\right)\\
+  &=0,\qquad \text{para }\,  \eval{p_i(\t)q_i(\t)}_{\t\to\infty}<0\label{11.otro}
+\end{align}
+entonces se demuestra que
+\begin{equation}
+  \ev{\dv{t}(q_ip_i)}=0
+\end{equation}
+y luego
+\begin{equation}
+\boxed{  \ev{p_i\pdv{H}{p_i}}=\ev{q_i\pdv{H}{q_i}}}\qquad \qed
+\end{equation}
+\end{dem}
+
+La demostración de este teorema asume dos puntos importantes:
+\begin{enumerate}
+	\item \textbf{Ergodicidad}: Es posible igualar un promedio de ensamble (promedio sobre configuraciones posibles) a un promedio temporal. Eso significa que en un tiempo infinito, el sistema explora todas la configuraciones posibles. (\eqref{11.ergo})
+	\item En un tiempo infinito, los valores de $p_i$ y $q_i$ son siempre finitos (por el límite de $\t\to\infty$, considerando el $1/\t $para que el límite exista. De manera contraria seria algo como $\infty/\infty$.) (\eqref{11.otro})
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
