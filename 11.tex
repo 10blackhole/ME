@@ -106,6 +106,66 @@ La demostración de este teorema asume dos puntos importantes:
 	\item En un tiempo infinito, los valores de $p_i$ y $q_i$ son siempre finitos (por el límite de $\t\to\infty$, considerando el $1/\t $para que el límite exista. De manera contraria seria algo como $\infty/\infty$.) (\eqref{11.otro})
 \end{enumerate}
 
+\begin{ej}
+	Considere el sistema uni-dimensional con potencial
+	\begin{equation}
+  V(x)=Cx^n,\quad n\geq 1
+\end{equation}
+\begin{enumerate}
+	\item Encuentre $\a$ tal que $\ev{E_c}=\a\ev{V}$, donde $\ev{E_c}$ y $\ev{V}$ son las energías cinéticas y potenciales promedio.
+	\item Encuentre $\ev{V}_T$.
+\end{enumerate}
+\end{ej}
+
+\begin{sol}
+\begin{enumerate}
+	\item
+	El Hamiltoniano viene dado por
+	\begin{equation}
+  H=E_c+V
+\end{equation}
+\begin{equation}
+  H(p,x)\implies H=\frac{p^2}{2m}+Cx^n
+\end{equation}
+Entonces, usando el teorema de virial,
+\begin{align}
+  \ev{p\pdv{H}{p}}&=\ev{x\pdv{H}{x}}\\
+  \ev{p\left(\frac{p}{m}\right)}&=\ev{x\left(Cnx^{n-1}\right)}\\
+  \underbrace{\ev{\frac{p^2}{m}}}_{2E_c}&=n\underbrace{\ev{x^nC}}_{V}
+\end{align}
+Nos queda
+\begin{align}
+  2\ev{E_c}&=n\ev{V}\\
+  \ev{E_c}&=\underbrace{\frac{n}{2}}_{\a }\ev{V}
+\end{align}
+Luego,
+\begin{equation}
+\boxed{  \a =\frac{n}{2}}
+\end{equation}
+\item 
+\begin{equation}
+  2\ev{E_c}_T=n\ev{V}_T=\k T
+\end{equation}
+luego,
+\begin{equation}
+ \boxed{ \ev{V}_T=\frac{\k T}{n}}
+\end{equation}
+Podemos notar que como el potencial es $Cx^n$ el factor del denominador va como el exponente del potencial.
+\end{enumerate}
+\end{sol}
+
+\underline{\textbf{Nota:}} Si quisiéramos calcular el promedio de $E_c$,
+\begin{align}
+  2\ev{E_c}&=n\ev{V}\\
+  \ev{E_c}&=\frac{n}{2}\left(\frac{\k T}{n}\right)
+\end{align}
+\begin{equation}
+\boxed{  \ev{E_c}=\frac{1}{2}\k T}
+\end{equation}
+donde vemos que como $E_c$ es cuadrática en $p$, el resultado está dividido en $2$.
+
+
+
 
 
 

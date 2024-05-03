@@ -1,0 +1,230 @@
+\section{Clase 12}
+\subsection{Gases degenerados}
+El término \textit{gases degenerados} se refiere al hecho de que hay algunos modos para los cuales la probabilidad de ocupación $f(\epsilon)$ es mucho menor que uno. En tales casos, los bosones y fermiones se comportan de manera muy distinta.
+
+Consideremos
+\begin{equation}
+  f(T-\m )=\frac{e^{-\b (\epsilon-\m )}}{1\pm e^{-\b (\epsilon-\m )}}
+\end{equation}
+con $f(T-\m )$ la función de ocupación:
+\begin{align}
+  +&:\quad \text{para fermiones}\\
+  -&:\quad \text{para bosones}
+\end{align}
+Cuando $f(T-\m )\approx 1$ se dice que el gas está \textit{degenerado}.
+
+\subsection{Gas degenerado de bosones y condensado de Bose-Einstein}
+De \eqref{8.densidadnumerica}, la densidad numérica viene dada por
+\begin{equation}
+  \rho=\frac{N}{V}=(2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D}\left(\frac{e^{-(\epsilon(p)-\m)/\k T }}{1-e^{-(\epsilon(p)-\m )/\k T}}\right)
+\end{equation}
+Suponemos un gas no-relativista, luego la relación de dispersión está dada por
+\begin{equation}
+  \epsilon(p)\approx \frac{p^2}{2m}
+\end{equation}
+Podemos ver que para $\m \geq 0$, $f(\epsilon-\m )$ tiene una divergencia
+\begin{equation}
+  p\in [0,\infty),\qquad \epsilon(p)\in [0,\infty)
+\end{equation}
+En particular, para $\epsilon\to \m $, se tiene que $f(\epsilon-\m )\to \infty$. En este caso hay una formación de un \textit{condensado de Bose-Einstein}.
+
+Estudiemos el caso límite $\m =0^{-}$ para encontrar la densidad requerida para la condensación de Bose:
+\begin{align}
+  \rho&=(2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D}\frac{e^{-\frac{p^2}{2m\k T}}}{1-e^{-\frac{p^2}{2m\k T}}}\\
+  &=   (2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D}\sum_{n=0}^\infty e^{-(n+1)p^2/(2m\k T)}      \\
+  &=   (2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D}\sum_{n=1}^\infty e^{-(np^2/(2m\k T)}  \\
+  &=(2s+1)\int_0^\infty \frac{\Omega_D p^{D-1}\dd p}{(2\p\hbar)^D}\sum_{n=1}^\infty \left(e^{-p^2/(2m\k T)}\right)^n
+\end{align}
+donde $\Omega_D$ es el ángulo sólido y se usó el hecho de que
+\begin{equation}
+  \sum_{n=0}^\infty x^n=\frac{1}{1-x},\quad |x|<1
+\end{equation}
+
+ Haciendo el siguiente cambio de variable,
+\begin{equation}
+  u=\frac{p}{\sqrt{m\k T}},\qquad \dd u=\frac{\dd p}{\sqrt{m\k T}}
+\end{equation}
+se tiene
+\begin{align}
+  \rho&=(2s+1) \int_0^\infty\frac{\Omega_Du^{D-1}}{(2\p\hbar)^D}(m\k T)^{(D-1)/2}(m\k T)^{1/2}\dd u\sum_{n=1}^\infty \left(e^{-u^2/2}\right)^n\\
+  &=(2s+1)\frac{(m\k T)^{D/2}}{(2\p\hbar)^D}\sum_{n=1}^\infty \int\dd^D ue^{-nu^2/2}
+\end{align}
+
+\begin{prop}
+	\begin{equation}\label{12.prop}
+  \sum_{n=1}^\infty \int\dd^D ue^{-nu^2/2}=\left(\int \dd^D ue^{-u^2/2}\right)\sum_{n=1}^\infty n^{-D/2}
+\end{equation}
+\end{prop}
+\begin{prueba}
+	Queremos mostrar que 
+	\begin{equation}
+  \int\dd^Due^{-nu^2/2}=n^{-D/2}\int\dd^Due^{-u^2/2}
+\end{equation}
+En efecto,
+\begin{align}
+  \int\dd^Due^{-nu^2/2}&=\Omega_D\int_0^\infty u^{D-1}\dd e^{-nu^2/2}
+\end{align}
+Haciendo
+\begin{equation}
+  z=\sqrt{n}u\implies u=\frac{z}{\sqrt{n}}\implies	 \dd u=\frac{\dd z}{\sqrt{n}}
+\end{equation}
+tenemos
+\begin{align}
+  \int\dd^Due^{-nu^2/2}&=\Omega_D\int_0^\infty \frac{\dd z}{\sqrt{n}}\left(\frac{z}{\sqrt{n}}\right)^{D-1}e^{-z^2/2}\\
+  &=\Omega_D\int_0^\infty \dd z zn^{-D/2}e^{-z^2/2}\\
+  &=n^{-D/2}\int_0^\infty \dd z^De^{-z^2/2}\\
+  &=n^{-D/2}\int_0^\infty \dd u^De^{-u^2/2}
+\end{align}
+luego, se sigue \eqref{12.prop}.
+\end{prueba}
+
+
+Así, $\r$ nos queda
+\begin{equation}
+  \boxed{\rho=(2s+1)\frac{(m\k T)^{D/2}}{(2\p\hbar)^D}\left( \int\dd^D ue^{-u^2/2}\right)\sum_{n=1}^\infty n^{-D/2}}
+\end{equation}
+
+Para $D=1$ ó $D=2$ la sumatoria es divergente. Luego, $\rho$ puede ser arbitrariamente grande sin que llegue al valor $0$. Es decir, $\forall \r >0, \exists \m <0$. Entonces \textit{no hay} condensación de Bose-Einstein.
+
+Para $D\geq 3$,
+\begin{equation}
+  \sumn1 n^{-D/2}
+\end{equation}
+es convergente!. En particular \footnote{Recordar que la función zeta de Riemann se define como
+\begin{equation}
+ \z (s)= \sumn1 \frac{1}{n^s }.\end{equation}
+}
+\begin{equation}
+  \boxed{\sumn1 n^{-D/2}=\z \left(\frac{D}{2}\right)}
+\end{equation}
+
+Entonces para $D=3$,
+\begin{align}
+  \r(\m =0,T)=(2s+1)\frac{(m\k T)^{3/2}}{(2\p\hbar)^3}\underbrace{\left(4\p \int_0^\infty u^2e^{-u^2/2}\dd u\right)}_{(2\p)^{3/2}}\z\left(\frac{3}{2}\right)
+\end{align}
+donde $u^2$ es la Jacobiano. Luego, usando la propiedad
+\begin{prop}
+	\begin{equation}
+  \int_0^\infty u^2e^{-u^2/2}\dd u=\sqrt{\frac{\p }{2	}}
+\end{equation}
+
+\end{prop}
+
+nos queda
+\begin{equation}
+  \boxed{\r_c(T)=(2s+1)\frac{(m\k T)}{(2\p)^{3/2}\hbar^3}\z \left(\frac{3}{2}\right)}
+\end{equation}
+
+Notar que $\r_c(T)$ es la densidad de condensación en función de la temperatura, es decir, es la densidad a la cual el potencial químico $\m$ se hace cero. En general, $\m$ es negativo \textit{y se interpreta como el costo de energía por partícula de poner una nueva en el sistema.}
+
+Cuando a $T$ fija, $\r>\r_c(T)$, el sistema se encuentra en dos fases:
+\begin{enumerate}
+	\item Una fase a densidad $\r_c(T)$ descrita por la función de ocupación de Bose-Einstein a $\m=0$ ($f(T,\m=0)$).
+	\item Una fase a densidad $(\r-\r_c(T))$ tal que todas las partículas se encuentran en el estado fundamental. A esta fase se le llama \textit{condensado de Bose-Einstein.}
+\end{enumerate}
+
+\subsection{Gas degenerado de Fermi}
+En el caso de los fermiones, la función de ocupación viene dada por
+\begin{equation}
+  \boxed{f(T-\m,\b )=\frac{e^{-\b(\epsilon-\m  )}}{1+e^{-\b(\epsilon-\m)}}}
+\end{equation}
+Notar que para $\b\to \infty \,(T\to 0)$, se tiene
+\begin{equation}\label{12.Theta}
+  f(\epsilon-\m ,\b )=\Th (\m-\epsilon )= \left\{ \begin{array}{lcc} 1,& \epsilon<\m \\ \\ 
+  \frac{1}{2},&\epsilon=\m \\ \\  0,&\epsilon>\m  \end{array}\right.
+\end{equation}
+De acá se desprende que
+\begin{equation}
+  \frac{e^{-\b(\epsilon-\m  )}}{1+e^{-\b(\epsilon-\m)}}= \left\{\begin{array}{lcc}
+  	\lim_{x\to\infty}\frac{x}{1+x}=1\\ \\\
+  	\lim_{x\to 0}\frac{0}{1+0}=0
+  \end{array}   \right.
+\end{equation}
+Esto se entiende del hecho de que como máximo puede haver un fermión en cada estado.
+
+Considere la densidad numérica a $T=0$,
+\begin{equation}
+  \rho=\frac{N}{V}=(2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D}f(\epsilon-\m ,T)
+\end{equation}
+a $T=0$, de \eqref{12.Theta} se tiene
+\begin{equation}
+  \rho=\frac{N}{V}=(2s+1)\int \frac{\dd^Dp}{(2\p \hbar)^D} \Th (\m-\epsilon)
+\end{equation}
+Entonces de la función de Heaviside la cual fija los límites de la integral,
+\begin{equation}
+  \r =(2s+1)\int_0^{p (\epsilon=\m )}\frac{\Omega_D p^{D-1}\dd p}{(2\p\hbar)^D}
+\end{equation}
+pero para una partícula no-relativista se tiene
+\begin{equation}
+  \epsilon=\frac{p^2}{2m},\implies  p(\epsilon=\m )=\sqrt{2m\m }
+\end{equation}
+luego tenemos
+\begin{equation}
+  \r =(2s+1)\frac{\Omega_D}{(2\p\hbar)^D}\frac{1}{D}(\sqrt{2m\m })^D
+\end{equation}
+Finalmente
+\begin{equation}
+ \boxed{ \r=(2s+1)\frac{\Omega_D}{D(2\p\hbar)^D}(2m\epsilon_f)^{D/2}}
+\end{equation}
+donde $\m$ a $T=0$ se le llama \textit{energía de Fermi} $\epsilon_f$.
+
+El potencial químico para un gas de Fermi es positivo. Representa una \textit{ganancia energética por el solo hecho de que una partícula ocupe cierto estado.}
+
+Notar que a $T=0$, todos los estados con energía $\epsilon<\epsilon_f$ están ocupados (con una partícula en cada estado).
+
+Para $T\geq 0$ se tiene que $f(\epsilon-\m )$ es una función que interpola entre $0$ para $(\m-\epsilon)\leq 0$ y $1$ para $(\m-\epsilon)\geq 0$.
+
+
+
+\begin{ej}
+	Use 
+	\begin{equation}
+  P=-\left(\pdv{E}{V}\right)_{S,N}
+\end{equation}
+para encontrar $P(N)$ la presión degenerada de Fermi como función del número de fermiones en el gas (use $s=1/2)$. Para $m=m_n$ transforme a $P(M)$. ¿Cuál es la presión en el interior de una estrella de neutrones de masa $M$? (Desprecie factores relativistas)
+
+\underline{Hints:} \begin{itemize}
+	\item Use $\r (\epsilon_f)$.
+	\item Encontrar $\ev{E}/V$ como función de $\epsilon_f$.
+	\item Despejar $\epsilon_f(\r )$ y reemplazar en $\ev{E}/V$ para encontrar $\ev{E}(V,N)$ a $T=0$.
+	\item Usar 
+	\begin{equation}
+  P=-\left(\pdv{E}{V}\right)_{S,N}
+\end{equation}
+\end{itemize}
+\end{ej}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
