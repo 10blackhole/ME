@@ -1,17 +1,17 @@
 \section{Clase 12}
 \subsection{Gases degenerados}
-El término \textit{gases degenerados} se refiere al hecho de que hay algunos modos para los cuales la probabilidad de ocupación $f(\epsilon)$ es mucho menor que uno. En tales casos, los bosones y fermiones se comportan de manera muy distinta.
+El término \textit{gases degenerados} se refiere al hecho de que hay algunos modos para los cuales la probabilidad de ocupación $f(\epsilon)$ no es mucho menor que uno. En tales casos, los bosones y fermiones se comportan de manera muy distinta.
 
 Consideremos
 \begin{equation}
   f(T-\m )=\frac{e^{-\b (\epsilon-\m )}}{1\pm e^{-\b (\epsilon-\m )}}
 \end{equation}
-con $f(T-\m )$ la función de ocupación:
+con $f(\ep-\m )$ la función de ocupación:
 \begin{align}
   +&:\quad \text{para fermiones}\\
   -&:\quad \text{para bosones}
 \end{align}
-Cuando $f(T-\m )\approx 1$ se dice que el gas está \textit{degenerado}.
+Cuando $f(\ep-\m )\approx 1$ se dice que el gas está \textit{degenerado}.
 
 \subsection{Gas degenerado de bosones y condensado de Bose-Einstein}
 De \eqref{8.densidadnumerica}, la densidad numérica viene dada por
@@ -126,7 +126,7 @@ Cuando a $T$ fija, $\r>\r_c(T)$, el sistema se encuentra en dos fases:
 \subsection{Gas degenerado de Fermi}
 En el caso de los fermiones, la función de ocupación viene dada por
 \begin{equation}
-  \boxed{f(T-\m,\b )=\frac{e^{-\b(\epsilon-\m  )}}{1+e^{-\b(\epsilon-\m)}}}
+  \boxed{f(\ep-\m,\b )=\frac{e^{-\b(\epsilon-\m  )}}{1+e^{-\b(\epsilon-\m)}}}
 \end{equation}
 Notar que para $\b\to \infty \,(T\to 0)$, se tiene
 \begin{equation}\label{12.Theta}
@@ -140,7 +140,7 @@ De acá se desprende que
   	\lim_{x\to 0}\frac{0}{1+0}=0
   \end{array}   \right.
 \end{equation}
-Esto se entiende del hecho de que como máximo puede haver un fermión en cada estado.
+Esto se entiende del hecho de que como máximo puede haber un fermión en cada estado.
 
 Considere la densidad numérica a $T=0$,
 \begin{equation}
@@ -188,11 +188,64 @@ para encontrar $P(N)$ la presión degenerada de Fermi como función del número 
 	\item Encontrar $\ev{E}/V$ como función de $\epsilon_f$.
 	\item Despejar $\epsilon_f(\r )$ y reemplazar en $\ev{E}/V$ para encontrar $\ev{E}(V,N)$ a $T=0$.
 	\item Usar 
-	\begin{equation}
+	\begin{equation}\label{12.P}
   P=-\left(\pdv{E}{V}\right)_{S,N}
 \end{equation}
 \end{itemize}
 \end{ej}
+
+\begin{sol}
+	Tenemos
+	\begin{equation}
+  f(\ep-\m )=\frac{e^{-\b(\ep-\m )}}{1+e^{-\b(\ep_\m )}}
+\end{equation}
+\begin{equation}\label{12.rho}
+\r(\ep )=(2s+1)\frac{\Omega_D}{D(2\p\hbar)^D}(2m\epsilon_f)^{D/2}
+\end{equation}
+\begin{equation}
+  \frac{\ev{E}}{V}=(2s+1)\int_{\mathbb{R}^D}\frac{\dd^Dp}{(2\p\hbar)^D}\epsilon(p)f(\ep-\m ,\b )
+\end{equation}
+Utilizando la relación de dispersión no-relativista y que a $T=0, f(\ep-\m )=\Th(\ep-\m )$ en la última expresión, tenemos
+\begin{align}
+  \frac{\ev{E}}{V}&=\frac{2}{(2\p\hbar)^3}\int\dd^3p\left(\frac{p^2}{2m}\right)\Th (\ep-\m )\\
+  &=\frac{2}{(2\p\hbar)^3}\int\Omega_3p^2\dd p\left(\frac{p^2}{2m}\right)\Th (\ep-\m )\\
+  &=\frac{2}{(2\p\hbar)^3}\int_{p=0}^{p=\sqrt{2m\m }}4\p \frac{p^4}{2m}\dd p
+\end{align}
+Recordando que el potencial químico $\m$ a $T=0$ es la energía de Fermi, se tiene
+\begin{align}
+   \frac{\ev{E}}{V}&=\frac{4\p }{(2\p\hbar)^3m}\frac{1}{5}(2m\ep_f )^{5/2}\\
+   &=\frac{1}{2\p^2\hbar^3 m}\frac{1}{5}(2m\ep_f )^{5/2}\label{12.E/V}
+\end{align}
+Ahora, de \eqref{12.rho} tenemos
+\begin{equation}
+  \r(\ep_f)=\frac{2}{3}\frac{4\p }{(2\p \hbar)^3}(2m\epsilon_f)^{3/2}=\frac{8\p }{3(2\p \hbar)^3}(2m\epsilon_f)^{3/2}
+\end{equation}
+usando que $\r=N/V$, podemos despejar la energía de Fermi en términos de $N$ y $V$,
+\begin{equation}
+  \ep_f=\left(\frac{N}{V}\frac{3(2\p\hbar)^3}{8\p (2m)^{3/2}}\right)^{2/3}
+\end{equation}
+Reemplazando en \eqref{12.E/V} y multiplicando por $V$ a ambos lados para obtener la energía promedio,
+\begin{equation}
+  \ev{E}=\underbrace{\frac{(2m)^{5/2}}{10\p\hbar^3m}\left(\frac{3(2\p\hbar)^3}{8\p (2m)^{3/2}}\right)^{5/3}}_{C}\frac{N^{5/3}}{V^{2/3}}
+\end{equation}
+\begin{equation}
+  \ev{E}=C\frac{N^{5/3}}{V^{2/3}}\implies \pdv{E}{V}=-\frac{2}{3}C\left(\frac{N}{V}\right)^{5/3}
+\end{equation}
+Así de \eqref{12.P}, nos queda
+\begin{equation}
+  \boxed{P(N)=-\frac{2}{3}C\left(\frac{N}{V}\right)^{5/3}}
+\end{equation}
+Podemos encontrar $P$ en función de la masa total $M$ ya que si conocemos el número de partículas y la masa de una partícula $m$, 
+\begin{equation}
+  M=Nm,\qquad  N=\frac{M}{m}
+\end{equation}
+resultando
+\begin{equation}
+ \boxed{ P(M)=-\frac{2}{3}C\left(\frac{M}{mV}\right)^{5/3}}
+\end{equation}
+\end{sol}
+
+
 
 
 

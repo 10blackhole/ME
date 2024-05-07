@@ -1,0 +1,254 @@
+\section{Clase 15}
+\subsection{Ejercicios de repaso}
+\begin{ej}
+	Derive la ecuación de estado del gas ideal no-relativista:
+	\begin{equation}
+\boxed{  PV=N\k T}
+\end{equation}
+
+\underline{Hint:} Considere
+\begin{equation}
+  F=E-TS
+\end{equation}
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m\dd N
+\end{equation}
+El Hamiltoniano de la partícula libre
+\begin{equation}
+  H=\frac{p^2}{2m}
+\end{equation}
+Además,
+\begin{align}
+  \zc&=\sumi e^{-\b H_i}\\
+  F&=-\k T\ln(\zc)\\
+  \int_0^{\infty}\dd uu^2e^{-u^2}&=\frac{\sqrt{\pi }}{4}
+\end{align}
+\end{ej}
+
+\begin{sol}
+	Tenemos
+	\begin{equation}
+  \zc=\int\frac{e^{-p^2/2m\k T}}{(2\p\hbar)^3}\dd^3p\dd^3q
+\end{equation}
+En coordenadas esféricas
+\begin{align}
+  \zc&=V\int_0^\infty \frac{e^{-p^2/2m\k T}}{(2\p\hbar)^3}4\p p^2\dd p\\
+  &=V\frac{2\p }{8\p^3\hbar^2}\int_0^\infty e^{-p^2/2m\k T	}p^2\dd p
+\end{align}
+Para usar la integral en el hint,
+\begin{equation}
+  u=\frac{p}{\sqrt{2m\k T}},\qquad \sqrt{2m\k T}u=p, \quad \dd u=\frac{\dd p}{\sqrt{2m\k T}}
+\end{equation}
+Reemplazamos
+\begin{align}
+  \zc&=\frac{V}{2\p^2\hbar^3}\int_0^\infty (2m\k T)u^2e^{-u^2}\sqrt{2m\k T}\dd u\\
+  &=\frac{(2m\k T)^{3/2}V}{2\p^2\hbar^3}\int_0^\infty u^2e^{-u^2}\dd u\\
+  &=\frac{V(2m\k T)^{3/2}}{2\p^2\hbar^3}\left(\frac{\sqrt{\p }}{4}\right)
+\end{align}
+Así, no queda que la función partición para una partícula libre es
+\begin{equation}
+\boxed{  \zc=\frac{(2m\k T)^{3/2}V}{8\hbar^2\p^{3/2}}}
+\end{equation}
+Pero para $N$ partículas
+\begin{equation}
+ \boxed{ \zgc=\left[\frac{(m\k T)^{3/2}V}{(\sqrt{2\pi }\hbar )^3}\right]^N\frac{1}{N!}}
+\end{equation}
+Como 
+\begin{equation}
+  F=R-TS
+\end{equation}
+\begin{equation}
+  \dd F=\dd E-\dd TS-T\dd S
+\end{equation}
+y del hint tenemos
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m  \dd N
+\end{equation}
+Reemplazamos
+\begin{align}
+  \dd F&=T\dd S-P\dd V+\m \dd N-S\dd T-T\dd S\\
+  &=\m \dd N-P\dd V-S\dd T
+\end{align}
+Entonces
+\begin{equation}
+  \left(\pdv{F}{V} \right)_{T,N}=-P
+\end{equation}
+Además,
+\begin{equation}
+  F=-\k T\ln\zgc
+\end{equation}
+Reemplazamos
+\begin{align}
+  \pdv{V}\left[-k T+\ln \left(\left(\frac{(m\k T)^{3/2}V}{(\sqrt{2\p }\hbar)^3}\right)^N\frac{1}{N!}\right)\right]_{T,N}&=-P\\
+  N\k T\pdv{V}\left(\ln V\right)_{T,N}&=P
+\end{align}
+\begin{equation}
+\boxed{  \frac{N\k T}{V}=P}
+\end{equation}
+\end{sol}
+
+\begin{ej}
+	Considere dos bosones identicos en un sistema de 2 niveles, con energías $0$ y $\ep$. En términos de $\ep$ y la temperatura $T$, calcule
+	\begin{enumerate}
+		\item La función partición canónica.
+		\item La energía promedio $E(T)$. Verifique los límites de $T\to 0$ y $T\to\infty$.
+		\item La entropía $S(T)$. Verifique los mismo límites anteriores.
+		\item Suponga que el sistema está conectado a un reservorio de bosones del mismo topo, con potencial químico $\m$. Encuentre $N(\m ,T)$. Verifique los mismo límites.
+	\end{enumerate}
+\end{ej}
+
+\begin{sol}
+	Tenemos $3$ configuraciones en total. O ambas partículas con energía $0$, una con $0$ y la otra con energía $\ep$ o ambas con energía $\ep$. 
+Entonces
+\begin{align}
+  \zc&=\sum_{i=1}^3e^{-\b \ep _i}\\
+  &=e^{-\b \ep_1}+e^{-\b \ep_2}+e^{-\b \ep_3}\\
+  &=e^{-\b 0}+e^{-\b \ep}+e^{-2\b \ep}
+\end{align}
+Luego,
+\begin{equation}
+ \boxed{ \zc=1+e^{-\b \ep}+e^{-2\b \ep}}
+\end{equation}
+La energía promedio viene dada por
+\begin{equation}
+  E=\sumi \ep_iP_i,\qquad P_i=\frac{e^{-\ep_i/\k T}}{\zc}
+\end{equation}
+Entonces
+\begin{align}
+  E&=\cancelto{0}{\ep_1P_1}+\ep_2P_2+\ep_3P_3\\
+  &=\ep \frac{e^{-\ep/\k T}}{\zc}+\ep \frac{e^{-2\ep/\k T}}{\zc}
+\end{align}
+\begin{equation}
+\boxed{  E=\frac{\ep (e^{-\ep/\k T}+e^{-2\ep/\k T})}{1+e^{- \ep/\k T}+e^{-2 \ep/\k T}}}
+\end{equation}
+Para los casos límite tenemos que para $T\to 0$, $E=0$ el cual corresponde al estad fundamental, mientras que para $T\to\infty$, $E=\epsilon$, es decir a $T=\infty$ todas las configuraciones tienen la misma probabilidad.
+
+Para calcular la entropía, recordemos
+\begin{equation}
+  F=E-Ts=-\k T\ln\zc
+\end{equation}
+entonces
+\begin{equation}
+  S=\frac{E}{T}+\k\ln\zc
+\end{equation}
+reemplazando nuestros resultados
+\begin{equation}
+ \boxed{S=\frac{\ep(e^{-\ep/\k T}+e^{-2\ep/\k T})}{T(1+e^{- \ep/\k T}+e^{-2 \ep/\k T})}+\k\ln(1+e^{- \ep/\k T}+e^{-2 \ep/\k T})}
+\end{equation}
+Para verificar los casos límites se debe usar L'Hopital. Para $T\to 0$, se tiene que $S=0$. En este caso todas las partículas tienden a estar en el nivel más bajo de energía. Para $T\to\infty$, $S=\k \ln( 3)$. Ahora todas las configuraciones son equiprobables por lo que la entropía es el logaritmo de la cantidad de configuraciones que son $3$.
+
+Para calcular $N$ necesitamos la función partición gran canónica. Por definición
+\begin{equation}
+  \zgc=\sum_l e^{-\b(E_l-\m N_l)}
+\end{equation}
+donde $l$ es la configuración total del sistema, $E_l$ es la energía total del sistema y $N_l$ es el número de partículas total del sistema. Ahora, sea $i$ el número de partículas en el nivel $1$ con energía $0$ y $j$ el número de partículas en el nivel $2$ con energía $\ep$. Se tiene
+\begin{align}
+  E_l&=0\cdot i+\ep\cdot j\\
+  N_l&=i+j
+\end{align}
+Entonces la función partición queda
+\begin{align}
+  \zgc&=\sum_{i,j}e^{-\b(\ep j-\m i-\m j)}\\
+  &=\sum_{i=0}^\infty e^{\b\m i}\sum_{j=0}^\infty e^{-\b (\ep-\m)j}
+\end{align}
+Como $i$ y $j$ son el número de partículas por nivel, la sumatoria parte de $0$. Recordemos que el potencial químico $\m$ siempre es negativo para los bosones
+\begin{equation}
+  \m <0 
+\end{equation}
+Usando 
+\begin{equation}
+  \sum_{i=0}^\infty x^{i}=\frac{1}{1-x},\qquad |x|<1
+\end{equation}
+Reescribimos $\zgc$,
+\begin{equation}
+  \zgc=\left(\sum_{i=0}^\infty\left(e^{\b\m }\right)^{i}\right)\left(\sum_{j=0}^\infty\left(e^{\ep-\m  }\right)^{j}\right)
+\end{equation}
+\begin{equation}
+ \boxed{ \zgc=\left(\frac{1}{1-e^{\b\m }}\right)\left(\frac{1}{1-e^{-\b E+\b \m }}\right)}
+\end{equation}
+Ahora que tenemos $\zgc$, calculamos
+$N$,
+\begin{equation}
+  N=\sum_l N_l\frac{e^{-\b (E_l-\m N_l)}}{\zgc}
+\end{equation}
+y esto lo podemos obtener como
+\begin{equation}
+  N=\left(\pdv{(\b\m )}\left(\ln\zgc\right)\right)_\b 
+\end{equation}
+Haciendo algo de álgebra, se tiene
+\begin{equation}
+\boxed{  N=\frac{e^{\b\m }}{(1-e^{\b\m })}+\frac{e^{-\b E+\m \b }}{(1-e^{-\b E +}\m\b })}
+\end{equation}
+Para los casos límite tenemos que cuando $T\to  0$, $N=0$ y cuando $T\to\infty$, $N\to \infty$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{sol}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,248 @@
+\section{Clase 14}
+\begin{ej}
+	Use el teorema de equipartición generalizado para calcular la energía cinética de un gas de N partículas libres de masa $m$ a temperatura $T$, considerando el Hamiltoniano para cada partícula dado por
+	\begin{equation}
+  H=H(\vec{p})=\sqrt{p^2c^2+m^2c^4}
+\end{equation}
+Considere la energía cinética restando la energía cinética de la masa en reposo $mc^2$. Verifique los casos ultra-relativista y no-relativista.
+\end{ej}
+
+\begin{sol}
+	El teorema de equipartición generalizado para un $H=H(\t )$ con $\t=(p,q)$ es
+	\begin{equation}
+  \ev{\t\pdv{H}{t}}=\k T
+\end{equation}
+tenemos
+\begin{equation}
+  H=H(\vec{p})=\sqrt{p^2c^2+m^2c^4}
+\end{equation}
+\begin{align}
+  \pdv{H}{p_i}&=\frac{1}{2}\frac{1}{\sqrt{p^2c^2+m^2c^4}}2p_ic^2\\
+  &=\frac{p_ic^2}{\sqrt{p^2c^2+m^2c^4}}
+\end{align}
+Reemplazamos
+\begin{align}
+  \ev{p_i\frac{p_ic^2}{\sqrt{p^2c^2+m^2c^4}}}&=\k T\\
+  \ev{\frac{p_i^2c^2}{\sqrt{p^2c^2+m^2c^4}}}&=\k T
+\end{align}
+Estamos considerando (hasta ahora) el momentum en una sola dirección. Como estamos en $3$-dimensiones
+\begin{equation}
+  \sum_{i=1}^3\frac{p_i^2c^2}{\sqrt{p^2c^2+m^2c^4}}=3\k T
+\end{equation}
+Como sumo en $i$
+\begin{equation}
+  \frac{c^2\sum_{i=1}^3p_i^2}{\sqrt{p^2c^2+m^2c^4}}=3\k T
+\end{equation}
+notemos que la suma $p_x^2+p_y^2+p_z^2=\vec{p}^2$. Entonces
+\begin{equation}
+  \boxed{\frac{c^2\vec{p}^2}{\sqrt{p^2c^2+m^2c^4}}=3\k T}
+\end{equation}
+Ahora para encontrar la energía cinética (como el $H$ que nos da el enunciado)
+\begin{equation}
+  c^2p^2=\a 
+\end{equation}
+\begin{align}
+  \implies \a&=3\k T\sqrt{\a +m^2c^4}\quad /()^2\\
+  \a^2&=9\k^2T^2(\a +m^2c^4)\\
+  \a^2-9\k^2T^2\a &=9\k^2T^2m^2c^4\\
+   \a^2-9\k^2T^2\a -9\k^2T^2m^2c^4&=0
+\end{align}
+Usamos 
+\begin{equation}
+  x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+\end{equation}
+Nos queda
+\begin{equation}
+  \a=\frac{9\k^2T^2\pm\sqrt{(9\k^2T^2)^2+4\times 9\k^2T^2m^2c^4}}{2}
+\end{equation}
+Elegimos la raíz positiva, ya que $\vec{p}^2c^2\geq 0$,
+\begin{align}
+  \a&=\frac{9\k T^2}{2}+\frac{\sqrt{(9\k^2T^2)^2+36\k^2T^2m^2c^4}}{2}\\
+  &=\frac{9\k T^2}{2}+\left(\frac{(9\k^2T^2)^2}{4}+\frac{36\k^2T^2m^2c^4}{4}\right)^{1/2}\\
+  &=\frac{9\k T^2}{2}+\left(\left(\frac{9\k^2T^2}{2}\right)^2+9\k^2T^2m^2c^4\right)^{1/2}
+\end{align}
+Entonces, obtenemos
+\begin{equation}
+ \boxed{ \a=\vec{p}^2c^2=\frac{9\k T^2}{2}+\left(\left(\frac{9\k^2T^2}{2}\right)^2+9\k^2T^2m^2c^4\right)^{1/2}}
+\end{equation}
+Construimos la energía cinética
+\begin{equation}\label{14.1}
+ \boxed{ E_c=\sqrt{\underbrace{\frac{9\k T^2}{2}+\left(\left(\frac{9\k^2T^2}{2}\right)^2+9\k^2T^2m^2c^4\right)^{1/2}}_{\vec{p}^2c^2}+m^2c^4}-mc^2}
+\end{equation}
+donde $mc^2$ s la energía de la partícula en reposo.
+
+Ahora, vamos a verificar las cosas que se piden
+
+
+\underline{\textbf{Caso 1} Ultra-relativista}: $\k T\gg mc^2$
+\begin{align}
+  E_c&=\sqrt{\frac{9\k T^2}{2}+\left(\left(\frac{9\k^2T^2}{2}\right)^2+9\k^2T^2m^2c^4\right)^{1/2}+m^2c^4}-mc^2\\
+  &\approx \left[\frac{9\k^2T^2}{2}+\frac{9\k^2T^2}{2}\right]^{1/2}\\
+  &=3\k T
+\end{align}
+
+\underline{\textbf{Caso 2} no-relativista}: $\k T\ll mc^2$. Notamos que no podemos simplemente despreciar los términos con $\k T$ ya que nos quedaría que
+\begin{equation}
+  E_c=mc^2-mc^2=0
+\end{equation}
+Usaremos $x\ll 1$,
+\begin{equation}\label{14.star}
+  (1+x)^n\approx 1+nx
+\end{equation}
+Primero, reescribimos
+\begin{align}
+  E_c&=\frac{3\k T}{\sqrt{2}}\left(\left[1+\left(1+\frac{m^2c^49\k^2T^2}{\left(\frac{9\k^2T^2}{2}\right)^2}\right)^{1/2}+\frac{m^2c^4}{\frac{9\k^2T^2}{2}}\right]-\frac{mc^2}{\frac{3\k T}{\sqrt{2}}}\right)
+\end{align}
+Usando \eqref{14.star},
+\begin{align}
+   E_c&=\frac{3\k T}{\sqrt{2}}\left(\left[1+1+\frac{1}{2}\frac{4m^2c^49\k^2T^2}{(9\k^2T^2)^2}+\frac{2m^2c^4}{9\k^2T^2	}\right]^{1/2}-\frac{\sqrt{2}mc^2}{3\k T}\right)\\
+   &=\frac{3\k T}{\sqrt{2}}\left(\sqrt{2+\frac{4m^2c^4}{9\k^2T^2}}-\frac{\sqrt{2}mc^2}{3\k T}\right)\\
+   &=\frac{3\k T}{\sqrt{2}}\sqrt{2}\left(\left(1+\frac{2m^2c^4}{9\k^2T^2}\right)^{1/2}-\frac{\sqrt{2}mc^2}{3\k T}\right)
+\end{align}
+usando nuevamente \eqref{14.star},
+\begin{align}
+   E_c&=3\k T\left(\left(1+\frac{m^2c^4}{9\k^2T^2}\right)-\frac{mc^2}{3\k T}\right)\\
+   &=3\k T+\frac{m^2c^4}{3\k T}-mc^2
+\end{align}
+\begin{equation}
+	\implies E_c=3\k T(1+m^2c^4)-mc^2
+\end{equation}
+Pero este NO es el resultado correcto!!!
+
+Notemos que \eqref{14.1} se puede reescribir como,
+\begin{equation*}
+  E_c(T,N,m)=\frac{3N\k T}{\sqrt{2}}\left[\left(1+\left(1+\frac{4}{9}\left(\frac{mc^2}{\k T}\right)^2\right)^{1/2}+\frac{2}{9}\left(\frac{mc^2}{\k T}\right)^2\right)^{1/2}-\frac{\sqrt{2}}{3}\left(\frac{mc^2}{\k T}\right)\right]
+\end{equation*}
+la cual corresponde a la energía cinética del gas considerando $N$ partículas a temperatura $T$. Sea
+\begin{equation}
+  \lambda=\frac{mc^2}{\k T}=\left\{\begin{array}{cc}
+  	\lambda \ll 1,& \text{límite ultra-relativista}\\\\
+  	\lambda\gg 1,&\text{límite no-relativista}
+  \end{array}\right.
+\end{equation}
+Entonces
+\begin{equation}
+  E_c(T,N,m)=\frac{3N\k T}{2}\underbrace{\left[\sqrt{2}\left(1+\left(1+\frac{4}{9}\lambda^2\right)^{1/2}+\frac{2}{9}\lambda^2\right)^{1/2}-\frac{2}{3}\lambda\right]}_{F(\lambda)}
+\end{equation}
+Así, tenemos una $F(\lambda)$ que interpola entre $2$ a $\lambda\ll 1$ y $1$ a $\lambda\gg 1$.
+
+Analicemos para el caso de $\lambda\gg 1$,
+\begin{align}
+  1+\frac{4}{9}\lambda^2&\sim \frac{4}{9}\lambda^2\\
+  1+\frac{2}{9}\lambda^2&\sim \frac{2}{9}\lambda^2
+\end{align}
+Entonces
+\begin{align}
+  F(\lambda\g 1)&\approx \sqrt{2}\sqrt{\frac{2}{9}\lambda^2+\frac{2}{3}\lambda^2}-\frac{2}{3}\lambda \\
+  &\approx \sqrt{2}\frac{\sqrt{2}}{3}\lambda\left(1+\frac{3}{\lambda}\right)^{1/2}-\frac{2}{3}\lambda\\
+  &\approx \frac{2}{3}\lambda\left(1+\frac{3}{2\lambda}\right)-\frac{2}{3}\lambda\\
+  &\approx 1
+\end{align}
+el cual corresponde al límite no-relativsta. Luego,
+\begin{equation}
+\boxed{  E_c=\frac{3N\k T}{2}}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+\end{sol}
+
+\subsection{Paradoja de Gibbs y partículas idénticas}
+Para $N$ partículas \textit{idénticas} (que no interactúan entre sí)
+\begin{equation}
+ \boxed{ \zc (N,T)=\frac{Z(T)^N}{N!}}
+\end{equation}
+donde $Z(T)$ es la función partición de una partícula.
+
+El factor $N!$ se necesita para no contar múltiples veces las configuraciones donde las $N$ partículas ocupan estados diferentes, sin que importe que partícula ocupa tal estado.
+
+\begin{ej}
+	Considere $N=2$,
+	\begin{equation}
+  \zc=\frac{1}{2}\left(\sumi e^{-\b \ep_i}\right)^2=\frac{1}{2}\sum_{i,j}e^{-\b\ep_i-\b\ep_j}
+\end{equation}
+donde $\ep_i$ representa la energía del estado ocupado por la partícula $1$ y $\ep_j$ representa la de la partícula $2$. Pero si ambas partículas son indistinguibles, no hay difrencia entre la configuración dada por
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+ Energía&Partícula\\\hline
+ $\ep_i$&$1$\\\hline
+ $\ep_j$&$2$ \\\hline 
+\end{tabular}
+\end{center}
+o por
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+ Energía&Partícula\\\hline
+ $\ep_j$&$1$\\\hline
+ $\ep_i$&$2$ \\\hline 
+\end{tabular}
+\end{center}
+Luego, el factor $1/2$ corrige el efecto de sumar dos veces la misma configuración equivalente.
+
+El argumento se generaliza de forma trivial a $N$ partículas.
+
+Veamos el efecto que esto tiene sobre la función partición y la entropía de un gas no-relativista de partículas idénticas a temperatura $T$.
+
+
+Se tiene, en el ensamble canónico ($(N,T,V)$ constantes) que
+\begin{align}
+  S&=\ln\zc+\b\ep \\
+  &=\ln\left(\frac{Z(T)^N}{N!}\right)+\b\ep\\
+  &=N\ln(Z(T))-\ln(N!)+\b\ep\\
+ &= N\ln(Z(T))-N\ln(N)+N+\b\ep 
+\end{align}
+donde se usó la aproximación de Stirling.
+Entonces, la función partición para una partícula libre no-relativista
+\begin{equation}
+ \boxed{ Z(T)=\frac{V}{(2\p\hbar)^3}\int\dd^3\vec{p}e^{-\vec{p}^2/2m\k T}=V\left(\frac{m\k T}{2\p\hbar }\right)^{3/2}}
+\end{equation}
+La función partición canónica para un gas ideal no-relativista
+\begin{equation}
+  \boxed{\zc(N,T)=\frac{V^N}{N!}\left(\frac{m\k T}{2\p\hbar^2}\right)^{3N/2}}
+\end{equation}
+\begin{equation}
+  \implies \boxed{\frac{S}{N}=\ln\left[\frac{V}{N}\left(\frac{m\k T}{2\p\hbar^2}\right)^{3/2}\right]+\frac{5}{2}}
+\end{equation}
+Vemos que el efecto del factor $1/N!$, proveniente del hecho que sn partículas idénticas, es hacer que la entropía de una partícula depende de $V/N$, es decir, del volumen ocupado \textit{por partícula}.
+\end{ej}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
