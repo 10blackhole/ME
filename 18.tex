@@ -1,0 +1,115 @@
+\section{Clase 18}
+\subsection{Ecuación de Van der Waals y transiciones de fase}
+La ecuación de estado de Van der Waals es
+\begin{equation}
+\boxed{  P=\frac{\r\k T}{1-\r/\r_s}-a\r^2}
+\end{equation}
+donde $\r=N/V$ es la densidad de número, $\r_s=1/v$ es el volumen excluido o volumen unitario y $a$ es el parámetro de atracción. Además $0\leq\r\leq\r_s$ de manera que $0\leq P\leq \infty$.
+
+Notemos que el término $-a\r^2$ es atractivo, en el sentido de que disminuye la presión del fluido. Por otro lado, para $\r\approx\r_s$ tiene un comportamiento repulsivo ya que la presión del fluido disminuye.
+
+Para $\r$ pequeño, $P\to \r\k T$, es decir, a densidades bajas, el fluido de Van der Waals se comporta como un gas ideal.
+
+La ecuación de estado corresponde al comportamiento dado por la siguiente aproximación de campo medio
+\begin{equation}
+  \phi(\vec{r})=\left\{\begin{array}{cc}
+  	+\infty,&\quad |\vec{r}|\leq r_0 \\\\
+  	u,&\quad |\vec{r}|> r_0 
+  \end{array}\right.
+\end{equation}
+Este potencial corresponde a uno de \textit{esfera sólida} a cierto radio mínimo.
+
+Consideremos las definiciones
+\begin{equation}\label{18.volexc}
+  \frac{4}{3}\p r_0^3=vN
+\end{equation}
+donde $vN$ es el volumen excluido total, y
+\begin{equation}
+  u=-\frac{aN}{V}
+\end{equation}
+es la magnitud del potencial atractivo el cual es proporcional a la densidad de partículas.
+
+Ahora podemos construir la función de partición canónica del sistema (fluido de VdW).
+\begin{align}
+  \zc &=\frac{1}{N!}\left((2s+1)\int\frac{\dd^3p\dd^3r}{(2\p\hbar)^3}e^{-(\epsilon(p)+\f (r))\k T}\right)^N\\
+  &=\frac{1}{N!}(\xi_p)^N\left(\int_0^\infty 4\p r^2e^{-\f(r)\/\k T}\dd r\right)^N
+\end{align}
+donde
+\begin{equation}
+  \xi_p=(2s+1)\int\frac{\dd^3p}{(2\p\hbar)^3}e^{-\epsilon(p)/k T}
+\end{equation}
+Notando que $e^{-\infty}=0$ y que ademas $e^{-\f(r)/\k T}=e^{-u/\k T}=$ const. para $r>r_0$, tenemos que
+\begin{equation}
+  \int_0^\infty 4\p r^2e^{-\f(r)/\k T}\dd r=(V-vN)e^{-u/\k T}
+\end{equation}
+En efecto,
+\begin{align}
+  \int_0^\infty 4\p r^2e^{-\f(r)/\k T}\dd r&=\cancelto{0}{\int_0^{r_0} 4\p r^2e^{-\f(r)/\k T}\dd r}+\int_{r_0}^\infty 4\p r^2e^{-\f(r)/\k T}\dd r\\
+  &=e^{-u/\k T}\int_{r_0}^\infty 4\p r^2\dd r\\
+  &=e^{-u/\k T}\left[\int_{0}^\infty 4\p r^2\dd r- \int_{0}^{r_0} 4\p r^2\dd r\right]\\
+  &=e^{-u/\k T}(V-vN)
+\end{align}
+donde usamos la definición del volumen excluido \eqref{18.volexc}. Así
+\begin{equation}\label{18.z}
+ \boxed{ \zc=\frac{1}{N!}(\xi_p)^N(V-vN)^Ne^{-u/\k T}}
+\end{equation}
+Finalmente para derivar la ecuación de estado, consideramos
+\begin{equation}
+  F=E-TS,\qquad F=-\k T\ln\zc 
+\end{equation}
+\begin{equation}
+  \dd F=-S\dd T-P\dd V+\m \dd N
+\end{equation}
+luego,
+\begin{equation}
+  P=-\left(\pdv{F}{V}\right)_{T,N}=\k T=\left(\pdv{(\ln\zc)}{V}\right)_{T,N}
+\end{equation}
+de \eqref{18.z} y haciendo algo de álgebra se tiene
+\begin{equation}
+  P=\k T\left(\frac{-N^2a}{\k T V^2}+\frac{N}{V-vN}\right)
+\end{equation}
+y usando que
+\begin{equation}
+  \r=\frac{N}{V},\qquad \r_s=\frac{1}{v}
+\end{equation}
+obtenemos la ecuación de estado de Van der Waals,
+\begin{equation}
+\boxed{  P=\frac{\r\k T}{1-\r/\r_s}-a\r^2}
+\end{equation}
+
+La \textit{ecuación de estado} de un sistema relaciona las variables de dicho sistema entre sí.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

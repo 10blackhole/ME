@@ -1,0 +1,158 @@
+\section{Clase 16}
+\subsection{Gas de bosones y fermiones sin masa a temperatura $T$}
+Veremos la derivación de la ley de radiación de cuerpo negro de Plank a partir de un ejemplo.
+
+\begin{ej}
+	Considere un gas de fotones (bosones sin masa) a temperatura $T$. Encuentre
+	\begin{enumerate}
+		\item La densidad de energía $E/V$.
+		\item La densidad de número de partículas $N/V$.
+		\item La densidad de energía por unidad de frecuencia de la radiación, o también llamada densidad espectral de energía (Bv(T) o función del cuerpo negro o función de Plank.)
+	\end{enumerate}
+\end{ej}
+
+\begin{sol}
+	De lo visto en clases tenemos,
+\begin{equation}\label{16.1}
+  \frac{J}{V}=(2s+1)\int\frac{\dd^3p}{(2\p\hbar)^3}j(p)f(\epsilon(p))
+\end{equation}
+donde $j(p)$ es una cantidad física para una partícula con magnitud de momentum $p$ y 
+\begin{equation}
+  f(\epsilon(p))=\frac{e^{-\b (\epsilon(p)-\m )}}{1\mp e^{-\b (\epsilon(p)-\m )}}
+\end{equation}
+donde $\m$ corresponde al potencial químico, $\epsilon(p)$ es la relación de dispersión y el signo negativo es para bosones y el positivo para fermiones.
+
+Recordemos que la energía promedio $E$ la obtenemos derivando con respecto a $\b$ y el número de partículas derivando con respecto a $\b\m$ del logaritmo de la función partición.
+
+\underline{Nota}: Como estamos considerando bosones \textit{sin masa} no importa si $T$ es grande o pequeño porque el \textit{potencial químico $\m$ es cero}. Es decir, no hay costo energético de crear o introducir una partícula al sistema. Ahora, la relación de dispersión para un fotón viene dada por
+\begin{equation}
+  \ep(p)=pc=h\n 
+\end{equation}
+Entonces la energía promedio es
+\begin{equation}
+  j(p)=\ep (p)=pc
+\end{equation}
+Dado que el fotón es un bosón e gauge (mediador de fuerza) tiene spin $1$ pero solo tiene degeneración de spin igual a $2$ y no $3$ debido a que el fotón no tiene masa. Reemplazando en \eqref{16.1},
+\begin{align}
+  \frac{E}{V}&=2\int\frac{\dd^3p}{(2\p\hbar)^3}pc\frac{e^{-pc/\k T}}{1-e^{-pc/\k T}}\\
+  &=\frac{8\p c}{(2\p\hbar)^3}\int_0^\infty p^3\dd p\frac{e^{-pc/\k T}}{1-e^{-pc/\k T}}\quad \cdot /\frac{e^{pc/\k T}}{e^{pc/\k T}}\\
+  &=\frac{8\p c}{(2\p\hbar)^3}\int_0^\infty p^3\dd p \frac{1}{e^{pc/\k T}-1}
+\end{align}
+Haciendo $u=pc/(\k T)$, se tiene
+\begin{align}
+   \frac{E}{V}=\frac{8\p c}{(2\p\hbar)^3}\left(\frac{\k T}{c}\right)^4\underbrace{\int_0^\infty \frac{u^3}{e^{u}-1}}_{\p^4/15}
+\end{align}
+\begin{equation}
+\boxed{  \frac{E}{V}=\frac{\p }{15\hbar^3c^3}(\k T)^4}
+\end{equation}
+Conocida como la \textit{ley de Stephen-Boltzmann} o \textit{radiación de cuerpo negro}.
+
+Suponiendo un objeto que no deja escapar la radiación recibida, tal objeto se calienta y emite radiación solo debido a su temperatura. La mecánica estadística nos muestra que al tener un cuerpo a temperatura $T$, se crean fotones en el medio circundante (en equilibrio térmico con el cuerpo) de acuerdo a la distribución de Bose-Einstein.
+
+Ahora, $J=N\implies j(p )=1$. Entonces
+\begin{align}
+  \frac{N}{V}&=2\int\frac{\dd^3p}{(2\p\hbar)^3}\frac{e^{-pc/\k T}}{1-e^{-pc/\k T}}\\
+  &=\frac{8\p }{(2\p\hbar)^3}\int_0^\infty p^2\frac{e^{-pc/\k T}}{1-e^{-pc/\k T}}\dd p,\qquad u=pc/(\k T)\\
+  &=\frac{8\p }{(2\p\hbar)^3}\left(\frac{\k T}{c}\right)^3\underbrace{\int_0^\infty \frac{u^2}{e^u-1}}_{2\zeta (3)}
+\end{align}
+\begin{equation}
+  \boxed{\frac{N}{V}=\frac{2\zeta(3)}{\p^2\hbar^3}\left(\frac{\k }{c}\right)^3T^3\implies \frac{N}{V}\propto T^3}
+\end{equation}
+
+Con esto, podemos calcular la energía promedio por fotón según
+\begin{equation}
+  \epsilon(T)=\frac{E}{N}=\frac{E/v}{N/V}=\frac{\p^4}{30\zeta(3)}\k T\approx 2.71 \k T
+\end{equation}
+
+Recordemos que teníamos antes para una partícula en $3D$ que
+\begin{equation}
+  \ep (T)=3\k T 
+\end{equation}
+Ahora tenemos una distribución de energía (gas de fotones a temperatura $T$) habrá partículas con distinta energía.
+
+Para calcular la densidad espectral de energía consideramos la densidad de energía calculada
+\begin{equation}
+  \frac{E}{V}=\frac{8\p c}{(2\p\hbar)^3}\int_0^\infty p^3\frac{\dd p}{e^{pc/\k T}-1}
+\end{equation}
+y además
+\begin{equation}
+  p=\frac{h\n }{c},\qquad \dd p=\frac{h}{c}\dd\n 
+\end{equation}
+Reemplazando en la densidad de energía
+\begin{align}
+  \frac{E}{V}&=\frac{8\p c}{(2\p\hbar)^3}\left(\frac{h}{c}\right)^4\int_0^\infty\frac{\n^3\dd\n }{e^{h\n /\k T}-1},\quad h=2\p \hbar\\
+  &=\frac{8\p h}{c^3}\int_0^\infty\frac{\n^3\dd\n }{e^{h\n /\k T}-1}\\
+  &=\int_0^\infty B_\n (T)\dd\n 
+\end{align}
+donde 
+\begin{equation}
+ \boxed{ B_\n (T)=\frac{8\p h\n^3}{(e^{h\n /\k T}-1)c^3}}
+\end{equation}
+corresponde a la \textit{función densidad de energía por unidad de frecuencia de la radiación} o distribución espectral de energía del cuerpo negro buscada.
+
+Notemos que $B_\n (T)$ puede escribirse de la siguiente forma
+\begin{equation}
+  B_\n (T)=\frac{8\p T^3}{\hbar^2c^3}\mathcal{B}\left(\frac{h\n }{\k T}\right)
+\end{equation}
+donde 
+\begin{equation}
+  \mathcal{B}(x)=\frac{x^3}{e^x-1}
+\end{equation}
+Podemos encontrar $\n_{\rm max}(T)$ (\textit{Ley de Win}),
+\begin{align}
+  0&=\dv{\n}B_\n \\
+  &\vdots\\
+  &=(3-x)e^x-3
+\end{align}
+así,
+\begin{equation}
+\boxed{  \n_{\rm max}=\frac{2.82}{h}\k T}
+\end{equation}
+\end{sol}
+
+\begin{ej}
+	Ahora consideremos un gas de fermiones sin masa a temperatura $T$. Un ejemplo de fermiones sin masa son los \textit{neutrinos} (se conoce que tienen masa por las oscilaciones de neutrinos y la diferencia que hay entre los distintos tipos). \textit{En el modelo estándar no tienen masa.}
+	
+	Al estar presentes en el medio pueden formar un gas e neutrinos, ya que al estar en equilibrio con el \textit{baño térmico} (y no tener masa) no hay costo energético en crearos.
+\end{ej}
+\begin{sol}
+	Siguiendo un procedimiento similar al anterior, se tiene que
+	\begin{equation}
+\boxed{  \frac{E}{V}=\frac{7\k^4\p^2}{\hbar^3c^4120}T^4}
+\end{equation}
+\begin{equation}
+\boxed{  \frac{N}{V}=\frac{3}{2}\frac{\zeta(3)\k^3}{\p^2\hbar^3c^3}T^3}
+\end{equation}
+
+
+\end{sol}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
