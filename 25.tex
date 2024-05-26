@@ -1,0 +1,179 @@
+\section{Clase 25}
+%TODO terminar esto
+
+\subsection{Hidrodinámica}
+Es el estudio de la dinámica de fluidos en el límite en que estos se mantienen en \textit{equilibrio local} durante el movimiento. Esto se puede traducir como:
+\begin{itemize}
+	\item A cada elemento del fluido puede asociarsele tmeperatura, presión, densidad y otro parámetros termodinámicos.
+	\item Este régimen es válido cuando la escala de tiempo de expansión o cambio del fluido es mucho mayor al tiempo entre colisiones para las moléculas que lo componen.
+\end{itemize}
+
+
+Como ilustración: si $\rho$ es la densidad local del fluido y $\dot{\rho}$ es su derivada temporal, entonces su escala de tiempo caracteristico de cabio satisface
+\begin{equation}
+  \frac{1}{\tau_{exp}}\approx\left|\frac{\dot{\rho}}{\rho}\right|
+\end{equation}
+donde $\tau_{exp}$ es la escala de tiempo de expansión o de cambio.
+
+Notemos que
+\begin{equation}
+  \frac{x}{\dot{x}}
+\end{equation}
+mide el tiempo en que $x$ cambia en una fracción comparable a su propia magnitud.
+
+\begin{ej}
+	Supongamos que una cantidad satisface
+	\begin{equation}
+  \dv{x}{t}=\dot{x}=cx
+\end{equation}
+de donde es directo encontrar que
+\begin{equation}
+  x(t)=x_0e^{ct}
+\end{equation}
+Ahora
+\begin{equation}
+  \frac{x}{\dot{x}}=\frac{x}{cx}=\frac{1}{c}=\tau
+\end{equation}
+Entonces tenemos
+\begin{equation}
+\boxed{  x(t)=x_0e^{t/\t }}
+\end{equation}
+donde $\t$ es la escala de tiempo característico.
+
+Por ejemplo si $c<0$, $\t\approx$ tiempo de vida mínima.
+\begin{align}
+  \dv{x}{t}&=-cx\\
+  x(t)&=x_0e^{-ct}\\
+  \left|\frac{x}{\dot{x}}\right|&=\frac{x}{-cx}=-\frac{1}{c}=\t 
+\end{align}
+Ahora 
+\begin{equation}
+\boxed{  x(t)=x_0e^{-t/\t }}
+\end{equation}
+
+\begin{align}
+  \frac{x(t_1/2)}{x_0}=\frac{1}{2}&=e^{-t_1/2/\t }\\
+  -\ln(2)&=-\frac{t_{1/2}}{\t }\\
+\Aboxed{  \t_{1/2}&=\ln(2)\t }
+\end{align}
+lo que corresponde al tiempo de vida media (decaimiento radiactivo.)
+\end{ej}
+
+Por lo tanto el régimen hidrodinámico es válido cuando
+\begin{equation}
+  t_{exp}\gg \t_{cal}
+\end{equation}
+donde $\t_{cal}$ es el tiempo entre colisiones de las moléculas. Luego, \textit{los procesos hidrodinámicos son adiabáticos (lentos)}. Estos procesos satisfacen una serie de ecuaciones que los caracterizan.
+
+\textbf{1. Ecuación de continuidad}:
+\begin{equation}
+  \pdv{\r }{t}+\nabla\cdot \vec{J}_\r =0
+\end{equation}
+donde $\r$ es una densidad de carga (eléctrica, de número, masa, etc...) y $\vec{J}_\r$ la corriente asociada.
+
+En particular, la corriende de flujo es igual al producto de la densidad y la velocidad local del fluído.
+\begin{equation}
+  \vec{J}_\r=\r\vec{v}
+\end{equation}
+
+De aquí se tiene
+\begin{align}
+  \pdv{\r }{t}&=-\nabla\cdot (\r\vec{v})\\
+  \pdv{\r }{t}&=-\r (\nabla\vec{v})-(\nabla\r )v
+\end{align}
+Por lo tanto
+\begin{equation}\label{25.1}
+\boxed{  \frac{D\r }{D t}=-\r \nabla\cdot\vec{v}}
+\end{equation}
+donde 
+\begin{equation}
+\boxed{  \frac{D}{D t}\equiv \pdv{t}+\vec{v}\cdot \nabla}
+\end{equation}
+es la \textit{derivada convectiva}, la cual corresponde a la derivada temporal para un observador que se mueve junto al fluido a su velocidad local $\vec{v}$. La ecuación \eqref{25.1} es la ecuación de continuidad en coordenadas comóviles (para un observador que \textit{se mueve junto con el fluido}).
+
+\textbf{2. Ecuación de flujo por gradiente de presión}
+\begin{equation}
+\boxed{  \frac{D \vec{v}}{D t}=-\frac{1}{\r_m }\nabla\cdot P}
+\end{equation}
+donde $\r_m$ es la densidad de masa local y $P$ es la presión local del fluído. Esta ecuación se deduce de la segunda ley de Newton, aplicada a un elemento de fluido, de la siguiente manera:
+\begin{equation}
+  \vec{F}_{\rm neta}=m\dv{\vec{v}}{t}
+\end{equation}
+si dividimos por un elemento de volumen $\d V$ a ambos la dos, tenemos
+\begin{equation}
+  \frac{\vec{F}_{\rm neta}}{\d V}=\r_m\dv{\vec{v	}}{t}
+\end{equation}
+donde $m=\r_m\d V$.
+
+Ahora, consideremos $\d V=A\d x$, con $A$ la sección transversal del elemento de volumen en la dirección perpendicular a $\vec{v}$. Lugo $\vec{v}=v_x\vu*{x}$ por definición. Luego, tenemos
+\begin{equation}
+  \frac{F_{x,\rm neta}}{A\d V}=\r_m\dv{\vec{v	}}{t}
+\end{equation}
+donde $F_x$ es la fuerza neta actuando sobre el elemento de volumen en el eje $x$. En partícular, como el fluido esta en compresión
+\begin{equation}
+F_{x,\rm neta}=F_x(x+\d x)-F_x(x)
+\end{equation}
+Luego,
+\begin{equation}
+  \frac{1}{A}\frac{F_x(x+\d x)-F_x(x)}{\d x}=\r\dv{v}{t}
+\end{equation}
+Entonces
+\begin{equation}
+  \frac{\frac{F_x(x+\d x)}{A}-\frac{F_x(x)}{A}}{\d x}=\r_m\dv{v}{t}
+\end{equation}
+\begin{equation}
+  \underbrace{\frac{P_x(x+\d x)-P_x(x)}{\d x}}_{\partial_x P}=\r_m \dv{v}{t}
+\end{equation}
+\begin{equation}
+ \implies \boxed{\partial_x P=\r_m\dv{v}{t}}
+\end{equation}
+Si hacemos el mismo análisis para las demás componentes $(y,z)$. Luego,
+\begin{equation}
+\boxed{  \frac{D \vec{v}}{D t}=-\frac{1}{\r_m}\nabla\cdot P}
+\end{equation}
+
+En la última expresión, la derivada se convierte en la derivada convectiva considerando que en nuestro análisis en términos de la segunda ley de Newton consideramos un sistema en reposo respecto al elemento de fluido (sistema comóvil).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

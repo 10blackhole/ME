@@ -1,0 +1,154 @@
+\section{Clase 23}
+Teniamos de la clase anterior que la energía or molécula para un gas ideal diatómico, dependia de la temperatura del gas y está dada por:
+\begin{equation}
+  \ev{\frac{E}{N}}=\left\{\begin{array}{ccc}
+  	\dfrac{3}{2}\k T,& \k T>\hbar^2/2I,& \text{$T$ menor del nivel fundamental para que la molécula rote}\\\\
+  	\dfrac{5}{2}\k T,& \hbar^2/2I\leq \k T<\hbar\omega_{\rm vib},& \text{$T$ mayor para que rote pero no lo suficiente para que vibre}\\\\
+  	\dfrac{7}{2}\k T,& \k T\geq \hbar\omega_{\rm vib},& \text{$T$ mayor para que el nivel fundamental de vibración.}
+  \end{array}\right.
+\end{equation}
+
+%TODO img
+
+Para los gases típicos a temperatura ambiente se tiene\footnote{Por ejemplo, Oxígeno molecular y el Hidrógeno molecular.}
+\begin{equation}
+  \frac{\hbar^2}{2I}\ll \k T_{\rm ambiente}\ll \hbar\omega_{\rm vib}
+\end{equation}
+
+Notar que $I$ es el momento de inercia el cual esta dado por $mr_0^2/4$ para una molécula diatómica de masa $m$.
+
+Para un gas diatómico de átomos de la misma masa y separación interatómica de equilibrio $r_0$, el momento de inercia $I$ se calcula de acuerdo a lo siguiente
+\begin{align}
+  I&=\frac{m}{2}\left(\frac{r_0}{2}\right)^2+\frac{m}{2}\left(\frac{r_0}{2}\right)2\\
+  I&=\frac{mr_0^2}{4}
+\end{align}
+donde 
+\begin{equation}
+  I=\sumi m_ir_i^2
+\end{equation}
+Finalmente $\omega_{\rm vib}$ es la frecuencia natual de vibración de la molécula ($\k=m\omega^2$).
+
+Encontremos el calor específico a volúmen constante $C_V$. Por definición
+\begin{equation}
+  C_V=\frac{1}{N\k }T\eval{\dv{S}{T}}_{N,V}
+\end{equation}
+y
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m\dd N
+\end{equation}
+luego, a $N$ y $V$ constante
+\begin{equation}
+  \eval{\dd E}_{N,V}=\eval{T\dd S}_{N,V}
+\end{equation}
+por lo tanto, tengo que
+\begin{equation}
+  \eval{T\pdv{S}{T}}_{N,V}=\eval{\pdv{E}{T}}_{N,V}
+\end{equation}
+de donde se obtiene lo siguiente
+\begin{equation}
+  \frac{1}{N\k }\eval{T\pdv{S}{T}}_{N,V}=\frac{1}{N\k }\eval{\pdv{E}{T}}_{N,V}
+\end{equation}
+a $N$ constante
+\begin{equation}
+  \frac{1}{N\k }\eval{\pdv{E}{T}}_{N,V}=\frac{1}{\k }\eval{\pdv{(E/N)}{T}}_{N,V}
+\end{equation}
+pero tenemos el valor de $E/N$, luego
+\begin{equation}
+  C_V=\left\{\begin{array}{ccc}
+  	\dfrac{3}{2},&& \k T>\hbar^2/2I\\\\
+  	\dfrac{5}{2},& &\hbar^2/2I\leq \k T<\hbar\omega_{\rm vib}\\\\
+  	\dfrac{7}{2},&& \k T\geq \hbar\omega_{\rm vib}
+  \end{array}\right.
+\end{equation}
+Ahora encontramos e calor específico a presión constante $C_P$
+\begin{equation}
+  C_P=\frac{1}{N\k }\eval{T\pdv{S}{T}}_{N,P}
+\end{equation}
+de la primera ley
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m\cancelto{0}{\dd N}
+\end{equation}
+Ahora, usando la ecuación de estado $PV=N\k T$ tenemos que
+\begin{align}
+  \eval{\dd (PV)}_{N,P}&=\eval{\dd(N\k T)}_{N,P}\\
+  \eval{P\dd V}_{N,P}&=\eval{N\k \dd T}_{N,P}
+\end{align}
+Luego,
+\begin{equation}
+  \eval{-P\dd V}_{N,P}=\eval{-N\k \dd T}_{N,P}
+\end{equation}
+y por lo tanto
+\begin{align}
+  \eval{\dd E}_{N,P}+\eval{P\dd V}_{N,P}&=\eval{T\dd S}_{N,P}\\
+  \eval{\dd E}_{N,P}+\eval{N\k \dd T}_{N,P}&=\eval{T\dd S}_{N,P}
+\end{align}
+Pero, $E=C_VN\k T$ y por tanto
+\begin{equation}
+  \eval{\dd E}_{N}=\eval{C_VN\k \dd T}_N
+\end{equation}
+En particular
+\begin{equation}
+  \eval{\dd E}_{N,P}=\eval{C_VN\k \dd T}_{N,P}
+\end{equation}
+y entonces reemplazamos
+\begin{align}
+  \eval{C_VN\k\dd T}_{N,P}+\eval{N\k\d T}_{N,P}&=\eval{T\dd S}_{N,P}\\
+  C_P&=\frac{1}{N\k }\eval{T\pdv{S}{T}}_{N,P}=C_V+1
+\end{align}
+Entonces,
+\begin{equation}
+  C_P=\left\{\begin{array}{ccc}
+  	\dfrac{5}{2},&& \k T>\hbar^2/2I\\\\
+  	\dfrac{7}{2},& &\hbar^2/2I\leq \k T<\hbar\omega_{\rm vib}\\\\
+  	\dfrac{9}{2},&& \k T\geq \hbar\omega_{\rm vib}
+  \end{array}\right.
+\end{equation}
+
+\subsection{Ejemplos de procesos termodinámicos que ivolucran al gas diatómico}
+\begin{ej}
+	Considere una expansión isoentrópica de un gas diluiod de moleculas $O_2$ a temperatuta cercana a ambiente, donde el volúmen cambia de $V_a$ a $V_b$.
+	\begin{enumerate}
+		\item Encuentre la temperatura $T_b$ en términos de la temperatura inicial $T_a$
+		\item Encuentre la presión $P_b$ en términos de la presión original $P_a$ y los volumenes $V_b$ y $V_a$.
+	\end{enumerate}
+	
+	\underline{Nota}: Gas diludo equivale a la ecuación del gas ideal. Esto porque en general, $A_1=1$ en la expansión del virial, para cualquier ecuación de estado.
+\end{ej}
+
+\begin{sol}
+	Tenemos 
+	\begin{align}
+  PV&=N\k T\\
+  E&=\frac{5}{2}N\k T
+\end{align}
+Ahora, de la primera ley
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m \dd N
+\end{equation}
+pero $\dd S=0$ por que es una expansión adiabática y $\dd N=0$ porque estamos a $N$ constante. Así,
+\begin{equation}
+  -P\dd V=\dd E
+\end{equation}
+Haciendo algo de cálculo directo se tiene
+\begin{align}
+  \ln\left(\frac{V_a}{V_b}\right)&=-\frac{5}{2}\ln\left(\frac{T_b}{T_a}\right)\\
+  \frac{T_a}{T_b}&=\left(\frac{V_b}{V_a}\right)^{-2/5}\\
+  \Aboxed{T_b&=T_a\left(\frac{V_b}{V_a}\right)^{-2/5}}
+\end{align}
+
+
+
+
+\end{sol}
+
+
+
+
+
+
+
+
+
+
+
+

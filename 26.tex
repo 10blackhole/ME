@@ -1,0 +1,101 @@
+\section{Clase 26}
+\subsection{Ecuaciones de la hidrodinámica}
+Hemos visto que
+
+\begin{tcolorbox}
+\textbf{1. Ecuación de continuidad}
+\begin{equation}\label{26.1}
+  \frac{D \r }{D t}=-\r (\nabla\cdot \vec{v})
+\end{equation}
+
+\textbf{2. Ecuación de flujo por gradiente de presión}
+\begin{equation}\label{26.2}
+  \frac{D\vec{v}}{D t}=-\frac{1}{\r_m}\nabla P
+\end{equation}
+\end{tcolorbox}
+Ambas ecuaciones están expresadas en \textit{coordenadas comóviles}.
+
+Nos falta una ecuación que proviene de la conservación de la entropía. 
+
+Consideramos que $\dd S=0$ y $\dd N=0$, entonces de la primera ley se tiene
+\begin{equation}
+  \dd E=T\dd S-P\dd V+\m\dd N \implies \dd E=-P\dd V
+\end{equation}
+\begin{equation}
+  \implies\boxed{ \frac{D E}{D t}-P\frac{D V}{t}}
+\end{equation}
+Ahora, notamos que $D V/Dt=V\nabla\cdot\vec{v}$. Para obtener esta relación, consideramos que
+\begin{equation}
+  V=L_xL_yL_z
+\end{equation}
+haciendo algo de cálculo directo se obtiene que
+\begin{equation}
+\boxed{  \frac{D V}{D t}=V\nabla\cdot\vec{v}}
+\end{equation}
+Notar que usamos la derivada cnvectiva, ya que si la velocidad del fluido es constante, el elemento de volumen del cubo de fluido no cambia porque este simplemente se mueve junto con el fluido. Luego, es una derivada temporal en el sistema covariante. Finalmente, se tiene
+\begin{equation}
+  \frac{D E}{Dt}=-PV\nabla\cdot\vec{v}
+\end{equation}
+y expresándola en términos de la densidad de energía $\epsilon\equiv E/V$, tenemos
+\begin{equation}
+  \frac{D(E/V)}{D t}=\frac{1}{V}\frac{DE}{Dt}-\frac{E}{V^2}\frac{DV}{Dt}=-P\nabla\cdot\vec{v}-\frac{E}{V}\nabla\cdot\vec{v}=-\left(P+\frac{E}{V}\right)\nabla\cdot\vec{v}
+\end{equation}
+\begin{tcolorbox}
+Finalmente,
+\begin{equation}\label{26.3}
+\boxed{  \frac{D\epsilon}{DT}=-(P+\epsilon)\nabla\cdot\vec{v}}
+\end{equation}
+obtenemos la \textit{ecuación de la conservación de la entropía}.
+\end{tcolorbox}
+
+Notar que es diferente a una ecuación de continuidad para la energía, porque el fluido puede expandirse o enfriarse en su movimiento, pero lo que se conserva es su entropía. Esta ecuación difiere de la ecuación de continuidad por el términos de presión.
+
+Podeos ve que hay 3 ecuaciones para 5 incógnitas ($\r,\vec{v},\r_m,\epsilon,P$). Sin embargo, algunas de estas variables termodinámicas están relacionada entre si por ecuaciones de estado y de estructura. Por ejemplo, en el caso del \textit{gas ideal monoatómico} se tiene
+\begin{equation}
+  P=\r\k T,\quad \epsilon=\frac{3}{2}\r\k T,\quad \r_m=m\r 
+\end{equation}
+Esto suma 3 nuevas ecuaciones y una nueva incógnita $T$, lo que da un total de 6 ecuaciones para 6 incógnitas, determinando el sistema.
+
+Notar que las ecuaciones \eqref{26.1}, \eqref{26.2} y \eqref{26.3} son ecuaciones genéricas y no dependen de la ecuaciones de estado que caracteriza el fluido en cuestión. No así las ecuaciones de estado y estructura.
+
+La ecuación \eqref{26.3} se deduce de $\dd S=0$, lo que está justificado por el límite hidrodinámico de $\t_{exp}\gg t_{cal}$. Lo anterior, porque los procesos de cambio en el fluido son adiabáticos (lentos comprados con el tempo de colisión entre moléculas). Además, puede considerarse que no hay intercambio de calor con el exterior del fluido, porque la dinámica describe el cambio en un elemento \textit{típico} de fluido (lejos de su frontera).
+
+\subsection{Hidrodinámica con viscosidad}
+Cuando los términos de viscosidad son importantes, hay que considerar los gradientes espaciales en las componentes de velocidad. En este caso, \eqref{26.2} se modifica de la siguiente forma
+\begin{equation}\label{26.22}
+  \boxed{\frac{D v_i}{Dt}=-\frac{1}{\r_m}\left\{\partial_iP-\partial_j(\eta\omega_{ij})-\partial_i(\xi \nabla\cdot\vec{v})+\frac{d}{Dt}(\k\partial_i T)\right\}}
+\end{equation}
+con 
+\begin{equation}\label{26.33}
+  \omega_{ij}=\partial_jv_i+\partial_iv_j-\frac{2}{3}\delta_{ij}(\nabla\cdot\vec{v})
+\end{equation}
+Por último, \eqref{26.3} también se modifica de la siguiente forma
+\begin{equation}
+\boxed{  \frac{D\epsilon }{Dt}=(P+\epsilon)\nabla\cdot\vec{v}+\eta\sum_{i,j}\omega_{ij}^2+\xi(\nabla\cdot\vec{v})^2+\k\nabla^2T}
+\end{equation}
+
+La ecuación \eqref{26.1} no cambia. 
+
+Al sistema formado por las ecuaciones \eqref{26.1}, \eqref{26.22} y \eqref{26.33} se les conoce com \textit{hidrodinámica viscosa} o \textit{hidrodinámica de Navier-Stokes}.
+
+Los parámetros de viscosidad y conductividad térmica, introducidos en estas ecuacions son:
+\begin{itemize}
+	\item $\eta$: Viscosidad de cizalle ("sheer")
+	\item $\xi$ Viscosidad de bulto ("bulk")
+	\item $\k$: Conductividad térmica
+\end{itemize}
+
+La dependencia espacila de la velocidad (sus gradientes) puede descomponerse en dos tipos de contribuciones:
+\begin{itemize}
+	\item Contribución anisotrópica, que depende del rotor de velocidad (dada por $\omega_{ij}$ y codificada por $\eta$)
+	\item Contribución isotrópica, que depende de la divergencia de la velocidad (dada por $\nabla\cdot\vec{v}$ y codificada por $\xi$).
+\end{itemize}
+
+La dependencia de la ley de flujo y de la densidad de energía en la conductividad térmica $\k$ tiene relación con que el calor puede fluir dentro del fluido a una velocidad distinta al flujo de la masa (de las moléculas).
+
+
+
+
+
+
+
