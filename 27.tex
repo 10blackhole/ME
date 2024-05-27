@@ -1,0 +1,84 @@
+\section{Clase 27}
+Teníamos las ecuaciones de la hidrodinámica ideal:
+\begin{equation}
+  \frac{D\vec{v}}{Dt}=-\frac{1}{\r_m}\nabla P
+\end{equation}
+flujo por gradiente de presión.
+\begin{equation}
+  \frac{D\epsilon}{Dt}=-(p+\epsilon)\nabla\cdot\vec{v}
+\end{equation}
+conservación de la entropía.
+\begin{equation}
+  \frac{D\r }{Dt}-\r\nabla\cdot\vec{c}
+\end{equation}
+continuidad de la masa.
+Y las ecuaciones de viscosidad
+\begin{equation}
+ \frac{D v_i}{Dt}=-\frac{1}{\r_m}\left\{\partial_iP-\partial_j(\eta\omega_{ij})-\partial_i(\xi \nabla\cdot\vec{v})+\frac{D}{Dt}(\k\partial_i T)\right\}
+\end{equation}
+con $\omega_{ij}=\partial_jV_i+\partial_iV_j-\frac{2}{3}\delta_{ij}(\nabla\cdot\vec{v})$; $\frac{D\epsilon}{Dt}=-(p+\epsilon)\nabla\cdot\vec{v}+\eta\sum_{ij}\omega_{ij}^2+\xi (\nabla\cdot\vec{v})^2+\k \nabla^2T$, con $\xi $: viscosidad de bulto y $\eta$: viscosidad de sizalle y $\vec{v	}$ es un campo vectorial. Todo campo vectorial en $3D$ puede descomponerse en su rotor y su divergencia. $\xi$ es el coeficiente de la contribución de la divergencia de la velocidad, tanto a la pérdida de velocidad de flujo como a la pérdida de energía. $\eta$ es el coeficiente de la contribución del rotor de $\vec{v}$. 
+
+Recordar:
+\begin{equation}
+  \nabla\times\vec{A}=\mqty|i&j&k\\\pdv{x}&\pdv{y}&\pdv{z}\\A_x&A_y&A_z|=...
+\end{equation}
+$\omega_{ij}$ está relacionada con el rotor de $\vec{v}$, en tanto que depende de los \textit{gradientes cruzados} $\partial_iV_j$, con $i\neq j$.
+
+$\xi$ y $\eta$ son propiedades de materiales de cada fluido.
+
+\begin{ej}
+	Considere un gas ideal monoatómico que inicialmente tiene una temperatura uniforme $T_0$ y un perfil de densidad $3D$:
+	\begin{equation}
+  \r(e,t=0)=\r_0e^{-r^2/2R_0^2}
+\end{equation}
+considere que $P=\r\k T$ y que el fluido se expande de acuerdo a la hidrodinámica ideal.
+\begin{enumerate}
+	\item Muestre que si
+	\begin{equation}
+  \r(r,t)=\r_0\frac{R_0^3}{R^3(t)}e^{-r^2/2R(t)}
+\end{equation}
+con $T(r,t)=T(t)$, la entropía se conservará si $R(t)^2T(t)=R_0^2T_0$.
+
+\item Asumiendo que el perfil de velocidad es lineal
+\begin{equation}
+  \vec{v}(r,t)=\vec{A}(t)\vec{r}
+\end{equation}
+encuentre $\vec{A}(t)$ y $R(t)$ que satisfacen las ecuaciones de continuidad de masa y flujo de la hidrodinámica.
+\end{enumerate}
+\end{ej}
+
+\begin{sol}
+	La entropía por partícula es $\sigma=\frac{S}{N}$ y puede calcularse de la expresión para la entropía del gas ideal
+	\begin{align}
+  \sigma&=\frac{\b E+\ln(\zc )}{N}=\frac{5}{2}+\ln\left[\frac{\frac{V}{N}}{(2\p\hbar)^3}\infty\dd^3pe^{-\b(E(p))}\right]\\
+  &=\frac{5}{2}+\ln\left[\frac{1}{\r}\left(\frac{m\k T}{2p\hbar^2}\right)^{3/2}\right],\qquad \text{con } \r=\frac{V}{N}
+\end{align}
+Notar que $\sigma$ y $\r$ son la densidad de entropía y densidad de número\textit{locales} que dependen de $r$.
+
+Luego, la entropía total es
+\begin{align}
+  S(t)&=\underbrace{\int\dd^3\vec{r}\r(r)}_{N}\sigma(r)\\
+  &=cte +\int\dd^3\vec{r}\r(r)\ln\left[\frac{T^{3/2}}{\r }\right]\\
+  &=cte'+\int\dd^3\vec{r}\r(r)\left(\ln(T^{3/2}R^3)+\frac{r^2}{2R^2}\right)\\
+  &=cte'+\frac{N}{2}\ev{\frac{r^2}{R^2}}+N\ln(T^{3/2}R^3)\\
+  &=cte''+N\ln(T^{3/2}R^3)\\
+  &=cte''+\frac{3}{2}N\ln(TR^2)
+\end{align}
+\begin{equation}
+  \implies S(t)=cte\Leftrightarrow TR^2=cte\Leftrightarrow T(t)R(t)^2=T_0R_0^2.
+\end{equation}
+Podemos ver que $\ev{\frac{r^2}{R^2}}$ es independiente de $t$, de la siguiente forma
+\begin{align}
+  \frac{N}{2}\ev{\frac{r^2}{R^2}}&=\frac{1}{2}\int\dd^3\vec{r}\r_0\frac{R_0^3}{R(t)^3}\frac{r^2}{R(t)^2}e^{-\frac{r^2}{2R(t)^2}}\\
+  &=\int 4\p\frac{r^2\dd r}{R(t)^2}\r_0R_0^3\left(\frac{r^2}{R(t)^2}\right)e^{-\frac{r^2}{2R(t)^2}}
+\end{align}
+usando el cambio de variable $u=\frac{r}{R(t)}$, se tiene que
+\begin{equation}
+  I=4\p \r_0R_0^3\int\dd uu^4e^{-\frac{u^2}{2}}
+\end{equation}
+lo que al estar integrado en términos de $u$, variable que depende de $t$, la expresión final quedaría independiente de $t$.
+\end{sol}
+
+
+
+
