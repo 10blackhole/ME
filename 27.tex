@@ -9,14 +9,14 @@ flujo por gradiente de presión.
 \end{equation}
 conservación de la entropía.
 \begin{equation}
-  \frac{D\r }{Dt}-\r\nabla\cdot\vec{c}
+  \frac{D\r }{Dt}=-\r\nabla\cdot\vec{v}
 \end{equation}
 continuidad de la masa.
 Y las ecuaciones de viscosidad
 \begin{equation}
  \frac{D v_i}{Dt}=-\frac{1}{\r_m}\left\{\partial_iP-\partial_j(\eta\omega_{ij})-\partial_i(\xi \nabla\cdot\vec{v})+\frac{D}{Dt}(\k\partial_i T)\right\}
 \end{equation}
-con $\omega_{ij}=\partial_jV_i+\partial_iV_j-\frac{2}{3}\delta_{ij}(\nabla\cdot\vec{v})$; $\frac{D\epsilon}{Dt}=-(p+\epsilon)\nabla\cdot\vec{v}+\eta\sum_{ij}\omega_{ij}^2+\xi (\nabla\cdot\vec{v})^2+\k \nabla^2T$, con $\xi $: viscosidad de bulto y $\eta$: viscosidad de sizalle y $\vec{v	}$ es un campo vectorial. Todo campo vectorial en $3D$ puede descomponerse en su rotor y su divergencia. $\xi$ es el coeficiente de la contribución de la divergencia de la velocidad, tanto a la pérdida de velocidad de flujo como a la pérdida de energía. $\eta$ es el coeficiente de la contribución del rotor de $\vec{v}$. 
+con $\omega_{ij}=\partial_jV_i+\partial_iV_j-\frac{2}{3}\delta_{ij}(\nabla\cdot\vec{v})$; $\frac{D\epsilon}{Dt}=-(p+\epsilon)\nabla\cdot\vec{v}+\eta\sum_{ij}\omega_{ij}^2+\xi (\nabla\cdot\vec{v})^2+\k \nabla^2T$, con $\xi $: viscosidad de bulto y $\eta$: viscosidad de sizalle y $\vec{v	}$ es un campo vectorial. Todo tensorial en $3D$ puede descomponerse en su parte sin traza y su traza. $\xi$ es el coeficiente de la contribución de la divergencia de la velocidad, tanto a la pérdida de velocidad de flujo como a la pérdida de energía. $\eta$ es el coeficiente de la contribución del rotor de $\vec{v}$. 
 
 Recordar:
 \begin{equation}
@@ -29,7 +29,7 @@ $\xi$ y $\eta$ son propiedades de materiales de cada fluido.
 \begin{ej}
 	Considere un gas ideal monoatómico que inicialmente tiene una temperatura uniforme $T_0$ y un perfil de densidad $3D$:
 	\begin{equation}
-  \r(e,t=0)=\r_0e^{-r^2/2R_0^2}
+  \r(r,t=0)=\r_0e^{-r^2/2R_0^2}
 \end{equation}
 considere que $P=\r\k T$ y que el fluido se expande de acuerdo a la hidrodinámica ideal.
 \begin{enumerate}
@@ -41,9 +41,9 @@ con $T(r,t)=T(t)$, la entropía se conservará si $R(t)^2T(t)=R_0^2T_0$.
 
 \item Asumiendo que el perfil de velocidad es lineal
 \begin{equation}
-  \vec{v}(r,t)=\vec{A}(t)\vec{r}
+  \vec{v}(r,t)=A(t)\vec{r}
 \end{equation}
-encuentre $\vec{A}(t)$ y $R(t)$ que satisfacen las ecuaciones de continuidad de masa y flujo de la hidrodinámica.
+encuentre $A(t)$ y $R(t)$ que satisfacen las ecuaciones de continuidad de masa y flujo de la hidrodinámica.
 \end{enumerate}
 \end{ej}
 

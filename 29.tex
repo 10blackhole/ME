@@ -1,0 +1,100 @@
+\section{Clase 29}
+Teniamos la ecuación de Boltzman no colisional (ecuación de conservación para la densidad en el espacio de fase)
+\begin{equation}
+  \dv{F}{t}=0
+\end{equation}
+\begin{equation}
+  \implies \dv{F}{t}=\pdv{F}{t}+\dv{\vec{x}}{t}\nabla F+\dv{\vec{p}}{t}\nabla\vec{p}F=0
+\end{equation}
+\begin{equation}
+  \nabla_{\vec{p}}=(\partial_{p_x},\partial_{p_y},\partial{p_z})
+\end{equation}
+donde $f(\vec{x},\vec{p},t)$ es a densidad en el espacio de fase y cumple
+\begin{equation}
+  N=g_s\int\frac{\dd^3x p\dd^3 x}{(2\p\hbar)^3}f(\vec{x},\vec{p},t)
+\end{equation}
+donde $g_s$ es la degeneración, $N$ es el número total de moléculas (constante). Si despejamos $f$,
+\begin{equation}
+  g=\frac{1}{g_s}\frac{\dd N}{\left(\dfrac{\dd^3x\dd ^3p}{(2\p\hbar)^3}\right)}
+\end{equation}
+Usando
+\begin{equation}
+  \dv{\vec{x}}{t}=\vec{v},\qquad \dv{\vec{p}}{t}=\vec{F}
+\end{equation}
+\begin{equation}
+  \implies\boxed{ \pdv{f}{t}+\vec{v}_p\cdot\nabla f+\vec{F}\cdot\nabla_p f=0}
+\end{equation}
+Aquí $\vec{v}_p$ es la velocidad que depende del momentum y $\vec{F}$ es la fuerza (conservativa) que experimenta una partícula (externa o resultante de las otras partículas).
+
+en el caso de que hayan coliisones
+\begin{equation}
+  \dv{f}{t}=\Omega_{col}[F]
+\end{equation}
+donde $\Omega_{col}[F]$ es el término colisional.
+
+\textbf{Ecuación de Liouville},
+\begin{equation}
+  \dv{F	}{t}=0
+\end{equation}
+\begin{ej}
+	Considere una caja de gas termalizado con
+	\begin{equation}
+  f(\vec{r},\vec{p},t<0)=e^{\b(\epsilon(p)-\m )},\qquad \text{(Maxwell-Boltzmann)}
+\end{equation}
+con
+\begin{equation}
+  \epsilon(p)=\frac{\vec{p}^2}{2m}
+\end{equation}
+la caja es infinita en $z$ e $y$ pero en $x$ hay 2 paredes en $x=L$ y $x=-L$. A $t=0$ las paredes desaparecen. Asumiendo que no hay interacciones, encuentre $f(r,p,t>0)$
+
+\end{ej}
+
+\begin{sol}
+	A $t=0$,
+	\begin{equation}
+  f_0(r,p)=f(r,p,0)=e^{-\b\left(\frac{p^2}{2m}-\m \right)}\Th (L-x)\Th(L+x)
+\end{equation}
+con
+\begin{align}
+  x&<-L,\Th(L-x)=1,\Th(L+x)=0\\
+  x&>L,\Th(L-x)=0,\Th(L+x)=1\\
+  -L&<x<L,\Th(L-x)=1,\Th(L+x)=1
+\end{align}
+Además, $F=0$ (no hay interacción). Luego, $f(r,p,t)$ satisface
+\begin{equation}\label{29.1}
+  \pdv{f}{t}+\vec{v}\nabla f=0
+\end{equation}
+Supogamos que
+\begin{equation}\label{29.star}
+  f(r,p,t)=f(r-vt,p,0)=f_0(r-vt,p)
+\end{equation}
+donde
+\begin{equation}
+  f_0(r,p)=e^{-\b(\epsilon(p)-\m )}\Th(L-x)\Th(L+x)
+\end{equation}
+Es directo ver que \eqref{29.star} satisface \eqref{29.1}. Luego,
+\begin{align}
+  f(r,p,t)&=f(r-vt,p,0)\\
+  &=f_0(r-vt,p)\\
+  &=e^{\b(\left(\frac{p^2}{2m}-\m \right))}\Th(L-(x-v_xt))\Th(L+(x-v_xt))
+\end{align}
+y usaando que $v_x=p_x/m$ y $\Th(\a x)=H(x)\forall \a>0$, se tiene
+\begin{equation}
+  f(\vec{r},\vec{p},t)=e^{-\b\left(\frac{p^2}{2m}-\m \right)}\Th\left(p_x-\frac{m(x-L)}{t}\right)\Th\left(\frac{m(x+L)}{t}-p_x\right)
+\end{equation}
+Notemos que despuesd e asd 
+
+
+
+
+
+
+\end{sol}
+
+
+
+
+
+
+
+
